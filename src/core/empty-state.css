@@ -1,0 +1,20 @@
+/* Empty state structure: a centered column of media, title, description and actions. */
+@utility ca-empty-state {
+  @apply m-0 box-border grid min-w-0 justify-items-center text-center;
+}
+
+@utility ca-empty-state__media {
+  @apply inline-flex items-center justify-center [&>img]:block [&>svg]:block;
+}
+
+@utility ca-empty-state__title {
+  @apply m-0;
+}
+
+@utility ca-empty-state__description {
+  @apply m-0 max-w-[50ch];
+}
+
+@utility ca-empty-state__actions {
+  @apply flex flex-wrap items-center justify-center;
+}

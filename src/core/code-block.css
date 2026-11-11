@@ -1,0 +1,30 @@
+/*
+ * Code block structure: a <figure> with a header (<figcaption>: title and
+ * actions) and the code. The code keeps its lines and scrolls sideways; give
+ * it tabindex="0" so keyboard users can scroll it. ca-copy.js fills the
+ * visually hidden status part when a copy button runs.
+ */
+@utility ca-code-block {
+  @apply m-0 box-border grid min-w-0;
+}
+
+@utility ca-code-block__header {
+  @apply flex min-w-0 flex-wrap items-center justify-between;
+}
+
+@utility ca-code-block__title {
+  @apply m-0 min-w-0;
+}
+
+@utility ca-code-block__actions {
+  @apply flex flex-wrap items-center;
+}
+
+@utility ca-code-block__code {
+  @apply m-0 box-border block max-w-full min-w-0 overflow-x-auto whitespace-pre [tab-size:2];
+  @apply focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-ring;
+}
+
+@utility ca-code-block__status {
+  @apply absolute -m-px size-px overflow-hidden border-0 p-0 whitespace-nowrap [clip-path:inset(50%)];
+}

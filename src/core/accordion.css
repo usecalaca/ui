@@ -1,0 +1,43 @@
+/*
+ * Accordion structure: native <details> items with a <summary> trigger. The
+ * browser opens and closes them with the keyboard and finds text in closed
+ * items. Items with the same `name` open one at a time.
+ */
+@utility ca-accordion {
+  @apply m-0 box-border grid min-w-0;
+}
+
+@utility ca-accordion__item {
+  @apply m-0 box-border min-w-0;
+}
+
+/* The summary: a full-width row with the label first and a chevron at the end. */
+@utility ca-accordion__trigger {
+  @apply relative flex cursor-pointer list-none items-center justify-between text-start [&::-webkit-details-marker]:hidden;
+  @apply focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring;
+  /* At least 44px tall to touch, whatever padding a skin picks. */
+  @apply pointer-coarse:[min-block-size:2.75rem];
+
+  /* Same chevron as the dropdown: a mask in the text color, turned over while open. */
+  &::after {
+    content: "";
+    flex-shrink: 0;
+    inline-size: 1em;
+    block-size: 1em;
+    background-color: currentColor;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m4 6 4 4 4-4'/%3E%3C/svg%3E") center / contain no-repeat;
+  }
+  :where([open]) > &::after {
+    rotate: 180deg;
+  }
+  @media (forced-colors: active) {
+    &::after {
+      forced-color-adjust: none;
+      background-color: CanvasText;
+    }
+  }
+}
+
+@utility ca-accordion__content {
+  @apply box-border min-w-0;
+}

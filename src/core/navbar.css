@@ -1,0 +1,55 @@
+/*
+ * Navbar structure. The root is a size container: at 40rem and wider, or
+ * 64rem with ca-navbar--roomy (the ca-navbar-wide variant in tokens.css), the
+ * menu, a [popover] element that is not open, shows as a row of links in the
+ * bar and the menu button hides. Narrower, the links stay hidden until the menu
+ * button opens the popover, anchored under the button. The browser handles
+ * Escape, light dismiss and focus return; no script.
+ */
+/* One row: the brand may shrink and wrap its own text; actions and the menu button keep their size. */
+@utility ca-navbar {
+  @apply @container box-border flex min-w-0 items-center;
+}
+
+@utility ca-navbar__brand {
+  @apply inline-flex min-w-0 items-center no-underline;
+  @apply focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring;
+}
+
+@utility ca-navbar__menu {
+  @apply box-border max-h-[calc(100dvh-2rem)] min-w-48 flex-col overflow-y-auto;
+  @apply ca-open:flex;
+  @apply supports-[position-area:block-end]:mx-0 supports-[position-area:block-end]:my-1;
+  @apply supports-[position-area:block-end]:[position-area:block-end_span-inline-start] supports-[position-area:block-end]:[position-try-fallbacks:flip-block,flip-inline];
+  /* Wide: part of the bar, whether or not the popover was opened. */
+  @apply ca-navbar-wide:static ca-navbar-wide:m-0 ca-navbar-wide:flex ca-navbar-wide:max-h-none ca-navbar-wide:min-w-0 ca-navbar-wide:flex-row ca-navbar-wide:items-center ca-navbar-wide:overflow-visible;
+}
+
+/* Links are at least 44px tall to touch, whatever padding a skin picks. */
+@utility ca-navbar__link {
+  @apply box-border inline-flex items-center whitespace-nowrap;
+  @apply focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-ring;
+  @apply pointer-coarse:[min-block-size:2.75rem];
+}
+
+/* Actions sit at the end of the bar. */
+@utility ca-navbar__actions {
+  @apply ms-auto flex shrink-0 items-center;
+}
+
+/* The menu button: at least 24x24px everywhere (WCAG 2.5.8) and 44x44px to touch. */
+@utility ca-navbar__toggle {
+  @apply relative m-0 box-border inline-flex [min-block-size:1.5rem] [min-inline-size:1.5rem] shrink-0 cursor-pointer items-center justify-center [font-family:inherit];
+  @apply focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring;
+  @apply pointer-coarse:after:absolute pointer-coarse:after:inset-[min(0px,calc((100%_-_2.75rem)/2))];
+  @apply ca-navbar-wide:hidden;
+}
+
+/*
+ * A bar with more actions: the links fold into the menu below 64rem. The
+ * ca-navbar-wide variant reads this class; container queries cannot read
+ * custom properties, so the variable only records the breakpoint for tools.
+ */
+@utility ca-navbar--roomy {
+  @apply [--ca-navbar-collapse:64rem];
+}

@@ -1,0 +1,4 @@
+/* Body text: drops browser margins. */
+@utility ca-text {
+  @apply m-0;
+}

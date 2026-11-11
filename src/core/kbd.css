@@ -1,0 +1,4 @@
+/* Keyboard key: an inline label that never breaks inside a key name. */
+@utility ca-kbd {
+  @apply box-border inline-flex items-center whitespace-nowrap;
+}

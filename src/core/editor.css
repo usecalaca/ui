@@ -1,0 +1,33 @@
+/*
+ * Rich text editor structure: a toolbar row above an editable area that
+ * grows with its content. The toolbar is role="toolbar"; its tools are
+ * buttons with aria-pressed for the formats that apply to the selection.
+ * The link form is a [popover] anchored under the toolbar.
+ */
+@utility ca-editor {
+  @apply box-border grid min-w-0;
+}
+
+@utility ca-editor__toolbar {
+  @apply flex min-w-0 flex-wrap items-center;
+}
+
+/* Tools: at least 24x24px (WCAG 2.5.8) and 44x44px to touch. */
+@utility ca-editor__tool {
+  @apply relative m-0 box-border inline-flex [min-block-size:1.5rem] [min-inline-size:1.5rem] shrink-0 cursor-pointer items-center justify-center [font-family:inherit];
+  @apply focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring;
+  @apply pointer-coarse:after:absolute pointer-coarse:after:inset-[min(0px,calc((100%_-_2.75rem)/2))];
+}
+
+/* The editable area: wraps long words, keeps a minimum height, shows the focus ring. */
+@utility ca-editor__content {
+  @apply box-border block min-h-32 min-w-0 cursor-text [overflow-wrap:anywhere];
+  @apply focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring;
+}
+
+@utility ca-editor__link {
+  @apply box-border flex-col;
+  @apply ca-open:flex;
+  @apply supports-[position-area:block-end]:mx-0 supports-[position-area:block-end]:my-1;
+  @apply supports-[position-area:block-end]:[position-area:block-end_span-inline-end] supports-[position-area:block-end]:[position-try-fallbacks:flip-block,flip-inline];
+}

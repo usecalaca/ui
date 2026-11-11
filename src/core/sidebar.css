@@ -1,0 +1,27 @@
+/* Sidebar structure: groups of links stacked in a column. */
+@utility ca-sidebar {
+  @apply box-border grid min-w-0 content-start;
+}
+
+@utility ca-sidebar__group {
+  @apply grid min-w-0;
+}
+
+@utility ca-sidebar__heading {
+  @apply m-0;
+}
+
+@utility ca-sidebar__subheading {
+  @apply m-0;
+}
+
+@utility ca-sidebar__list {
+  @apply m-0 grid list-none p-0;
+}
+
+/* Links fill the row; at least 44px tall to touch. */
+@utility ca-sidebar__link {
+  @apply box-border flex items-center no-underline;
+  @apply focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-ring;
+  @apply pointer-coarse:[min-block-size:2.75rem];
+}

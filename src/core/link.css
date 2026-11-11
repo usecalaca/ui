@@ -1,0 +1,7 @@
+/* Link structure: an inline anchor that stays in the text flow. The skin draws
+   the underline and its states; core only guarantees the pointer and the
+   keyboard focus ring every other interactive part gets. */
+@utility ca-link {
+  @apply cursor-pointer;
+  @apply focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring;
+}

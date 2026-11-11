@@ -1,0 +1,29 @@
+/*
+ * Toast structure. The region is a manual [popover] at the bottom end of the
+ * screen, so toasts sit in the top layer, above an open dialog too. Clicks
+ * pass through the region's empty space; only the toasts take them.
+ */
+@utility ca-toast__region {
+  @apply fixed inset-auto end-0 bottom-0 m-0 box-border max-h-dvh w-full max-w-[26rem] flex-col justify-end overflow-hidden border-0 bg-transparent pointer-events-none;
+  @apply ca-open:flex;
+}
+
+@utility ca-toast {
+  @apply pointer-events-auto relative box-border flex min-w-0 items-start;
+}
+
+@utility ca-toast__message {
+  @apply m-0 min-w-0 flex-1;
+}
+
+/* The close button: at least 24x24px everywhere (WCAG 2.5.8) and 44x44px to touch. */
+@utility ca-toast__close {
+  @apply relative m-0 box-border inline-flex [min-block-size:1.5rem] [min-inline-size:1.5rem] shrink-0 cursor-pointer items-center justify-center [font-family:inherit];
+  @apply focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring;
+  @apply pointer-coarse:after:absolute pointer-coarse:after:inset-[min(0px,calc((100%_-_2.75rem)/2))];
+}
+
+/* The live region that announces each toast: present before any toast, visually hidden. */
+@utility ca-toast__status {
+  @apply absolute -m-px size-px overflow-hidden border-0 p-0 whitespace-nowrap [clip-path:inset(50%)];
+}

@@ -1,0 +1,4 @@
+/* Section structure: a full-width band; the skin sets the space above and below. */
+@utility ca-section {
+  @apply box-border block w-full;
+}

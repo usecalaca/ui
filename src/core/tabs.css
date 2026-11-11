@@ -1,0 +1,26 @@
+/*
+ * Tabs structure: a row of tab buttons above their panels. ca-tabs.js moves
+ * selection and focus (arrow keys, Home, End) and shows the selected panel;
+ * the markup carries the ARIA roles and states.
+ */
+@utility ca-tabs {
+  @apply box-border grid min-w-0;
+}
+
+/* The row scrolls sideways when the tabs do not fit, instead of wrapping. */
+@utility ca-tabs__list {
+  @apply box-border flex max-w-full overflow-x-auto;
+}
+
+@utility ca-tabs__tab {
+  @apply relative m-0 box-border inline-flex shrink-0 cursor-pointer items-center justify-center whitespace-nowrap [font-family:inherit];
+  @apply focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-ring;
+  @apply disabled:pointer-events-none;
+  /* At least 44px tall to touch, whatever padding a skin picks. */
+  @apply pointer-coarse:[min-block-size:2.75rem];
+}
+
+/* Panels take focus with tabindex="0", so they get the same focus indicator. */
+@utility ca-tabs__panel {
+  @apply min-w-0 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring;
+}

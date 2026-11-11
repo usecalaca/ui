@@ -1,0 +1,4 @@
+/* Spinner structure: an inline ring; the skin draws and turns it, only with motion allowed. */
+@utility ca-spinner {
+  @apply box-border inline-block shrink-0 align-middle;
+}

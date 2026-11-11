@@ -1,0 +1,33 @@
+/*
+ * FAQ structure: a header and the questions, which are a ca-accordion.
+ * Layouts set --ca-faq-* variables only:
+ *   --stacked  header above the questions
+ *   --split    header at the start, questions at the end; one column when narrow
+ */
+@utility ca-faq {
+  @apply m-0 box-border grid min-w-0 items-start [grid-template-columns:var(--ca-faq-columns,minmax(0,1fr))];
+}
+
+@utility ca-faq__header {
+  @apply grid min-w-0 max-w-[65ch];
+}
+
+@utility ca-faq__title {
+  @apply m-0;
+}
+
+@utility ca-faq__lead {
+  @apply m-0;
+}
+
+@utility ca-faq__questions {
+  @apply min-w-0;
+}
+
+@utility ca-faq--stacked {
+  @apply [--ca-faq-columns:minmax(0,1fr)];
+}
+
+@utility ca-faq--split {
+  @apply [--ca-faq-columns:repeat(auto-fit,minmax(min(100%,18rem),1fr))];
+}

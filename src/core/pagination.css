@@ -1,0 +1,22 @@
+/* Pagination structure: a row of page links that wraps on narrow screens. */
+@utility ca-pagination {
+  @apply box-border block min-w-0;
+}
+
+@utility ca-pagination__list {
+  @apply m-0 flex list-none flex-wrap items-center p-0;
+}
+
+/*
+ * Page links are at least 24x24px everywhere (WCAG 2.5.8, also in the bare
+ * skeleton) and 44x44px to touch, whatever size a skin picks.
+ */
+@utility ca-pagination__link {
+  @apply relative box-border inline-flex [min-block-size:1.5rem] [min-inline-size:1.5rem] items-center justify-center whitespace-nowrap;
+  @apply focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring;
+  @apply pointer-coarse:after:absolute pointer-coarse:after:inset-[min(0px,calc((100%_-_2.75rem)/2))];
+}
+
+@utility ca-pagination__ellipsis {
+  @apply inline-flex items-center justify-center select-none;
+}

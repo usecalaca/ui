@@ -1,0 +1,37 @@
+/*
+ * Breadcrumb structure: an ordered list in a <nav> that wraps on narrow
+ * screens. A chevron between items points in the reading direction.
+ */
+@utility ca-breadcrumb {
+  @apply box-border block min-w-0;
+}
+
+@utility ca-breadcrumb__list {
+  @apply m-0 flex list-none flex-wrap items-center p-0;
+}
+
+@utility ca-breadcrumb__item {
+  @apply inline-flex items-center;
+
+  & + &::before {
+    content: "";
+    flex-shrink: 0;
+    inline-size: 0.875em;
+    block-size: 0.875em;
+    background-color: currentColor;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 4 4 4-4 4'/%3E%3C/svg%3E") center / contain no-repeat;
+  }
+  &:dir(rtl) + &:dir(rtl)::before {
+    scale: -1 1;
+  }
+  @media (forced-colors: active) {
+    & + &::before {
+      forced-color-adjust: none;
+      background-color: CanvasText;
+    }
+  }
+}
+
+@utility ca-breadcrumb__link {
+  @apply focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring;
+}

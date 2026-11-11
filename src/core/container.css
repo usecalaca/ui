@@ -1,0 +1,4 @@
+/* Container structure: centred, full width up to a maximum (--ca-container-max) the skin's sizes set. */
+@utility ca-container {
+  @apply mx-auto box-border w-full [max-inline-size:var(--ca-container-max,72rem)];
+}

@@ -1,0 +1,63 @@
+/*
+ * Hero block structure: content (eyebrow, title, lead, actions) and optional
+ * media. Layouts only set --ca-hero-* variables that the root and parts read,
+ * so a layout never sets the same property as the core rule it adjusts.
+ *   --centered  one column, text and actions centered
+ *   --split     content and media side by side, wrapping to one column when
+ *               the hero is narrower than two 16rem columns (no media query,
+ *               so it fits any container)
+ *   --stacked   eyebrow and title across the full width, lead and actions
+ *               side by side below them, media full width last
+ * Markup order is the reading order in every layout.
+ */
+@utility ca-hero {
+  @apply m-0 box-border grid min-w-0 items-center;
+  @apply [grid-template-columns:var(--ca-hero-columns,minmax(0,1fr))] [text-align:var(--ca-hero-text,start)];
+}
+
+/* A size container, so skins can scale the title to the column (cqi), not the viewport. */
+@utility ca-hero__content {
+  @apply box-border flex min-w-0 flex-col @container;
+  @apply [align-items:var(--ca-hero-align,flex-start)] [display:var(--ca-hero-content-display,flex)] [grid-template-columns:var(--ca-hero-content-columns,none)];
+}
+
+@utility ca-hero__eyebrow {
+  @apply m-0 [grid-column:var(--ca-hero-heading-span,auto)];
+}
+
+@utility ca-hero__title {
+  @apply m-0 [grid-column:var(--ca-hero-heading-span,auto)];
+}
+
+/* A readable line length; the lead is the one long text in a hero. */
+@utility ca-hero__lead {
+  @apply m-0 max-w-[65ch];
+}
+
+@utility ca-hero__actions {
+  @apply flex flex-wrap items-center [justify-content:var(--ca-hero-justify,flex-start)];
+}
+
+/*
+ * Images, video and inline SVG fill the media part and keep their aspect
+ * ratio; skins round their corners. No overflow clipping, so a card placed in
+ * the media keeps its shadow.
+ */
+@utility ca-hero__media {
+  @apply box-border min-w-0;
+  @apply [&>img]:block [&>img]:h-auto [&>img]:w-full;
+  @apply [&>video]:block [&>video]:h-auto [&>video]:w-full;
+  @apply [&>svg]:block [&>svg]:h-auto [&>svg]:w-full;
+}
+
+@utility ca-hero--centered {
+  @apply [--ca-hero-align:center] [--ca-hero-justify:center] [--ca-hero-text:center];
+}
+
+@utility ca-hero--split {
+  @apply [--ca-hero-columns:repeat(auto-fit,minmax(min(100%,16rem),1fr))];
+}
+
+@utility ca-hero--stacked {
+  @apply [--ca-hero-align:end] [--ca-hero-content-columns:repeat(auto-fit,minmax(min(100%,18rem),1fr))] [--ca-hero-content-display:grid] [--ca-hero-heading-span:1/-1];
+}

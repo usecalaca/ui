@@ -1,0 +1,49 @@
+/*
+ * Features structure: an optional header, then a list of items. Layouts set
+ * --ca-features-* variables only:
+ *   --grid  items in as many columns as fit, icon above the text
+ *   --list  one column, icon beside the title and text
+ */
+@utility ca-features {
+  @apply m-0 box-border grid min-w-0;
+}
+
+@utility ca-features__header {
+  @apply grid min-w-0 max-w-[65ch];
+}
+
+@utility ca-features__title {
+  @apply m-0;
+}
+
+@utility ca-features__lead {
+  @apply m-0;
+}
+
+@utility ca-features__list {
+  @apply m-0 grid list-none p-0 [grid-template-columns:var(--ca-features-columns,repeat(auto-fill,minmax(min(100%,16rem),1fr)))];
+}
+
+@utility ca-features__item {
+  @apply grid min-w-0 content-start [grid-template-columns:var(--ca-features-item-columns,minmax(0,1fr))];
+}
+
+@utility ca-features__icon {
+  @apply inline-flex items-center justify-center justify-self-start [grid-row:var(--ca-features-icon-rows,auto)] [&>svg]:block;
+}
+
+@utility ca-features__item-title {
+  @apply m-0 [grid-column:var(--ca-features-text-column,auto)];
+}
+
+@utility ca-features__item-text {
+  @apply m-0 [grid-column:var(--ca-features-text-column,auto)];
+}
+
+@utility ca-features--grid {
+  @apply [--ca-features-columns:repeat(auto-fill,minmax(min(100%,16rem),1fr))];
+}
+
+@utility ca-features--list {
+  @apply [--ca-features-columns:minmax(0,1fr)] [--ca-features-icon-rows:1/span_2] [--ca-features-item-columns:auto_minmax(0,1fr)] [--ca-features-text-column:2];
+}

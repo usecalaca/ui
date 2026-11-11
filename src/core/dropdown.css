@@ -1,0 +1,60 @@
+/*
+ * Dropdown structure: a trigger button with popovertarget and a [popover] menu.
+ * The browser handles opening, Escape, light dismiss and returning focus. The
+ * menu sits under its trigger through CSS anchor positioning (the popover's
+ * implicit anchor is its invoker) and flips when there is no room. Browsers
+ * without anchor positioning show it centered, the popover default.
+ */
+@utility ca-dropdown {
+  @apply relative inline-flex;
+
+  /*
+   * A chevron after the trigger's label says "this opens a menu" in every skin,
+   * and turns over while the menu is open. Drawn with a mask so it takes the
+   * text color and stays symmetric in right-to-left layouts. ::before, because
+   * the button's ::after is its touch area; order moves it after the label.
+   */
+  & > [popovertarget]::before {
+    content: "";
+    order: 1;
+    flex-shrink: 0;
+    inline-size: 0.875em;
+    block-size: 0.875em;
+    background-color: currentColor;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m4 6 4 4 4-4'/%3E%3C/svg%3E") center / contain no-repeat;
+  }
+  &:has(> :popover-open) > [popovertarget]::before {
+    rotate: 180deg;
+  }
+  /* Forced colors would paint the mask's background as Canvas, hiding the chevron. */
+  @media (forced-colors: active) {
+    & > [popovertarget]::before {
+      forced-color-adjust: none;
+      background-color: ButtonText;
+    }
+  }
+}
+
+@utility ca-dropdown__menu {
+  @apply box-border max-h-[calc(100dvh-2rem)] flex-col overflow-y-auto;
+  @apply ca-open:flex;
+  @apply supports-[position-area:block-end]:mx-0 supports-[position-area:block-end]:my-1 supports-[position-area:block-end]:min-w-[max(anchor-size(width),10rem)];
+  @apply supports-[position-area:block-end]:[position-area:block-end_span-inline-end] supports-[position-area:block-end]:[position-try-fallbacks:flip-block,flip-inline];
+}
+
+/* Items are buttons or links: full width, start aligned, with a focus ring inside the menu. */
+@utility ca-dropdown__item {
+  @apply relative m-0 box-border flex w-full shrink-0 cursor-pointer items-center text-start [font-family:inherit];
+  @apply focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-ring;
+  @apply disabled:pointer-events-none aria-disabled:pointer-events-none;
+  /* At least 44px tall to touch, whatever padding a skin picks. */
+  @apply pointer-coarse:[min-block-size:2.75rem];
+}
+
+@utility ca-dropdown__label {
+  @apply m-0 block;
+}
+
+@utility ca-dropdown__separator {
+  @apply shrink-0 self-stretch border-0;
+}

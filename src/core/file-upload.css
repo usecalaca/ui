@@ -1,0 +1,6 @@
+/* Native file input: full width, the core focus ring, and a pointer over the whole control. */
+@utility ca-file-upload {
+  @apply m-0 box-border block w-full max-w-full min-w-0 cursor-pointer [font-family:inherit];
+  @apply focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring;
+  @apply disabled:cursor-not-allowed file:cursor-[inherit] file:[font-family:inherit];
+}

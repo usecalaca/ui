@@ -1,0 +1,4 @@
+/* Heading style: drops browser margins; the size modifier sets the type size, not the level. */
+@utility ca-heading {
+  @apply m-0;
+}

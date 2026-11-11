@@ -1,0 +1,63 @@
+/*
+ * Calaca UI core: structure and accessibility as Tailwind utilities.
+ * A consumer stylesheet imports, in this order:
+ *   @import "tailwindcss";
+ *   @import "./theme.css";                  (your brand's --ca-* tokens)
+ *   @import "@usecalaca/ui/core.css";
+ *   @import "@usecalaca/ui/skins/<name>.css";
+ * Core and skins set disjoint CSS properties (enforced by test/split.test.ts).
+ * Skin CSS is generated from skins/<name>.ts by `bun run build`.
+ */
+@import "./src/tokens.css";
+@import "./src/core/button.css";
+@import "./src/core/card.css";
+@import "./src/core/field.css";
+@import "./src/core/badge.css";
+@import "./src/core/eyebrow.css";
+@import "./src/core/dialog.css";
+@import "./src/core/dropdown.css";
+@import "./src/core/alert.css";
+@import "./src/core/kbd.css";
+@import "./src/core/choice.css";
+@import "./src/core/select.css";
+@import "./src/core/accordion.css";
+@import "./src/core/tabs.css";
+@import "./src/core/breadcrumb.css";
+@import "./src/core/pagination.css";
+@import "./src/core/avatar.css";
+@import "./src/core/progress.css";
+@import "./src/core/table.css";
+@import "./src/core/skeleton.css";
+@import "./src/core/empty-state.css";
+@import "./src/core/tooltip.css";
+@import "./src/core/popover.css";
+@import "./src/core/navbar.css";
+@import "./src/core/sidebar.css";
+@import "./src/core/stat.css";
+@import "./src/core/timeline.css";
+@import "./src/core/file-upload.css";
+@import "./src/core/combobox.css";
+@import "./src/core/date-range.css";
+@import "./src/core/editor.css";
+@import "./src/core/stepper.css";
+@import "./src/core/toast.css";
+@import "./src/core/sheet.css";
+@import "./src/core/separator.css";
+@import "./src/core/spinner.css";
+@import "./src/core/container.css";
+@import "./src/core/stack.css";
+@import "./src/core/cluster.css";
+@import "./src/core/grid.css";
+@import "./src/core/section.css";
+@import "./src/core/heading.css";
+@import "./src/core/text.css";
+@import "./src/core/prose.css";
+@import "./src/core/link.css";
+@import "./src/core/code.css";
+@import "./src/core/code-block.css";
+@import "./src/core/hero.css";
+@import "./src/core/features.css";
+@import "./src/core/steps.css";
+@import "./src/core/cta.css";
+@import "./src/core/faq.css";
+@import "./src/core/footer.css";

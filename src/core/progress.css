@@ -1,0 +1,4 @@
+/* Native <progress>: a full-width bar. Skins draw the track and the value. */
+@utility ca-progress {
+  @apply m-0 box-border block w-full;
+}

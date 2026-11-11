@@ -1,0 +1,24 @@
+/*
+ * Timeline structure: an ordered list; each item has a marker at its start
+ * edge. The skin places and draws the marker (::before) and the line.
+ */
+@utility ca-timeline {
+  @apply m-0 box-border grid list-none p-0;
+}
+
+@utility ca-timeline__item {
+  @apply relative grid min-w-0;
+  @apply before:absolute before:box-border before:content-[''];
+}
+
+@utility ca-timeline__time {
+  @apply m-0 block;
+}
+
+@utility ca-timeline__title {
+  @apply m-0;
+}
+
+@utility ca-timeline__description {
+  @apply m-0;
+}

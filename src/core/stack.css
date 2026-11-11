@@ -1,0 +1,4 @@
+/* Stack structure: a column. The skin sets the space between children through --ca-stack-gap. */
+@utility ca-stack {
+  @apply box-border flex min-w-0 flex-col;
+}

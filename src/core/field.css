@@ -1,0 +1,31 @@
+/* Field structure: label, control, hint and error stacked in one column. */
+/* Also a <fieldset> around radios or checkboxes: drop its browser border and padding. */
+@utility ca-field {
+  @apply m-0 grid min-w-0 border-0 p-0;
+}
+
+@utility ca-field__label {
+  @apply block p-0;
+}
+
+@utility ca-field__hint {
+  @apply m-0;
+}
+
+@utility ca-field__error {
+  @apply m-0;
+}
+
+/* Text input: fills its field, shows the core focus indicator, keeps a native caret. */
+@utility ca-input {
+  /* box-border: without a reset, w-full plus padding would overflow the field. */
+  @apply m-0 box-border block w-full min-w-0 appearance-none [font-family:inherit];
+  @apply focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring;
+  @apply disabled:cursor-not-allowed;
+  /*
+   * Safari draws date and time values at the top of a tall field. A grid centres
+   * them in every engine and still stretches Chrome's inner box, so its picker
+   * icon stays at the end.
+   */
+  @apply [&:is([type^='date'],[type='time'],[type='month'],[type='week'])]:grid [&:is([type^='date'],[type='time'],[type='month'],[type='week'])]:items-center [&::-webkit-datetime-edit]:p-0;
+}

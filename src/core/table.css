@@ -1,0 +1,15 @@
+/*
+ * Table structure: the root is a scroll container, so a wide table scrolls
+ * sideways instead of widening the page. Give it tabindex="0", role="region"
+ * and a label when it can scroll, so keyboard users can scroll it too.
+ */
+@utility ca-table {
+  @apply box-border max-w-full min-w-0 overflow-x-auto;
+  @apply focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring;
+  /* :where() drops these below the specificity of one class, so utilities on a cell (text-end) win. */
+  @apply [:where(&)_table]:w-full [:where(&)_table]:border-collapse [:where(&)_th]:text-start [:where(&)_th]:align-bottom [:where(&)_td]:align-top;
+}
+
+@utility ca-table__caption {
+  @apply text-start;
+}

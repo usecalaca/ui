@@ -1,0 +1,29 @@
+/*
+ * Combobox structure: a wrapper around an input (styled with ca-input) and a
+ * listbox. A listbox with popover="manual" floats: it opens in the top layer,
+ * so no overflow around the combobox clips it, and ca-combobox.js anchors it
+ * under the input at the input's width; it flips up when there is no room and
+ * shows centered without anchor positioning. A listbox without popover is part
+ * of the page, such as results in a search dialog.
+ */
+@utility ca-combobox {
+  @apply relative block min-w-0;
+}
+
+@utility ca-combobox__listbox {
+  @apply box-border max-h-64 list-none overflow-y-auto;
+  @apply supports-[position-area:block-end]:[&[popover]]:mx-0 supports-[position-area:block-end]:[&[popover]]:w-[anchor-size(width)];
+  @apply supports-[position-area:block-end]:[&[popover]]:[position-area:block-end_span-inline-end] supports-[position-area:block-end]:[&[popover]]:[position-try-fallbacks:flip-block];
+}
+
+/*
+ * Options are rows; the active one has aria-selected="true". In forced colors
+ * a transparent outline turns visible, so the active option stays marked.
+ */
+@utility ca-combobox__option {
+  @apply box-border cursor-pointer items-center select-none [&:not([hidden])]:flex;
+  @apply aria-selected:outline-2 aria-selected:-outline-offset-2 aria-selected:outline-transparent;
+  @apply aria-disabled:pointer-events-none;
+  /* At least 44px tall to touch, whatever padding a skin picks. */
+  @apply pointer-coarse:[min-block-size:2.75rem];
+}

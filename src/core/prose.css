@@ -1,0 +1,4 @@
+/* Prose structure: a readable line length; the skin styles the HTML inside. */
+@utility ca-prose {
+  @apply box-border max-w-[70ch] min-w-0;
+}

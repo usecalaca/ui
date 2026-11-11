@@ -1,0 +1,51 @@
+/*
+ * Stepper structure: an ordered list numbered by a CSS counter; a complete
+ * step shows a check instead of its number. Layouts set --ca-stepper-*
+ * variables only:
+ *   --horizontal  steps in a row that wraps, label under the marker
+ *   --vertical    one step per row, label beside the marker
+ */
+@utility ca-stepper {
+  @apply m-0 box-border flex min-w-0 list-none p-0 [counter-reset:ca-stepper] [flex-direction:var(--ca-stepper-direction,row)] [flex-wrap:var(--ca-stepper-wrap,wrap)];
+}
+
+@utility ca-stepper__item {
+  @apply relative grid min-w-0 flex-1 content-start [counter-increment:ca-stepper] [grid-template-columns:var(--ca-stepper-item-columns,minmax(0,1fr))];
+}
+
+@utility ca-stepper__marker {
+  @apply box-border inline-flex shrink-0 items-center justify-center justify-self-start [grid-row:var(--ca-stepper-marker-rows,auto)];
+  @apply before:content-[counter(ca-stepper)];
+
+  /* A complete step shows a check, drawn with a mask in the text color. */
+  :where([data-status="complete"]) > &::before {
+    content: "";
+    inline-size: 0.875em;
+    block-size: 0.875em;
+    /* An image, not background-color, which the skin uses for the marker itself. */
+    background-image: linear-gradient(currentColor, currentColor);
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m3.5 8.5 3 3 6-7'/%3E%3C/svg%3E") center / contain no-repeat;
+  }
+  @media (forced-colors: active) {
+    :where([data-status="complete"]) > &::before {
+      forced-color-adjust: none;
+      background-image: linear-gradient(CanvasText, CanvasText);
+    }
+  }
+}
+
+@utility ca-stepper__label {
+  @apply m-0 [grid-column:var(--ca-stepper-text-column,auto)];
+}
+
+@utility ca-stepper__description {
+  @apply m-0 [grid-column:var(--ca-stepper-text-column,auto)];
+}
+
+@utility ca-stepper--horizontal {
+  @apply [--ca-stepper-direction:row] [--ca-stepper-wrap:wrap];
+}
+
+@utility ca-stepper--vertical {
+  @apply [--ca-stepper-direction:column] [--ca-stepper-item-columns:auto_minmax(0,1fr)] [--ca-stepper-marker-rows:1/span_2] [--ca-stepper-text-column:2] [--ca-stepper-wrap:nowrap];
+}

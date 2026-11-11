@@ -1,0 +1,4 @@
+/* Inline code: long names may break anywhere instead of overflowing. */
+@utility ca-code {
+  @apply [overflow-wrap:anywhere];
+}

@@ -1,0 +1,23 @@
+/*
+ * Tooltip structure: a wrapper around the trigger and a role="tooltip" element
+ * that the trigger names with aria-describedby. It shows while the pointer is
+ * over the wrapper (the tooltip itself included, so it can be hovered) or the
+ * trigger has keyboard focus, centered above the trigger in both directions.
+ * ca-tooltip.js adds Escape to dismiss it (WCAG 1.4.13).
+ */
+@utility ca-tooltip {
+  @apply relative inline-flex;
+}
+
+@utility ca-tooltip__content {
+  @apply invisible absolute inset-x-0 bottom-full z-50 mx-auto box-border block w-max max-w-[min(20rem,calc(100vw-2rem))] text-center;
+
+  @media (hover: hover) {
+    :where(.ca-tooltip:hover:not([data-dismissed])) > & {
+      visibility: visible;
+    }
+  }
+  :where(.ca-tooltip:has(:focus-visible):not([data-dismissed])) > & {
+    visibility: visible;
+  }
+}

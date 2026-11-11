@@ -1,0 +1,7 @@
+/*
+ * Grid structure: as many equal columns as fit, each at least --ca-grid-min
+ * wide (16rem unless set), and one column when even that does not fit.
+ */
+@utility ca-grid {
+  @apply box-border grid min-w-0 [grid-template-columns:repeat(auto-fill,minmax(min(100%,var(--ca-grid-min,16rem)),1fr))];
+}

@@ -1,0 +1,9 @@
+/* Eyebrow structure: a short label above a heading that may lead with a
+ * number chip. The skin decides the look of label and chip. */
+@utility ca-eyebrow {
+  @apply m-0 box-border flex items-center;
+}
+
+@utility ca-eyebrow__number {
+  @apply box-border inline-flex items-center whitespace-nowrap;
+}

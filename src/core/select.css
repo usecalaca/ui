@@ -1,0 +1,13 @@
+/*
+ * Native <select>: fills its field and shows the core focus indicator. Skins
+ * replace the browser's arrow with their own and keep it in forced colors by
+ * returning to the native look there.
+ */
+@utility ca-select {
+  /* Flex centres the chosen value when a skin makes the select customizable (base-select). */
+  @apply m-0 box-border flex w-full min-w-0 cursor-pointer items-center [font-family:inherit];
+  @apply focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring;
+  @apply disabled:cursor-not-allowed;
+  /* A skin that makes the select customizable draws its own arrow; the browser's icon goes. */
+  @apply [&::picker-icon]:hidden;
+}

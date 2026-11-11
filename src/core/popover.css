@@ -1,0 +1,16 @@
+/*
+ * Popover structure: a trigger with popovertarget and a [popover] panel with
+ * any content, such as a small form. Placement and fallback match the
+ * dropdown menu: under the trigger through anchor positioning, flipping when
+ * there is no room, centered where anchor positioning is missing.
+ */
+@utility ca-popover {
+  @apply relative inline-flex;
+}
+
+@utility ca-popover__panel {
+  @apply box-border max-h-[calc(100dvh-2rem)] max-w-[calc(100vw-2rem)] flex-col overflow-y-auto;
+  @apply ca-open:flex;
+  @apply supports-[position-area:block-end]:mx-0 supports-[position-area:block-end]:my-1;
+  @apply supports-[position-area:block-end]:[position-area:block-end_span-inline-end] supports-[position-area:block-end]:[position-try-fallbacks:flip-block,flip-inline];
+}

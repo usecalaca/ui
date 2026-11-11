@@ -1,0 +1,16 @@
+/* Alert structure: title, description and actions stacked; the tone comes from the skin. */
+@utility ca-alert {
+  @apply m-0 box-border grid min-w-0;
+}
+
+@utility ca-alert__title {
+  @apply m-0;
+}
+
+@utility ca-alert__description {
+  @apply m-0;
+}
+
+@utility ca-alert__actions {
+  @apply flex flex-wrap items-center;
+}

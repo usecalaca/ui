@@ -1,0 +1,51 @@
+/*
+ * Steps structure: an optional header and an ordered list. The number of
+ * each step is a CSS counter in its number part, so the <ol> keeps the order
+ * for screen readers. Layouts set --ca-steps-* variables only:
+ *   --row     steps side by side in as many columns as fit
+ *   --column  one step per row, the number beside the text
+ */
+@utility ca-steps {
+  @apply m-0 box-border grid min-w-0;
+}
+
+@utility ca-steps__header {
+  @apply grid min-w-0 max-w-[65ch];
+}
+
+@utility ca-steps__title {
+  @apply m-0;
+}
+
+@utility ca-steps__lead {
+  @apply m-0;
+}
+
+@utility ca-steps__list {
+  @apply m-0 grid list-none p-0 [counter-reset:ca-step] [grid-template-columns:var(--ca-steps-columns,repeat(auto-fill,minmax(min(100%,14rem),1fr)))];
+}
+
+@utility ca-steps__item {
+  @apply grid min-w-0 content-start [counter-increment:ca-step] [grid-template-columns:var(--ca-steps-item-columns,minmax(0,1fr))];
+}
+
+@utility ca-steps__number {
+  @apply inline-flex items-center justify-center justify-self-start [grid-row:var(--ca-steps-number-rows,auto)];
+  @apply before:content-[counter(ca-step)];
+}
+
+@utility ca-steps__item-title {
+  @apply m-0 [grid-column:var(--ca-steps-text-column,auto)];
+}
+
+@utility ca-steps__item-text {
+  @apply m-0 [grid-column:var(--ca-steps-text-column,auto)];
+}
+
+@utility ca-steps--row {
+  @apply [--ca-steps-columns:repeat(auto-fill,minmax(min(100%,14rem),1fr))];
+}
+
+@utility ca-steps--column {
+  @apply [--ca-steps-columns:minmax(0,1fr)] [--ca-steps-item-columns:auto_minmax(0,1fr)] [--ca-steps-number-rows:1/span_2] [--ca-steps-text-column:2];
+}

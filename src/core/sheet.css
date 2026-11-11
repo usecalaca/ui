@@ -1,0 +1,41 @@
+/*
+ * Sheet structure: a native <dialog> opened with showModal(), pinned to one
+ * edge. The browser keeps focus inside, closes it on Escape and makes the page
+ * inert. Layouts pick the edge through --ca-sheet-* variables: end (default),
+ * start, or bottom. Edges are logical, so end is the left in right-to-left.
+ */
+@utility ca-sheet {
+  @apply fixed m-0 box-border max-w-full flex-col overflow-hidden;
+  @apply ca-open:flex;
+  @apply [block-size:var(--ca-sheet-block-size,100dvh)] [inline-size:var(--ca-sheet-inline-size,min(26rem,100vw))] [max-block-size:var(--ca-sheet-max-block-size,100dvh)];
+  @apply [inset-block-end:var(--ca-sheet-block-end,0)] [inset-block-start:var(--ca-sheet-block-start,0)] [inset-inline-end:var(--ca-sheet-inline-end,0)] [inset-inline-start:var(--ca-sheet-inline-start,auto)];
+}
+
+@utility ca-sheet__title {
+  @apply m-0;
+}
+
+@utility ca-sheet__description {
+  @apply m-0;
+}
+
+/* The body scrolls; title and footer stay in view. */
+@utility ca-sheet__body {
+  @apply min-h-0 flex-1 overflow-y-auto;
+}
+
+@utility ca-sheet__footer {
+  @apply flex flex-wrap items-center justify-end;
+}
+
+@utility ca-sheet--end {
+  @apply [--ca-sheet-inline-end:0] [--ca-sheet-inline-start:auto];
+}
+
+@utility ca-sheet--start {
+  @apply [--ca-sheet-inline-end:auto] [--ca-sheet-inline-start:0];
+}
+
+@utility ca-sheet--bottom {
+  @apply [--ca-sheet-block-size:auto] [--ca-sheet-block-start:auto] [--ca-sheet-inline-end:0] [--ca-sheet-inline-size:100%] [--ca-sheet-inline-start:0] [--ca-sheet-max-block-size:85dvh];
+}

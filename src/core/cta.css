@@ -1,0 +1,33 @@
+/*
+ * Call-to-action structure: content (title and lead) and actions. Layouts set
+ * --ca-cta-* variables only:
+ *   --centered  one centred column
+ *   --split     content at the start, actions at the end; one column when narrow
+ */
+@utility ca-cta {
+  @apply m-0 box-border grid min-w-0 items-center [grid-template-columns:var(--ca-cta-columns,minmax(0,1fr))] [text-align:var(--ca-cta-text,start)];
+}
+
+@utility ca-cta__content {
+  @apply grid min-w-0 [justify-items:var(--ca-cta-align,start)];
+}
+
+@utility ca-cta__title {
+  @apply m-0;
+}
+
+@utility ca-cta__lead {
+  @apply m-0 max-w-[60ch];
+}
+
+@utility ca-cta__actions {
+  @apply flex flex-wrap items-center [justify-content:var(--ca-cta-justify,flex-start)];
+}
+
+@utility ca-cta--centered {
+  @apply [--ca-cta-align:center] [--ca-cta-justify:center] [--ca-cta-text:center];
+}
+
+@utility ca-cta--split {
+  @apply [--ca-cta-columns:repeat(auto-fit,minmax(min(100%,18rem),1fr))] [--ca-cta-justify:flex-end];
+}

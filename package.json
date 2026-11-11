@@ -1,0 +1,54 @@
+{
+  "name": "@usecalaca/ui",
+  "version": "0.1.0",
+  "description": "Framework-free component classes as Tailwind utilities — usable in plain HTML, Astro, Next.js and React.",
+  "type": "module",
+  "license": "MIT",
+  "author": "Martijn Bokma",
+  "homepage": "https://calaca.design",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/usecalaca/ui.git"
+  },
+  "keywords": [
+    "css",
+    "tailwindcss",
+    "design-system",
+    "component-library",
+    "utility-classes"
+  ],
+  "bin": {
+    "calaca": "./src/cli.ts"
+  },
+  "files": [
+    "core.css",
+    "src",
+    "skins",
+    "dist"
+  ],
+  "scripts": {
+    "build": "bun scripts/build-css.ts",
+    "test": "bun test",
+    "calaca": "bun src/cli.ts",
+    "prepare": "bun run build"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "exports": {
+    ".": "./src/index.ts",
+    "./core.css": "./core.css",
+    "./skins/*": "./skins/*",
+    "./compile": "./src/compile.ts",
+    "./contracts/*": "./src/contracts/*.ts",
+    "./registry": "./src/registry.ts",
+    "./skin": "./src/skin.ts",
+    "./dist/*": "./dist/*",
+    "./skin-registry": "./src/skins.ts",
+    "./behavior/*": "./src/behavior/*.ts",
+    "./tokens": "./src/tokens.ts"
+  },
+  "dependencies": {
+    "tailwindcss": "^4.1.0"
+  }
+}

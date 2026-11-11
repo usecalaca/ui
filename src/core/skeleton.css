@@ -1,0 +1,4 @@
+/* Skeleton structure: a block-level placeholder; the skin gives it shape, color and pulse. */
+@utility ca-skeleton {
+  @apply box-border block max-w-full shrink-0;
+}

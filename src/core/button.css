@@ -1,0 +1,10 @@
+/* Button structure: layout, focus indicator, disabled behavior and touch hit area. */
+@utility ca-button {
+  @apply relative inline-flex shrink-0 cursor-pointer items-center justify-center whitespace-nowrap select-none;
+  /* Without a reset (prebuilt CSS) browsers add margins and a system font to buttons. */
+  @apply m-0 box-border [font-family:inherit];
+  @apply focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring;
+  @apply disabled:pointer-events-none aria-disabled:pointer-events-none;
+  /* At least 44x44px to touch, whatever size a skin picks. */
+  @apply pointer-coarse:after:absolute pointer-coarse:after:inset-[min(0px,calc((100%_-_2.75rem)/2))];
+}

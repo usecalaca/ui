@@ -1,0 +1,4 @@
+/* Cluster structure: a row that wraps and centres its children on one line. */
+@utility ca-cluster {
+  @apply box-border flex min-w-0 flex-wrap items-center;
+}

@@ -1,0 +1,28 @@
+/*
+ * Dialog structure for a native <dialog> opened with showModal(): the browser
+ * provides the focus trap, Escape and the inert background. Open state comes
+ * from [open] (native) or [data-open] (Base UI) through the ca-open variant.
+ */
+@utility ca-dialog {
+  @apply fixed inset-0 m-auto box-border max-h-[calc(100dvh-2rem)] max-w-[calc(100vw-2rem)] flex-col overflow-auto;
+  @apply ca-open:flex;
+}
+
+@utility ca-dialog__title {
+  @apply m-0;
+}
+
+@utility ca-dialog__description {
+  @apply m-0;
+}
+
+@utility ca-dialog__footer {
+  @apply flex flex-wrap items-center justify-end;
+}
+
+/* The page behind an open modal does not scroll. Scoped to ca-dialog only. */
+@layer components {
+  :root:has(.ca-dialog:modal) {
+    overflow: hidden;
+  }
+}

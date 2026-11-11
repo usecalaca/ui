@@ -1,0 +1,4 @@
+/* Separator structure: a line that does not shrink; the variant sets its direction. */
+@utility ca-separator {
+  @apply m-0 box-border shrink-0 border-0;
+}

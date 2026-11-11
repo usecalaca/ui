@@ -1,0 +1,16 @@
+/* Stat structure: label, value and description stacked. */
+@utility ca-stat {
+  @apply m-0 box-border grid min-w-0 content-start;
+}
+
+@utility ca-stat__label {
+  @apply m-0;
+}
+
+@utility ca-stat__value {
+  @apply m-0;
+}
+
+@utility ca-stat__description {
+  @apply m-0;
+}

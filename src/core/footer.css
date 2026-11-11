@@ -1,0 +1,47 @@
+/*
+ * Footer structure: brand, navigation in groups of links, and a legal line.
+ * Layouts set --ca-footer-* variables only:
+ *   --simple   brand and links in one row that wraps, legal below
+ *   --columns  brand and each group in columns as room allows, legal below
+ */
+@utility ca-footer {
+  @apply m-0 box-border grid min-w-0 [grid-template-columns:var(--ca-footer-columns,minmax(0,1fr))];
+}
+
+@utility ca-footer__brand {
+  @apply grid min-w-0 content-start;
+}
+
+/* The nav is transparent to the grid in the columns layout, so each group is a column. */
+@utility ca-footer__nav {
+  @apply min-w-0 flex-wrap [display:var(--ca-footer-nav-display,flex)];
+}
+
+@utility ca-footer__group {
+  @apply grid min-w-0 content-start;
+}
+
+@utility ca-footer__heading {
+  @apply m-0;
+}
+
+@utility ca-footer__links {
+  @apply m-0 list-none p-0 [display:var(--ca-footer-links-display,flex)] flex-wrap;
+}
+
+@utility ca-footer__link {
+  @apply inline-flex [min-block-size:1.5rem] items-center;
+  @apply focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring;
+}
+
+@utility ca-footer__legal {
+  @apply m-0 [grid-column:1/-1];
+}
+
+@utility ca-footer--simple {
+  @apply [--ca-footer-columns:minmax(0,1fr)] [--ca-footer-links-display:flex] [--ca-footer-nav-display:flex];
+}
+
+@utility ca-footer--columns {
+  @apply [--ca-footer-columns:repeat(auto-fit,minmax(min(100%,10rem),1fr))] [--ca-footer-links-display:grid] [--ca-footer-nav-display:contents];
+}

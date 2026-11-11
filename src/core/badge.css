@@ -1,0 +1,4 @@
+/* Badge structure: a short inline label that never wraps. */
+@utility ca-badge {
+  @apply box-border inline-flex items-center whitespace-nowrap;
+}

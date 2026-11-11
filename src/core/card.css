@@ -1,0 +1,17 @@
+/* Card structure: a vertical stack; the footer lays out actions in a row. */
+@utility ca-card {
+  @apply box-border flex min-w-0 flex-col;
+}
+
+/* Text parts drop browser margins: spacing comes from the card's gap. */
+@utility ca-card__title {
+  @apply m-0;
+}
+
+@utility ca-card__description {
+  @apply m-0;
+}
+
+@utility ca-card__footer {
+  @apply flex flex-wrap items-center;
+}
