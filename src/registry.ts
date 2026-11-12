@@ -68,7 +68,7 @@ export interface Contract {
 /** Every element contract (components). */
 export const contracts: readonly Contract[] = [button, card, field, input, select, combobox, dateRange, checkbox, radio, toggle, fileUpload, editor, badge, alert, toast, progress, spinner, skeleton, emptyState, dialog, sheet, dropdown, popover, tooltip, accordion, tabs, navbar, sidebar, breadcrumb, pagination, stepper, avatar, table, stat, timeline, separator, container, stack, cluster, grid, section, heading, text, prose, link, code, codeBlock, kbd, eyebrow];
 
-/** Every block contract: sections composed from elements, with layouts. */
+/** Every block contract: sections composed from elements, with layouts (spec 035 decision 18). */
 export const blocks: readonly Contract[] = [hero, features, steps, cta, faq, footer];
 
 /** Elements and blocks together, for tests and the prebuilt CSS build. */
@@ -83,4 +83,11 @@ export function contractClasses(contract: Contract): string[] {
     ...Object.values(contract.size ?? {}),
     ...Object.values(contract.layout ?? {}),
   ];
+}
+
+/** The contract a component name ("button") or one of its classes ("ca-button--md") belongs to. */
+export function findContract(nameOrClass: string): Contract | undefined {
+  return allContracts.find(
+    (contract) => contract.name === nameOrClass || contractClasses(contract).includes(nameOrClass),
+  );
 }

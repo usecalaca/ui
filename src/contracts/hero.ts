@@ -1,7 +1,7 @@
 /**
  * Class names of the hero block: the opening section of a page. One structure
  * (content beside or above optional media) and three layouts for genuinely
- * different arrangements.
+ * different arrangements (spec 035 decision 18).
  */
 export const hero = {
   name: "hero",

@@ -2,7 +2,7 @@ import { defineSkin } from "../src/skin.ts";
 import { base } from "./base.ts";
 
 /**
- * Bloque skin: deliberately far from the base skin
+ * Bloque skin for the spec 035 pilot: deliberately far from the base skin
  * (square, heavy, offset shadows, larger targets) to show that a skin changes
  * shape, density, type and motion, not only color. Lists only what differs.
  */

@@ -1,8 +1,8 @@
 /*
- * Calaca UI core: structure and accessibility as Tailwind utilities.
+ * Silvfox UI core: structure and accessibility as Tailwind utilities.
  * A consumer stylesheet imports, in this order:
  *   @import "tailwindcss";
- *   @import "./theme.css";                  (your brand's --ca-* tokens)
+ *   @import "@silvfox/theme-<brand>/theme.css";
  *   @import "@usecalaca/ui/core.css";
  *   @import "@usecalaca/ui/skins/<name>.css";
  * Core and skins set disjoint CSS properties (enforced by test/split.test.ts).

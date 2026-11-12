@@ -4,7 +4,7 @@
  * (color, radius, font, typescale, shadow, motion), so components never read
  * a brand value directly. Tokens added after the first contract carry their
  * Tailwind default as a var() fallback in CA_TOKEN_ALIASES, so existing
- * themes keep working without setting them.
+ * themes keep working without setting them (spec 035, decision 22).
  */
 export const CALACA_TOKENS = [
   // Surfaces
@@ -42,7 +42,7 @@ export const CALACA_TOKENS = [
   "--ca-font-display",
   "--ca-font-mono",
   // Typescale: a numeric ramp — a brand shifts the whole ramp, semantic roles
-  // stay per component in skins
+  // stay per component in skins (spec 035, decision 22)
   "--ca-type-xs",
   "--ca-type-sm",
   "--ca-type-base",

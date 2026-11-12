@@ -105,8 +105,8 @@ export function skinCss(skin: Skin, generator = `skins/${skin.name}.ts by \`bun 
 }
 
 /**
- * Several skins in one stylesheet, switched by name with `data-skin`.
- * The default skin applies everywhere; each scoped skin applies
+ * Several skins in one stylesheet, switched by name with `data-skin` (spec 035
+ * decision 17). The default skin applies everywhere; each scoped skin applies
  * where its name is the nearest `data-skin` ancestor. With the bare default,
  * an element outside any skin region shows the core alone: the skeleton.
  * Scoped skins must extend the default skin.

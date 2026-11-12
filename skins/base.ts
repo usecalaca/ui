@@ -6,7 +6,7 @@ import { defineSkin } from "../src/skin.ts";
  * change what differs.
  * Pigments: a component paints itself from --ca-pigment (fill), --ca-pigment-ink
  * (text), --ca-pigment-edge (border) and their -hover forms once; a modifier
- * only sets those variables.
+ * only sets those variables (spec 035 decision 21).
  */
 const pigment = (fill: string, ink: string, edge = fill, fillHover = fill, edgeHover = edge) =>
   `[--ca-pigment:${fill}] [--ca-pigment-ink:${ink}] [--ca-pigment-edge:${edge}] [--ca-pigment-hover:${fillHover}] [--ca-pigment-edge-hover:${edgeHover}]`;

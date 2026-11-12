@@ -33,12 +33,12 @@ for (const [entry, output, format] of [
 
 for (const [name, skin] of Object.entries(skins)) {
   await Bun.write(join(root, "skins", `${name}.css`), skinCss(skin));
-  await Bun.write(join(root, "dist", `ca-${name}.css`), await buildPrebuilt(name));
+  await Bun.write(join(root, "dist", `ca-${name}.css`), await buildPrebuilt(name, { minify: true }));
   console.log(`built skin ${name}`);
 }
 
 for (const [name, set] of Object.entries(skinSets)) {
   await Bun.write(join(root, "skins", `${name}.css`), skinSetCss(set));
-  await Bun.write(join(root, "dist", `ca-${name}.css`), await buildPrebuilt(name));
+  await Bun.write(join(root, "dist", `ca-${name}.css`), await buildPrebuilt(name, { minify: true }));
   console.log(`built skin set ${name}`);
 }
