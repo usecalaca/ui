@@ -31,6 +31,18 @@ for (const [entry, output, format] of [
   if (!result.success) throw new AggregateError(result.logs, `building ${output} failed`);
 }
 
+// The npm bin: a runnable JS entry (npm cannot shim a .ts bin — publish
+// warns and drops it). The shebang in src/cli.ts survives the bundle.
+{
+  const cli = await Bun.build({
+    entrypoints: [join(root, "src/cli.ts")],
+    outdir: join(root, "dist"),
+    naming: "cli.js",
+    target: "bun",
+  });
+  if (!cli.success) throw new AggregateError(cli.logs, "building dist/cli.js failed");
+}
+
 for (const [name, skin] of Object.entries(skins)) {
   await Bun.write(join(root, "skins", `${name}.css`), skinCss(skin));
   await Bun.write(join(root, "dist", `ca-${name}.css`), await buildPrebuilt(name, { minify: true }));

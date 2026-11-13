@@ -304,4 +304,11 @@ describe("arguments and skin selection", () => {
     expect(bare.layers).toEqual({});
     expect(Object.keys(base.layers).length).toBeGreaterThan(0);
   });
+
+  test("the npm bin points at the built cli.js, not a .ts source", async () => {
+    // npm cannot shim a TypeScript bin — publish warns and drops it, so
+    // `bin.calaca` must stay pointed at the dist bundle `bun run build` emits.
+    const pkg = (await import("../package.json", { with: { type: "json" } })).default;
+    expect(pkg.bin.calaca).toBe("./dist/cli.js");
+  });
 });
