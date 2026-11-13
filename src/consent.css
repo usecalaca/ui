@@ -1,0 +1,189 @@
+/* Calaca consent skin: re-maps the vanilla-cookieconsent --cc-* vars
+ * onto the --ca-* token contract. Each token resolves inside the active
+ * data-skin scope (and its dark variant), so every Calaca skin renders
+ * its own cookie banner without per-skin CSS.
+ *
+ * The consent library loads its vendor CSS plus the analytics skeleton
+ * dynamically; this layer is imported statically by the site. `html
+ * #cc-main` is deliberately one step more specific than the skeleton's
+ * `#cc-main`, so the skin wins regardless of load order — every var
+ * carries the same neutral fallback the skeleton uses, in case a skin
+ * leaves a token unset.
+ *
+ * Import after the rest of the Calaca CSS:
+ *   @import "@usecalaca/ui/consent.css";
+ */
+html #cc-main {
+  --cc-muted: var(--ca-surface-muted, color-mix(in srgb, Canvas, CanvasText 5%));
+  --cc-border: var(--ca-border-default, ButtonBorder);
+  --cc-font-family: var(--ca-font-sans, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif);
+  --cc-bg: var(--ca-surface-card, Canvas);
+  --cc-primary-color: var(--ca-text-primary, CanvasText);
+  --cc-secondary-color: var(--ca-text-secondary, GrayText);
+  --cc-overlay-bg: var(--ca-overlay, color-mix(in srgb, black 65%, transparent));
+  --cc-btn-primary-bg: var(--ca-action-primary, ButtonFace);
+  --cc-btn-primary-color: var(--ca-text-on-action, ButtonText);
+  --cc-btn-primary-border-color: var(--cc-btn-primary-bg);
+  --cc-btn-primary-hover-bg: var(--ca-action-primary-hover, color-mix(in srgb, var(--cc-btn-primary-bg), CanvasText 12%));
+  --cc-btn-secondary-bg: var(--ca-action-secondary, var(--cc-muted));
+  --cc-btn-secondary-color: var(--ca-text-on-secondary, var(--cc-primary-color));
+  --cc-btn-secondary-border-color: var(--cc-border);
+  --cc-btn-secondary-hover-bg: color-mix(in srgb, var(--cc-btn-secondary-bg), CanvasText 6%);
+  --cc-separator-border-color: var(--cc-border);
+  --cc-cookie-category-block-bg: var(--cc-muted);
+  --cc-cookie-category-block-border: var(--cc-border);
+  --cc-cookie-category-block-hover-bg: var(--cc-bg);
+  --cc-cookie-category-block-hover-border: var(--cc-border);
+  --cc-cookie-category-expanded-block-hover-bg: color-mix(in srgb, var(--cc-muted), CanvasText 5%);
+  --cc-link-color: var(--cc-btn-primary-bg);
+  --cc-modal-border-radius: var(--ca-radius-card, 0.5rem);
+  --cc-btn-border-radius: var(--ca-radius-control, 0.4rem);
+  /* Toggle contrast: the library draws each icon stroke in the TRACK
+   * color onto the knob. The off track doubles as its icon color — a
+   * border grey vanishes on the light knob, so a secondary ink keeps it
+   * readable. The readonly icon has its own var: a light check on a dark
+   * knob mirrors the on-state's dark-on-light pair. */
+  --cc-toggle-on-bg: var(--cc-btn-primary-bg);
+  --cc-toggle-on-knob-bg: var(--cc-bg);
+  --cc-toggle-off-bg: var(--cc-secondary-color);
+  --cc-toggle-readonly-bg: var(--cc-muted);
+  --cc-toggle-readonly-knob-bg: var(--cc-primary-color);
+  --cc-toggle-readonly-knob-icon-color: var(--cc-bg);
+  --cc-footer-bg: var(--cc-muted);
+  --cc-footer-color: var(--cc-secondary-color);
+  --cc-footer-border-color: var(--cc-border);
+  /* Motion, toggle shape, separators and scrollbars follow the skin.
+   * --cc-modal-shadow is the skeleton's extension hook for the vendor's
+   * hardcoded drop shadow — unset, its declared fallback keeps working. */
+  --cc-modal-transition-duration: var(--ca-duration, 0.25s);
+  --cc-pm-toggle-border-radius: var(--ca-radius-shell, 4em);
+  --cc-section-category-border: var(--cc-border);
+  --cc-webkit-scrollbar-bg: var(--cc-muted);
+  --cc-webkit-scrollbar-hover-bg: var(--cc-btn-secondary-hover-bg);
+  --cc-modal-shadow: var(--ca-shadow-xl);
+}
+
+
+/* The consent module stamps ca-* classes onto the vendor's emitted DOM,
+ * so the active skin's own component rules own the look — parity by
+ * construction, not mirrored selectors. Those names never appear in
+ * scanned content, so this safelist keeps them emitted under
+ * content-scanned builds. */
+@source inline("ca-button ca-button--md ca-button--primary ca-button--secondary ca-accordion ca-accordion__item ca-accordion__trigger ca-accordion__content ca-badge ca-badge--neutral ca-heading ca-heading--sm ca-text ca-text--sm ca-switch ca-switch__input ca-table ca-table__caption ca-dialog");
+
+/* Leftover vendor chrome the stamped components do not own. The vendor
+ * stylesheet sits in @layer consent-vendor below the utilities, so
+ * these declarations only need to outrank it — not the component rules. */
+
+/* The stamped ca-button core resets margins, which kills the vendor's
+ * sibling-margin spacing (.cm__btn + .cm__btn, .pm__btn + .pm__btn and
+ * the *-group equivalents) and glues the buttons together. Container
+ * gaps restore it — direction-agnostic, so the vendor's row, column,
+ * flip and RTL variants all keep working. The value matches the skins'
+ * own action-row spacing (gap-2). */
+html #cc-main .cm__btns,
+html #cc-main .cm__btn-group,
+html #cc-main .pm__footer,
+html #cc-main .pm__btn-group {
+  gap: calc(var(--spacing, 0.25rem) * 2);
+}
+
+html #cc-main .pm__section--toggle {
+  /* Items sit flush inside the accordion frame: no per-section card.
+   * The vendor already drops their top border; only the sides go —
+   * the accordion's own divider owns the bottom seam on all but the
+   * last item. */
+  padding: 0;
+  margin-block-end: 0;
+  border-inline: 0;
+  border-radius: 0;
+  background: transparent;
+}
+
+html #cc-main .pm__section--toggle:last-child {
+  border-block-end: 0;
+}
+
+html #cc-main .pm__section--toggle .pm__section-title-wrapper {
+  /* Only the title button toggles the item, so the trigger's pointer
+   * cursor stays on the button, not the chevron zone. */
+  cursor: default;
+}
+
+html #cc-main .pm__section--toggle .pm__section-title {
+  /* The row is the trigger and owns padding and type, so the button's
+   * card chrome and its reserves for the vendor's absolute arrow and
+   * toggle dissolve into it. */
+  padding: 0;
+  min-height: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  font: inherit;
+  text-align: start;
+}
+
+/* The switch joins the trigger row at the end, before the chevron the
+ * skin draws. */
+html #cc-main .pm__section--toggle .section__toggle-wrapper {
+  inset-inline: auto;
+  margin-inline-start: auto;
+}
+
+html #cc-main .pm__section--toggle .pm__section-desc-wrapper {
+  border: 0;
+}
+
+/* The trigger's own chevron marks expandable sections — the vendor's
+ * absolutely positioned arrow is superseded — and the vendor's
+ * .is-expanded state turns it. */
+html #cc-main .pm__section--expandable .pm__section-arrow {
+  display: none;
+}
+
+html #cc-main .pm__section--toggle .pm__section-title-wrapper::after {
+  content: none;
+}
+
+html #cc-main .pm__section--expandable .pm__section-title-wrapper::after {
+  content: "";
+}
+
+html #cc-main .pm__section--toggle.is-expanded .pm__section-title-wrapper::after {
+  rotate: 180deg;
+}
+
+/* A service row stamps ca-switch for its gap and has-disabled dim, but
+ * stays a block-level row: the vendor's flex spread keeps the label at
+ * the start and the toggle at the end, and the pointer cursor belongs
+ * to the switch inside it, not the text zone. */
+html #cc-main .pm__service {
+  display: flex;
+  cursor: default;
+}
+
+/* The skin's ca-table owns header surface and cell seams — the vendor's
+ * dashed head border and row lines go. Its responsive column labels
+ * (td::before) stay: they are behavior, not chrome. */
+html #cc-main .pm__table-head > tr,
+html #cc-main .pm__table-tr {
+  border-block-end: 0;
+}
+
+/* The stamped ca-switch input draws its own track and thumb, so the
+ * vendor's icon overlay hides and the input returns to normal flow
+ * inside the wrapper's flex box. */
+html #cc-main .section__toggle-wrapper .toggle__icon {
+  display: none;
+}
+
+html #cc-main .section__toggle-wrapper {
+  inline-size: auto;
+  block-size: auto;
+}
+
+html #cc-main input.section__toggle {
+  position: static;
+  translate: none;
+  min-block-size: 0;
+}

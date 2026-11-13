@@ -11,6 +11,7 @@ export const steps = {
     number: "ca-steps__number",
     itemTitle: "ca-steps__item-title",
     itemText: "ca-steps__item-text",
+    media: "ca-steps__media",
   },
   layout: {
     row: "ca-steps--row",

@@ -42,6 +42,13 @@
   @apply m-0 [grid-column:var(--ca-steps-text-column,auto)];
 }
 
+/* Optional media at the foot of a card-style step; pushes to the end of the
+   item and fills its width. */
+@utility ca-steps__media {
+  @apply block min-w-0 [margin-block-start:auto] [grid-column:1/-1];
+  @apply [&>img]:block [&>img]:h-auto [&>img]:w-full;
+}
+
 @utility ca-steps--row {
   @apply [--ca-steps-columns:repeat(auto-fill,minmax(min(100%,14rem),1fr))];
 }

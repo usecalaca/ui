@@ -145,7 +145,7 @@ export function extensionOf(skin: Skin, base: Skin): Record<string, string[]> {
  * Matches elements whose nearest skin region is `name`: inside a region with
  * that name, and not inside a different region nested within it. Known limit:
  * the same skin as an outer and an inner region around another skin
- * (base > bloque > base) resolves to the default for the innermost part.
+ * (base > calaca > base) resolves to the default for the innermost part.
  */
 export function skinVariant(name: string): string {
   const region = `[data-skin="${name}"]`;

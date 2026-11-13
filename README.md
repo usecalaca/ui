@@ -15,7 +15,7 @@ Docs and examples: [calaca.design](https://calaca.design)
 ```
 
 The prebuilt stylesheets in `dist/` carry every component (no reset, no
-element styles) — `ca-base.css`, `ca-calaca.css`, `ca-bloque.css`, and
+element styles) — `ca-base.css`, `ca-calaca.css`, and
 `ca-all.css` for switching skins with `data-skin`.
 
 ## Tailwind CSS

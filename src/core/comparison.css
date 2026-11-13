@@ -1,0 +1,32 @@
+/*
+ * Comparison structure: an optional header, then panels set against each
+ * other. Panels wrap below two 18rem tracks — no media query, so the block
+ * fits any container.
+ */
+@utility ca-comparison {
+  @apply m-0 box-border grid min-w-0;
+}
+
+@utility ca-comparison__header {
+  @apply grid min-w-0 max-w-[65ch];
+}
+
+@utility ca-comparison__title {
+  @apply m-0;
+}
+
+@utility ca-comparison__lead {
+  @apply m-0;
+}
+
+@utility ca-comparison__panels {
+  @apply grid min-w-0 [grid-template-columns:repeat(auto-fit,minmax(min(100%,18rem),1fr))];
+}
+
+@utility ca-comparison__panel {
+  @apply min-w-0;
+}
+
+@utility ca-comparison__panel-title {
+  @apply m-0;
+}

@@ -1,0 +1,44 @@
+/*
+ * Split block structure: content beside media. The two columns wrap to one
+ * below two 20rem tracks (no media query, so it fits any container). Layouts
+ * only set the --ca-split-* variables the media reads:
+ *   --media-end    media after the content (default markup order)
+ *   --media-start  media before the content
+ */
+@utility ca-split {
+  @apply m-0 box-border grid min-w-0 items-center [grid-template-columns:var(--ca-split-columns,repeat(auto-fit,minmax(min(100%,20rem),1fr)))];
+}
+
+@utility ca-split__content {
+  @apply box-border flex min-w-0 flex-col;
+}
+
+@utility ca-split__eyebrow {
+  @apply m-0;
+}
+
+@utility ca-split__title {
+  @apply m-0;
+}
+
+/* A readable line length; the lead is the long text in a split. */
+@utility ca-split__lead {
+  @apply m-0 max-w-[65ch];
+}
+
+/* Media fills its track and keeps its aspect ratio; skins round corners.
+   No overflow clipping, so a framed mockup keeps its shadow. */
+@utility ca-split__media {
+  @apply box-border min-w-0 [order:var(--ca-split-media-order,0)];
+  @apply [&>img]:block [&>img]:h-auto [&>img]:w-full;
+  @apply [&>video]:block [&>video]:h-auto [&>video]:w-full;
+  @apply [&>svg]:block [&>svg]:h-auto [&>svg]:w-full;
+}
+
+@utility ca-split--media-end {
+  @apply [--ca-split-media-order:0];
+}
+
+@utility ca-split--media-start {
+  @apply [--ca-split-media-order:-1];
+}

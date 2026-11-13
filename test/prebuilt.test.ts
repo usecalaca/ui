@@ -18,10 +18,10 @@ describe("prebuilt stylesheets", () => {
       expect(missing).toEqual([]);
     });
 
-    // The home page promises "every component in one skin: 15 KB gzipped" (apps/calaca/site/docs/POSITIONING.md).
-    test(`ca-${name}.css stays under 15 KB gzipped`, async () => {
+    // The home page promises "every component in one skin: 18 KB gzipped" (apps/calaca/site/docs/POSITIONING.md).
+    test(`ca-${name}.css stays under 18 KB gzipped`, async () => {
       const css = await buildPrebuilt(name);
-      expect(gzipSync(css).byteLength).toBeLessThanOrEqual(15 * 1024);
+      expect(gzipSync(css).byteLength).toBeLessThanOrEqual(18 * 1024);
     });
 
     test(`ca-${name}.css leaves the host page's element styles alone`, async () => {

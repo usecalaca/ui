@@ -1,0 +1,32 @@
+/*
+ * Scroll area structure: a viewport that scrolls, optional custom scrollbars
+ * and a corner where axes meet. The scrollbar stays a real interactive part;
+ * hit area and focus ring live here so any skin keeps them.
+ */
+@utility ca-scroll-area {
+  @apply relative size-full min-h-0 overflow-hidden;
+}
+
+@utility ca-scroll-area__viewport {
+  @apply h-full rounded-[inherit] outline-none;
+  @apply focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-ring;
+}
+
+@utility ca-scroll-area__content {
+  @apply min-w-0;
+}
+
+@utility ca-scroll-area__scrollbar {
+  @apply m-1 flex touch-none select-none;
+  @apply data-[orientation=horizontal]:flex-col;
+  /* The thin bar keeps a wider hit strip around it. */
+  @apply pointer-coarse:m-0.5;
+}
+
+@utility ca-scroll-area__thumb {
+  @apply relative flex-1 rounded-full;
+}
+
+@utility ca-scroll-area__corner {
+  @apply block;
+}

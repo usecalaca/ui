@@ -1,0 +1,7 @@
+/*
+ * Icon structure: an inline graphic that sits on the text baseline. Sized in
+ * em by the skin so it scales with the surrounding font.
+ */
+@utility ca-icon {
+  @apply inline-block shrink-0 align-[-0.125em];
+}

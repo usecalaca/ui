@@ -1,0 +1,19 @@
+/*
+ * Check-list structure: short items, each an icon and a line of text. The
+ * icon slot never shrinks; the text keeps a readable measure.
+ */
+@utility ca-check-list {
+  @apply m-0 grid min-w-0 list-none p-0;
+}
+
+@utility ca-check-list__item {
+  @apply m-0 box-border flex min-w-0 items-start;
+}
+
+@utility ca-check-list__icon {
+  @apply shrink-0 [&>svg]:block;
+}
+
+@utility ca-check-list__text {
+  @apply m-0 min-w-0;
+}

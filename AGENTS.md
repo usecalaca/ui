@@ -1,7 +1,7 @@
 # AGENTS.md — @usecalaca/ui
 
-Calaca UI: framework-free `ca-*` component classes as Tailwind `@utility` rules, usable in
-plain HTML, Astro, Next.js and React.
+Calaca UI: framework-free `ca-*` component classes as Tailwind `@utility`
+rules, usable in plain HTML, Astro, Next.js and React.
 
 - **Names** (BEM style): `ca-<component>`, `ca-<component>__<part>`,
   `ca-<component>--<modifier>` (variant, size, layout), whole lowercase words
@@ -63,19 +63,31 @@ plain HTML, Astro, Next.js and React.
   the exception — the sibling itself carries the reset, so prose closes
   that gap with a class-specificity `:is(pre,figure):has(+ :is(pre,figure))`
   rule instead of `:where()`
+- **Consent skin** (`src/consent.css`): a hand-written layer that re-maps
+  the vanilla-cookieconsent `--cc-*` vars onto the `--ca-*` contract under
+  `html #cc-main`. Hosts with a cookie banner import
+  `@usecalaca/ui/consent.css` after the skin CSS; every skin then
+  renders its own banner from its scoped tokens, dark variant included.
+  The look is stamped, not mirrored
+  Every `--cc-*` var the skeleton defines must be declared here —
+  `test/consent-skin.test.ts`
+  guards parity
 - **Generated skins**: `bun run build` regenerates `skins/*.css` and `dist/*`
   — never hand-edit. Sites that compose their own skin set must wire their
-  own build script into `dev`/`build` and guard staleness with a test
+  own build script into `dev`/`build` and guard staleness with a
+  test
 - **Contracts**: `src/contracts/<component>.ts` lists every class name in full;
   `src/registry.ts` collects them: `contracts` (elements), `blocks`, and
   `allContracts` for tests and the prebuilt build
-- **Blocks**: sections such as `ca-hero` with parts and
+- **Blocks**:
+  sections such as `ca-hero` with parts and
   a `layout` group (`--centered`, `--split`, `--stacked`). Layouts are core:
   they only set `--ca-<block>-*` variables that the root and parts read
   (enforced by `test/split.test.ts`), and skins need not style them. No media
   queries: layouts wrap by intrinsic sizing, so they fit any container
 - **Prebuilt CSS**: `dist/ca-<skin>.css` has no preflight or element styles, so
-  it can drop into an existing site next to a plain-CSS brand theme.
+  it can drop into an existing site next to a plain-CSS brand
+  theme.
   It is minified and covers every contract; `buildPrebuilt(name, { candidates })`
   compiles a subset (the CLI's `--content`/`--include`). Unlayered host CSS
   still beats it, by design
@@ -92,7 +104,10 @@ plain HTML, Astro, Next.js and React.
   document listener for every tab list, WAI-ARIA tabs pattern with automatic
   activation and direction-aware arrow keys. `ca-tooltip` shows with CSS
   (hover and `:focus-visible`); `dist/ca-tooltip.js` only adds Escape to
-  dismiss it (WCAG 1.4.13). `ca-popover` shares the dropdown's popover
+  dismiss it (WCAG 1.4.13). Custom-DOM tooltips whose popup a JS
+  positioner renders (Base UI, shadcn) use `ca-tooltip__popup` and
+  `ca-tooltip__arrow` — the library owns placement, the contract owns
+  the readable box, the look and the open transitions `ca-popover` shares the dropdown's popover
   placement. `ca-navbar` is a size container; its menu is a `[popover]` that
   shows in the bar at 40rem and wider, or 64rem with `ca-navbar--roomy`
   (both in the `ca-navbar-wide` variant) and opens from the menu button below
@@ -117,6 +132,10 @@ plain HTML, Astro, Next.js and React.
   `::picker(select)` and its options; elsewhere the native menu stays. The
   core hides `::picker-icon` (skins draw the arrow) and lays the select out
   as flex so the chosen value stays centred
+- **Choice controls**: `ca-checkbox`/`ca-radio`/`ca-switch` style a
+  `<label>` wrapping a native input (`__input`); custom-control DOMs
+  (Base UI, shadcn — a `data-checked` button without a native input) use
+  `__control` for the box or track plus `__indicator` / `__thumb`
 - **Stepper, date range, editor**: `ca-stepper` items carry `data-status`
   (complete steps show a CSS check); `dist/ca-date-range.js` keeps the end on
   or after the start through `min` and `max`; `dist/ca-editor.js` (budget
@@ -138,14 +157,16 @@ plain HTML, Astro, Next.js and React.
   `--spacing`. `src/tokens.css` maps the contract onto Tailwind theme tokens
   with the Tailwind default as `var()` fallback, so an unset token keeps
   working. Brands set tokens in a `theme.css` or their skin's `tokens`
-  field; Calaca itself never reads brand-specific variables
+  field; Calaca itself never reads brand-specific
+  variables.
 - **Directions**: logical utilities only (`ms-`, `ps-`, `start-`, `text-start`);
   `test/logical.test.ts` rejects physical ones in core and skins
 - **Boundaries**: `tailwindcss` is the only dependency; no raw color values
-- **npm release**: publish from this directory (`bun publish` or
-  `npm publish`). `files` limits the tarball to `src`, `core.css`, `skins`,
-  `dist`; `prepublishOnly` runs build + tests. Exports ship TypeScript
-  sources (Bun-first); the `Bun.*` APIs in `compile`/`content`/`minify`/`cli`
-  make the tooling Bun-only
+- **npm release**: publish with `bun publish` or `npm publish` from this
+  directory. `files` limits the tarball to `src`, `core.css`, `skins`, `dist`;
+  `prepublishOnly` runs build + tests. Exports ship TypeScript sources
+  (Bun-first); the `Bun.*` APIs in `compile`/`content`/`minify`/`cli` make the
+  tooling Bun-only.
 - **Verify**: `bun test` — all tests, including skin staleness, naming,
-  logical properties, split rule and prebuilt size budgets
+  logical properties, split rule and prebuilt size
+  budgets.

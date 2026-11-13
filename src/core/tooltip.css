@@ -21,3 +21,21 @@
     visibility: visible;
   }
 }
+
+/*
+ * Positioned mode: for custom-DOM tooltips (Base UI, shadcn) whose popup is
+ * rendered by a JS positioner — often portaled — instead of the CSS-hover
+ * wrapper above. Structure only: the library owns placement and open state.
+ */
+@utility ca-tooltip__popup {
+  @apply z-50 box-border block w-max max-w-[min(20rem,calc(100vw-2rem))];
+}
+
+@utility ca-tooltip__arrow {
+  @apply block size-2.5 rotate-45;
+  @apply data-[side=bottom]:top-1 data-[side=top]:-bottom-2.5;
+  @apply data-[side=inline-end]:top-1/2 data-[side=inline-end]:-start-1 data-[side=inline-end]:-translate-y-1/2;
+  @apply data-[side=inline-start]:top-1/2 data-[side=inline-start]:-end-1 data-[side=inline-start]:-translate-y-1/2;
+  @apply data-[side=left]:top-1/2 data-[side=left]:-end-1 data-[side=left]:-translate-y-1/2;
+  @apply data-[side=right]:top-1/2 data-[side=right]:-start-1 data-[side=right]:-translate-y-1/2;
+}

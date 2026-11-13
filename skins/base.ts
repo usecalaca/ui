@@ -31,6 +31,15 @@ const picker = (...lines: string[]) =>
 const tone = (fill: string, edge: string, title: string) =>
   `[--ca-pigment:${fill}] [--ca-pigment-edge:${edge}] [--ca-pigment-ink:var(--color-foreground)] [--ca-pigment-title:${title}]`;
 
+/** Quiet supporting text: descriptions and secondary item copy. */
+const quietText = "text-sm text-muted-foreground text-pretty";
+/** A block's lead paragraph under the display title. */
+const leadText = "text-lg text-muted-foreground text-pretty";
+/** A block's display title. */
+const blockTitle = "font-display text-3xl/tight font-semibold tracking-tight text-balance";
+/** A row of actions with a little air above. */
+const actionRow = "gap-2 pt-2";
+
 export const base = defineSkin(
   "base",
   {
@@ -44,14 +53,18 @@ export const base = defineSkin(
   "ca-button--secondary": pigment("var(--color-secondary)", "var(--color-secondary-foreground)", "var(--color-secondary)", "color-mix(in_oklab,var(--color-secondary)_90%,transparent)"),
   "ca-button--outline": pigment("var(--color-background)", "var(--color-foreground)", "var(--color-input)", "var(--color-muted)"),
   "ca-button--ghost": pigment("transparent", "var(--color-foreground)", "transparent", "var(--color-muted)"),
+  "ca-button--danger": pigment("var(--color-destructive)", "white", "var(--color-destructive)", "color-mix(in_oklab,var(--color-destructive)_90%,transparent)"),
+  "ca-button--xs": "h-7 px-2.5 text-xs",
   "ca-button--sm": "h-8 px-3 text-sm",
   "ca-button--md": "h-9 px-4 text-sm",
   "ca-button--lg": "h-11 px-5 text-base",
+  "ca-button--xl": "h-12 px-6 text-lg",
+  "ca-button--icon": "size-9 p-0",
 
   "ca-card": "gap-4 rounded-card border border-border bg-background p-6 text-foreground shadow-xs",
   "ca-card__title": "font-display text-lg leading-tight font-semibold text-balance",
-  "ca-card__description": "text-sm text-muted-foreground text-pretty",
-  "ca-card__footer": "gap-2 pt-2",
+  "ca-card__description": quietText,
+  "ca-card__footer": actionRow,
 
   "ca-field": "gap-1.5",
   // A <legend> is not a grid item of its fieldset, so it keeps its distance with a margin.
@@ -98,6 +111,32 @@ export const base = defineSkin(
     "checked:bg-[radial-gradient(circle_closest-side,var(--color-primary-foreground)_calc(100%-1px),transparent_100%)] checked:bg-primary",
     "motion-safe:transition-[background-color,background-position] motion-safe:duration-150",
   ],
+  /* Custom-control DOMs: the button box and its check/thumb child. */
+  "ca-checkbox__control": [
+    "size-4.5 rounded-[5px] border border-input bg-background shadow-xs",
+    "data-disabled:opacity-50",
+    "data-checked:border-primary data-checked:bg-primary data-checked:text-primary-foreground",
+    "data-indeterminate:border-primary data-indeterminate:bg-primary data-indeterminate:text-primary-foreground",
+    "motion-safe:transition-colors",
+  ],
+  "ca-checkbox__indicator": "size-full text-current [&_svg:not([class*='size-'])]:size-3.5",
+  "ca-radio__control": [
+    "size-4.5 rounded-full border border-input bg-background shadow-xs",
+    "data-disabled:opacity-50",
+    "data-checked:border-primary data-checked:bg-primary data-checked:text-primary-foreground",
+    "motion-safe:transition-colors",
+  ],
+  "ca-radio__indicator": "size-full text-current [&_svg:not([class*='size-'])]:size-2.5",
+  "ca-switch__control": [
+    "h-[calc(var(--thumb-size)+2px)] w-[calc(var(--thumb-size)*2-2px)] rounded-full p-px [--thumb-size:--spacing(5)]",
+    "bg-input data-checked:bg-primary data-disabled:opacity-60",
+    "motion-safe:transition-colors",
+  ],
+  "ca-switch__thumb": [
+    "aspect-square h-full rounded-(--thumb-size) bg-background shadow-sm",
+    "data-checked:translate-x-[calc(var(--thumb-size)-4px)] rtl:data-checked:-translate-x-[calc(var(--thumb-size)-4px)]",
+    "motion-safe:transition-transform",
+  ],
 
   "ca-badge": [
     "gap-1 rounded-full border px-2 py-0.5 text-xs font-medium",
@@ -120,7 +159,7 @@ export const base = defineSkin(
   ],
   "ca-alert__title": "font-semibold text-(--ca-pigment-title)",
   "ca-alert__description": "text-pretty",
-  "ca-alert__actions": "gap-2 pt-2",
+  "ca-alert__actions": actionRow,
   "ca-alert--neutral": tone("var(--color-muted)", "var(--color-border)", "var(--color-foreground)"),
   "ca-alert--info": tone("color-mix(in_oklab,var(--color-info)_8%,var(--color-background))", "var(--color-info)", "var(--color-info)"),
   "ca-alert--success": tone("color-mix(in_oklab,var(--color-success)_8%,var(--color-background))", "var(--color-success)", "var(--color-success)"),
@@ -184,14 +223,20 @@ export const base = defineSkin(
   "ca-empty-state": "gap-3 rounded-card border border-dashed border-border px-6 py-10 text-foreground",
   "ca-empty-state__media": "mb-1 size-12 rounded-full bg-muted text-muted-foreground",
   "ca-empty-state__title": "font-display text-lg font-semibold text-balance",
-  "ca-empty-state__description": "text-sm text-muted-foreground text-pretty",
-  "ca-empty-state__actions": "gap-2 pt-2",
+  "ca-empty-state__description": quietText,
+  "ca-empty-state__actions": actionRow,
 
   "ca-tooltip": "align-middle",
   "ca-tooltip__content": [
     "mb-2 rounded-md bg-surface-inverse px-2.5 py-1.5 text-xs font-medium text-on-inverse shadow-md text-balance",
     "opacity-0 motion-safe:transition-[opacity,visibility] motion-safe:duration-150 [:where(.ca-tooltip:hover:not([data-dismissed]))>&]:opacity-100 [:where(.ca-tooltip:has(:focus-visible):not([data-dismissed]))>&]:opacity-100",
   ],
+
+  "ca-tooltip__popup": [
+    "rounded-md bg-surface-inverse px-2.5 py-1.5 text-xs font-medium text-on-inverse shadow-md text-balance",
+    "motion-safe:transition-[opacity,scale] motion-safe:duration-150 data-ending-style:opacity-0 data-ending-style:scale-98 data-starting-style:opacity-0 data-starting-style:scale-98",
+  ],
+  "ca-tooltip__arrow": "rounded-[2px] bg-surface-inverse fill-surface-inverse",
 
   "ca-popover": "align-middle",
   "ca-popover__panel": [
@@ -230,7 +275,7 @@ export const base = defineSkin(
   ],
   "ca-timeline__time": "text-xs font-medium text-muted-foreground tabular-nums",
   "ca-timeline__title": "text-sm font-semibold",
-  "ca-timeline__description": "text-sm text-muted-foreground text-pretty",
+  "ca-timeline__description": quietText,
 
   "ca-file-upload": [
     "text-sm text-muted-foreground disabled:opacity-60",
@@ -244,10 +289,34 @@ export const base = defineSkin(
     "motion-safe:transition-[opacity,translate] motion-safe:duration-200 motion-safe:ease-out starting:open:opacity-0 starting:open:[&.ca-sheet--bottom]:translate-y-4",
   ],
   "ca-sheet__title": "font-display text-lg leading-tight font-semibold text-balance",
-  "ca-sheet__description": "text-sm text-muted-foreground text-pretty",
+  "ca-sheet__description": quietText,
   "ca-sheet__body": "text-sm",
   "ca-sheet__footer": "gap-2 border-t border-border pt-4",
 
+  "ca-prompt-input": "rounded-card border border-border bg-background p-2 shadow-xs data-disabled:opacity-64",
+  "ca-prompt-input__textarea": "min-h-11 border-0 bg-transparent px-2 py-2 text-sm text-foreground placeholder:text-muted-foreground shadow-none",
+  "ca-prompt-input__actions": "gap-2",
+  "ca-icon": "[--ca-icon-size:1em] size-(--ca-icon-size)",
+  "ca-icon--sm": "[--ca-icon-size:0.875em]",
+  "ca-icon--lg": "[--ca-icon-size:1.25em]",
+  "ca-icon--xl": "[--ca-icon-size:1.5em]",
+  "ca-scroll-area": "text-foreground",
+  "ca-scroll-area__viewport": "data-has-overflow-y:overscroll-y-contain data-has-overflow-x:overscroll-x-contain",
+  "ca-scroll-area__content": "min-h-0",
+  "ca-scroll-area__scrollbar": [
+    "data-[orientation=horizontal]:h-1.5 data-[orientation=vertical]:w-1.5",
+    "opacity-0 transition-opacity delay-300 data-hovering:opacity-100 data-hovering:delay-0 data-hovering:duration-100 data-scrolling:opacity-100 data-scrolling:delay-0 data-scrolling:duration-100",
+  ],
+  "ca-scroll-area__thumb": "bg-foreground/20",
+  "ca-scroll-area__corner": "bg-transparent",
+  "ca-scroll-area--fade": [
+    "[--fade-size:1.5rem]",
+    "[&>.ca-scroll-area__viewport]:mask-t-from-[calc(100%-min(var(--fade-size),var(--scroll-area-overflow-y-start)))]",
+    "[&>.ca-scroll-area__viewport]:mask-b-from-[calc(100%-min(var(--fade-size),var(--scroll-area-overflow-y-end)))]",
+    "[&>.ca-scroll-area__viewport]:mask-l-from-[calc(100%-min(var(--fade-size),var(--scroll-area-overflow-x-start)))]",
+    "[&>.ca-scroll-area__viewport]:mask-r-from-[calc(100%-min(var(--fade-size),var(--scroll-area-overflow-x-end)))]",
+  ],
+  "ca-scroll-area--gutter": "[scrollbar-gutter:stable_both_edges] [&>.ca-scroll-area__viewport]:data-has-overflow-y:pe-2.5 [&>.ca-scroll-area__viewport]:data-has-overflow-x:pb-2.5",
   "ca-separator": "bg-border",
   "ca-separator--horizontal": "h-px w-full",
   "ca-separator--vertical": "w-px self-stretch",
@@ -368,34 +437,35 @@ export const base = defineSkin(
 
   "ca-features": "gap-10 text-foreground",
   "ca-features__header": "gap-3",
-  "ca-features__title": "font-display text-3xl/tight font-semibold tracking-tight text-balance",
-  "ca-features__lead": "text-lg text-muted-foreground text-pretty",
+  "ca-features__title": blockTitle,
+  "ca-features__lead": leadText,
   "ca-features__list": "gap-x-8 gap-y-10",
   "ca-features__item": "gap-x-4 gap-y-2",
   "ca-features__icon": "mb-2 size-10 rounded-lg bg-muted text-foreground",
   "ca-features__item-title": "text-base font-semibold",
-  "ca-features__item-text": "text-sm text-muted-foreground text-pretty",
+  "ca-features__item-text": quietText,
 
   "ca-steps": "gap-10 text-foreground",
   "ca-steps__header": "gap-3",
-  "ca-steps__title": "font-display text-3xl/tight font-semibold tracking-tight text-balance",
-  "ca-steps__lead": "text-lg text-muted-foreground text-pretty",
+  "ca-steps__title": blockTitle,
+  "ca-steps__lead": leadText,
   "ca-steps__list": "gap-x-8 gap-y-8",
   "ca-steps__item": "gap-x-4 gap-y-2",
   "ca-steps__number": "mb-2 size-9 rounded-full border border-input font-display text-sm font-semibold tabular-nums",
   "ca-steps__item-title": "text-base font-semibold",
-  "ca-steps__item-text": "text-sm text-muted-foreground text-pretty",
+  "ca-steps__item-text": quietText,
+  "ca-steps__media": "border-t border-border",
 
   "ca-cta": "gap-8 rounded-card bg-muted px-6 py-12 text-foreground sm:px-10",
   "ca-cta__content": "gap-3",
-  "ca-cta__title": "font-display text-3xl/tight font-semibold tracking-tight text-balance",
-  "ca-cta__lead": "text-lg text-muted-foreground text-pretty",
+  "ca-cta__title": blockTitle,
+  "ca-cta__lead": leadText,
   "ca-cta__actions": "gap-3",
 
   "ca-faq": "gap-x-12 gap-y-8 text-foreground",
   "ca-faq__header": "gap-3",
-  "ca-faq__title": "font-display text-3xl/tight font-semibold tracking-tight text-balance",
-  "ca-faq__lead": "text-lg text-muted-foreground text-pretty",
+  "ca-faq__title": blockTitle,
+  "ca-faq__lead": leadText,
   "ca-faq__questions": "text-base",
 
   "ca-footer": "gap-x-8 gap-y-10 border-t border-border py-12 text-sm text-foreground",
@@ -407,13 +477,33 @@ export const base = defineSkin(
   "ca-footer__link": "rounded-sm text-muted-foreground no-underline interact:text-foreground interact:underline",
   "ca-footer__legal": "border-t border-border pt-6 text-xs text-muted-foreground",
 
+  "ca-split": "gap-x-12 gap-y-8 text-foreground",
+  "ca-split__content": "gap-4",
+  "ca-split__eyebrow": "text-sm font-medium uppercase tracking-wider text-muted-foreground",
+  "ca-split__title": blockTitle,
+  "ca-split__lead": leadText,
+  "ca-split__media": "[&>img]:rounded-card [&>video]:rounded-card",
+
+  "ca-comparison": "gap-10 text-foreground",
+  "ca-comparison__header": "gap-3",
+  "ca-comparison__title": blockTitle,
+  "ca-comparison__lead": leadText,
+  "ca-comparison__panels": "gap-4",
+  "ca-comparison__panel": "rounded-card border border-border bg-background p-6",
+  "ca-comparison__panel-title": "font-display text-lg font-semibold",
+
+  "ca-check-list": "gap-3 text-base",
+  "ca-check-list__item": "gap-3",
+  "ca-check-list__icon": "mt-0.5 size-5 text-primary",
+  "ca-check-list__text": "text-muted-foreground",
+
   "ca-dialog": [
     "w-lg gap-4 rounded-xl border border-border bg-background p-6 text-foreground shadow-xl backdrop:bg-overlay",
     "motion-safe:transition-[opacity,scale] motion-safe:duration-150 motion-safe:ease-out starting:open:scale-95 starting:open:opacity-0",
   ],
   "ca-dialog__title": "font-display text-lg leading-tight font-semibold text-balance",
-  "ca-dialog__description": "text-sm text-muted-foreground text-pretty",
-  "ca-dialog__footer": "gap-2 pt-2",
+  "ca-dialog__description": quietText,
+  "ca-dialog__footer": actionRow,
 
   "ca-dropdown": "align-middle [&>[popovertarget]::before]:motion-safe:transition-[rotate] [&>[popovertarget]::before]:motion-safe:duration-150",
   "ca-dropdown__menu": [
@@ -431,7 +521,7 @@ export const base = defineSkin(
   "ca-hero__content": "gap-4",
   "ca-hero__eyebrow": "text-sm font-medium text-muted-foreground",
   "ca-hero__title": "font-display text-[clamp(2rem,9cqi,3.5rem)] leading-[1.1] font-semibold tracking-tight text-balance",
-  "ca-hero__lead": "text-lg text-muted-foreground text-pretty",
+  "ca-hero__lead": leadText,
   "ca-hero__actions": "gap-3 pt-2",
   "ca-hero__media": "[&>img]:rounded-card [&>video]:rounded-card",
 },

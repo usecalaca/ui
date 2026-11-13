@@ -2,7 +2,6 @@
 
 @custom-variant skin-base (&:where([data-skin="base"], [data-skin="base"] *):not(:where([data-skin="base"] [data-skin]:not([data-skin="base"]), [data-skin="base"] [data-skin]:not([data-skin="base"]) *)));
 @custom-variant skin-calaca (&:where([data-skin="calaca"], [data-skin="calaca"] *):not(:where([data-skin="calaca"] [data-skin]:not([data-skin="calaca"]), [data-skin="calaca"] [data-skin]:not([data-skin="calaca"]) *)));
-@custom-variant skin-bloque (&:where([data-skin="bloque"], [data-skin="bloque"] *):not(:where([data-skin="bloque"] [data-skin]:not([data-skin="bloque"]), [data-skin="bloque"] [data-skin]:not([data-skin="bloque"]) *)));
 
 [data-skin="base"] {
   color-scheme: light;
@@ -306,157 +305,6 @@
   }
 }
 
-[data-skin="bloque"] {
-  color-scheme: light;
-  --ca-surface-page: oklch(98.5% 0 0);
-  --ca-surface-card: oklch(100% 0 0);
-  --ca-surface-muted: oklch(96% 0 0);
-  --ca-surface-inverse: oklch(15% 0 0);
-  --ca-text-primary: oklch(15% 0 0);
-  --ca-text-secondary: oklch(44% 0 0);
-  --ca-text-on-action: oklch(100% 0 0);
-  --ca-text-on-secondary: oklch(15% 0 0);
-  --ca-text-on-inverse: oklch(100% 0 0);
-  --ca-border-default: oklch(88% 0 0);
-  --ca-border-strong: oklch(55% 0 0);
-  --ca-focus-ring: oklch(44% 0 0);
-  --ca-action-primary: oklch(15% 0 0);
-  --ca-action-primary-hover: oklch(27% 0 0);
-  --ca-action-secondary: oklch(93% 0 0);
-  --ca-status-success: oklch(48% 0.12 155);
-  --ca-status-warning: oklch(50% 0.12 65);
-  --ca-status-error: oklch(52% 0.2 25);
-  --ca-status-info: oklch(48% 0.13 250);
-  --ca-overlay: oklch(0% 0 0 / 0.4);
-  --ca-radius-control: 0.5rem;
-  --ca-radius-card: 0.75rem;
-  --ca-font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  --ca-font-display: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  --ca-font-mono: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
-  --font-sans: var(--ca-font-sans);
-  --font-display: var(--ca-font-display);
-  --font-mono: var(--ca-font-mono);
-  --color-background: var(--ca-surface-card);
-  --color-foreground: var(--ca-text-primary);
-  --color-primary: var(--ca-action-primary);
-  --color-primary-hover: var(--ca-action-primary-hover);
-  --color-primary-foreground: var(--ca-text-on-action);
-  --color-secondary: var(--ca-action-secondary);
-  --color-secondary-foreground: var(--ca-text-on-secondary);
-  --color-muted: var(--ca-surface-muted);
-  --color-muted-foreground: var(--ca-text-secondary);
-  --color-surface-page: var(--ca-surface-page);
-  --color-surface-inverse: var(--ca-surface-inverse);
-  --color-on-inverse: var(--ca-text-on-inverse);
-  --color-border: var(--ca-border-default);
-  --color-input: var(--ca-border-strong);
-  --color-ring: var(--ca-focus-ring);
-  --color-overlay: var(--ca-overlay);
-  --color-destructive: var(--ca-status-error);
-  --color-success: var(--ca-status-success);
-  --color-warning: var(--ca-status-warning);
-  --color-info: var(--ca-status-info);
-  --radius-sm: calc(var(--ca-radius-control) - 4px);
-  --radius-md: calc(var(--ca-radius-control) - 2px);
-  --radius-lg: var(--ca-radius-control);
-  --radius-xl: calc(var(--ca-radius-control) + 4px);
-  --radius-card: var(--ca-radius-card);
-  --radius-shell: var(--ca-radius-shell, 1rem);
-  --text-xs: var(--ca-type-xs, 0.75rem);
-  --text-sm: var(--ca-type-sm, 0.875rem);
-  --text-base: var(--ca-type-base, 1rem);
-  --text-lg: var(--ca-type-lg, 1.125rem);
-  --text-xl: var(--ca-type-xl, 1.25rem);
-  --text-2xl: var(--ca-type-2xl, 1.5rem);
-  --text-3xl: var(--ca-type-3xl, 1.875rem);
-  --text-4xl: var(--ca-type-4xl, 2.25rem);
-  --text-5xl: var(--ca-type-5xl, 3rem);
-  --text-6xl: var(--ca-type-6xl, 3.75rem);
-  --text-7xl: var(--ca-type-7xl, 4.5rem);
-  --text-8xl: var(--ca-type-8xl, 6rem);
-  --text-9xl: var(--ca-type-9xl, 8rem);
-  --font-weight-medium: var(--ca-weight-medium, 500);
-  --font-weight-semibold: var(--ca-weight-semibold, 600);
-  --font-weight-bold: var(--ca-weight-bold, 700);
-  --font-weight-black: var(--ca-weight-black, 900);
-  --leading-tight: var(--ca-leading-tight, 1.25);
-  --leading-snug: var(--ca-leading-snug, 1.375);
-  --leading-normal: var(--ca-leading-normal, 1.5);
-  --leading-relaxed: var(--ca-leading-relaxed, 1.625);
-  --leading-loose: var(--ca-leading-loose, 2);
-  --tracking-tighter: var(--ca-tracking-tighter, -0.05em);
-  --tracking-tight: var(--ca-tracking-tight, -0.025em);
-  --tracking-normal: var(--ca-tracking-normal, 0em);
-  --tracking-wide: var(--ca-tracking-wide, 0.025em);
-  --tracking-wider: var(--ca-tracking-wider, 0.05em);
-  --tracking-widest: var(--ca-tracking-widest, 0.1em);
-  --tracking-caps: var(--ca-tracking-caps, 0.1em);
-  --shadow: var(--ca-shadow, 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1));
-  --shadow-2xs: var(--ca-shadow-2xs, 0 1px rgb(0 0 0 / 0.05));
-  --shadow-xs: var(--ca-shadow-xs, 0 1px 2px 0 rgb(0 0 0 / 0.05));
-  --shadow-sm: var(--ca-shadow-sm, 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1));
-  --shadow-md: var(--ca-shadow-md, 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1));
-  --shadow-lg: var(--ca-shadow-lg, 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1));
-  --shadow-xl: var(--ca-shadow-xl, 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1));
-  --shadow-2xl: var(--ca-shadow-2xl, 0 25px 50px -12px rgb(0 0 0 / 0.25));
-  --ease-out: var(--ca-ease, cubic-bezier(0, 0, 0.2, 1));
-  --ease-emphasis: var(--ca-ease-emphasis, cubic-bezier(0.16, 1, 0.3, 1));
-  --default-transition-duration: var(--ca-duration, 150ms);
-  --spacing: calc(0.25rem * var(--ca-density, 1));
-}
-
-@media screen {
-  [data-skin="bloque"]:is([data-appearance="dark"], [data-theme="dark"]:not(:where([data-appearance="light"], [data-appearance="light"] *))):not(:where([data-appearance="light"], [data-appearance="light"] *)), :is([data-appearance="dark"], [data-theme="dark"]:not(:where([data-appearance="light"], [data-appearance="light"] *))) [data-skin="bloque"]:not(:where([data-appearance="light"], [data-appearance="light"] *)) {
-    color-scheme: dark;
-    --ca-surface-page: oklch(14.5% 0 0);
-    --ca-surface-card: oklch(20% 0 0);
-    --ca-surface-muted: oklch(26% 0 0);
-    --ca-surface-inverse: oklch(100% 0 0);
-    --ca-text-primary: oklch(100% 0 0);
-    --ca-text-secondary: oklch(72% 0 0);
-    --ca-text-on-action: oklch(15% 0 0);
-    --ca-text-on-secondary: oklch(100% 0 0);
-    --ca-text-on-inverse: oklch(15% 0 0);
-    --ca-border-default: oklch(30% 0 0);
-    --ca-border-strong: oklch(60% 0 0);
-    --ca-focus-ring: oklch(70% 0 0);
-    --ca-action-primary: oklch(100% 0 0);
-    --ca-action-primary-hover: oklch(85% 0 0);
-    --ca-action-secondary: oklch(30% 0 0);
-    --ca-status-success: oklch(74% 0.14 155);
-    --ca-status-warning: oklch(80% 0.14 75);
-    --ca-status-error: oklch(72% 0.16 25);
-    --ca-status-info: oklch(74% 0.12 250);
-    --ca-overlay: oklch(0% 0 0 / 0.6);
-  }
-}
-
-@media screen and (prefers-color-scheme: dark) {
-  html:not([data-appearance="light"], [data-theme="light"])[data-skin="bloque"], html:not([data-appearance="light"], [data-theme="light"]) [data-skin="bloque"]:not(:where([data-appearance="light"], [data-appearance="light"] *)) {
-    color-scheme: dark;
-    --ca-surface-page: oklch(14.5% 0 0);
-    --ca-surface-card: oklch(20% 0 0);
-    --ca-surface-muted: oklch(26% 0 0);
-    --ca-surface-inverse: oklch(100% 0 0);
-    --ca-text-primary: oklch(100% 0 0);
-    --ca-text-secondary: oklch(72% 0 0);
-    --ca-text-on-action: oklch(15% 0 0);
-    --ca-text-on-secondary: oklch(100% 0 0);
-    --ca-text-on-inverse: oklch(15% 0 0);
-    --ca-border-default: oklch(30% 0 0);
-    --ca-border-strong: oklch(60% 0 0);
-    --ca-focus-ring: oklch(70% 0 0);
-    --ca-action-primary: oklch(100% 0 0);
-    --ca-action-primary-hover: oklch(85% 0 0);
-    --ca-action-secondary: oklch(30% 0 0);
-    --ca-status-success: oklch(74% 0.14 155);
-    --ca-status-warning: oklch(80% 0.14 75);
-    --ca-status-error: oklch(72% 0.16 25);
-    --ca-status-info: oklch(74% 0.12 250);
-    --ca-overlay: oklch(0% 0 0 / 0.6);
-  }
-}
-
 @utility ca-button {
   @apply skin-base:gap-2 skin-base:rounded-lg skin-base:border skin-base:font-medium skin-base:no-underline;
   @apply skin-base:border-(--ca-pigment-edge) skin-base:bg-(--ca-pigment) skin-base:text-(--ca-pigment-ink) skin-base:interact:border-(--ca-pigment-edge-hover) skin-base:interact:bg-(--ca-pigment-hover);
@@ -469,123 +317,110 @@
   @apply skin-calaca:rounded-xl skin-calaca:border-2 skin-calaca:font-extrabold;
   @apply skin-calaca:shadow-[3px_3px_0_0_var(--ca-pigment-shadow,var(--color-foreground))] skin-calaca:active:translate-x-0.5 skin-calaca:active:translate-y-0.5 skin-calaca:active:scale-100 skin-calaca:active:shadow-none;
   @apply skin-calaca:motion-safe:transition-[background-color,translate,box-shadow] skin-calaca:focus-visible:[--tw-outline-style:dashed];
-  @apply skin-bloque:gap-2 skin-bloque:rounded-lg skin-bloque:border skin-bloque:font-medium skin-bloque:no-underline;
-  @apply skin-bloque:border-(--ca-pigment-edge) skin-bloque:bg-(--ca-pigment) skin-bloque:text-(--ca-pigment-ink) skin-bloque:interact:border-(--ca-pigment-edge-hover) skin-bloque:interact:bg-(--ca-pigment-hover);
-  @apply skin-bloque:disabled:opacity-60 skin-bloque:aria-disabled:opacity-60;
-  @apply skin-bloque:motion-safe:transition-[background-color,border-color,scale] skin-bloque:motion-safe:duration-150 skin-bloque:motion-safe:ease-out skin-bloque:active:scale-[0.97];
-  @apply skin-bloque:gap-3 skin-bloque:rounded-none skin-bloque:border-2 skin-bloque:font-bold skin-bloque:uppercase skin-bloque:tracking-wide;
-  @apply skin-bloque:shadow-[4px_4px_0_0_var(--color-foreground)] skin-bloque:active:translate-x-0.5 skin-bloque:active:translate-y-0.5 skin-bloque:active:scale-100 skin-bloque:active:shadow-[2px_2px_0_0_var(--color-foreground)];
-  @apply skin-bloque:motion-safe:transition-[translate,box-shadow,background-color] skin-bloque:motion-safe:duration-75 skin-bloque:motion-safe:ease-linear;
 }
 
 @utility ca-button--primary {
   @apply skin-base:[--ca-pigment:var(--color-primary)] skin-base:[--ca-pigment-ink:var(--color-primary-foreground)] skin-base:[--ca-pigment-edge:var(--color-primary)] skin-base:[--ca-pigment-hover:var(--color-primary-hover)] skin-base:[--ca-pigment-edge-hover:var(--color-primary-hover)];
   @apply skin-calaca:[--ca-pigment:var(--color-primary)] skin-calaca:[--ca-pigment-ink:var(--color-primary-foreground)] skin-calaca:[--ca-pigment-edge:var(--color-primary)] skin-calaca:[--ca-pigment-hover:var(--color-primary-hover)] skin-calaca:[--ca-pigment-edge-hover:var(--color-primary-hover)];
   @apply skin-calaca:[--ca-pigment-edge:var(--color-foreground)] skin-calaca:[--ca-pigment-edge-hover:var(--color-foreground)];
-  @apply skin-bloque:[--ca-pigment:var(--color-primary)] skin-bloque:[--ca-pigment-ink:var(--color-primary-foreground)] skin-bloque:[--ca-pigment-edge:var(--color-primary)] skin-bloque:[--ca-pigment-hover:var(--color-primary-hover)] skin-bloque:[--ca-pigment-edge-hover:var(--color-primary-hover)];
-  @apply skin-bloque:[--ca-pigment:var(--color-surface-inverse)] skin-bloque:[--ca-pigment-ink:var(--color-on-inverse)] skin-bloque:[--ca-pigment-edge:var(--color-foreground)] skin-bloque:[--ca-pigment-edge-hover:var(--color-foreground)] skin-bloque:[--ca-pigment-hover:color-mix(in_oklab,var(--color-surface-inverse)_90%,transparent)];
 }
 
 @utility ca-button--secondary {
   @apply skin-base:[--ca-pigment:var(--color-secondary)] skin-base:[--ca-pigment-ink:var(--color-secondary-foreground)] skin-base:[--ca-pigment-edge:var(--color-secondary)] skin-base:[--ca-pigment-hover:color-mix(in_oklab,var(--color-secondary)_90%,transparent)] skin-base:[--ca-pigment-edge-hover:var(--color-secondary)];
   @apply skin-calaca:[--ca-pigment:var(--color-secondary)] skin-calaca:[--ca-pigment-ink:var(--color-secondary-foreground)] skin-calaca:[--ca-pigment-edge:var(--color-secondary)] skin-calaca:[--ca-pigment-hover:color-mix(in_oklab,var(--color-secondary)_90%,transparent)] skin-calaca:[--ca-pigment-edge-hover:var(--color-secondary)];
   @apply skin-calaca:[--ca-pigment-edge:var(--color-foreground)] skin-calaca:[--ca-pigment-edge-hover:var(--color-foreground)];
-  @apply skin-bloque:[--ca-pigment:var(--color-secondary)] skin-bloque:[--ca-pigment-ink:var(--color-secondary-foreground)] skin-bloque:[--ca-pigment-edge:var(--color-secondary)] skin-bloque:[--ca-pigment-hover:color-mix(in_oklab,var(--color-secondary)_90%,transparent)] skin-bloque:[--ca-pigment-edge-hover:var(--color-secondary)];
-  @apply skin-bloque:[--ca-pigment-edge:var(--color-foreground)] skin-bloque:[--ca-pigment-edge-hover:var(--color-foreground)];
 }
 
 @utility ca-button--outline {
   @apply skin-base:[--ca-pigment:var(--color-background)] skin-base:[--ca-pigment-ink:var(--color-foreground)] skin-base:[--ca-pigment-edge:var(--color-input)] skin-base:[--ca-pigment-hover:var(--color-muted)] skin-base:[--ca-pigment-edge-hover:var(--color-input)];
   @apply skin-calaca:[--ca-pigment:var(--color-background)] skin-calaca:[--ca-pigment-ink:var(--color-foreground)] skin-calaca:[--ca-pigment-edge:var(--color-input)] skin-calaca:[--ca-pigment-hover:var(--color-muted)] skin-calaca:[--ca-pigment-edge-hover:var(--color-input)];
-  @apply skin-bloque:[--ca-pigment:var(--color-background)] skin-bloque:[--ca-pigment-ink:var(--color-foreground)] skin-bloque:[--ca-pigment-edge:var(--color-input)] skin-bloque:[--ca-pigment-hover:var(--color-muted)] skin-bloque:[--ca-pigment-edge-hover:var(--color-input)];
-  @apply skin-bloque:[--ca-pigment-edge:var(--color-foreground)] skin-bloque:[--ca-pigment-edge-hover:var(--color-foreground)];
 }
 
 @utility ca-button--ghost {
   @apply skin-base:[--ca-pigment:transparent] skin-base:[--ca-pigment-ink:var(--color-foreground)] skin-base:[--ca-pigment-edge:transparent] skin-base:[--ca-pigment-hover:var(--color-muted)] skin-base:[--ca-pigment-edge-hover:transparent];
   @apply skin-calaca:[--ca-pigment:transparent] skin-calaca:[--ca-pigment-ink:var(--color-foreground)] skin-calaca:[--ca-pigment-edge:transparent] skin-calaca:[--ca-pigment-hover:var(--color-muted)] skin-calaca:[--ca-pigment-edge-hover:transparent];
   @apply skin-calaca:[--ca-pigment-shadow:transparent];
-  @apply skin-bloque:[--ca-pigment:transparent] skin-bloque:[--ca-pigment-ink:var(--color-foreground)] skin-bloque:[--ca-pigment-edge:transparent] skin-bloque:[--ca-pigment-hover:var(--color-muted)] skin-bloque:[--ca-pigment-edge-hover:transparent];
+}
+
+@utility ca-button--danger {
+  @apply skin-base:[--ca-pigment:var(--color-destructive)] skin-base:[--ca-pigment-ink:white] skin-base:[--ca-pigment-edge:var(--color-destructive)] skin-base:[--ca-pigment-hover:color-mix(in_oklab,var(--color-destructive)_90%,transparent)] skin-base:[--ca-pigment-edge-hover:var(--color-destructive)];
+  @apply skin-calaca:[--ca-pigment:var(--color-destructive)] skin-calaca:[--ca-pigment-ink:white] skin-calaca:[--ca-pigment-edge:var(--color-destructive)] skin-calaca:[--ca-pigment-hover:color-mix(in_oklab,var(--color-destructive)_90%,transparent)] skin-calaca:[--ca-pigment-edge-hover:var(--color-destructive)];
+}
+
+@utility ca-button--xs {
+  @apply skin-base:h-7 skin-base:px-2.5 skin-base:text-xs;
+  @apply skin-calaca:h-7 skin-calaca:px-2.5 skin-calaca:text-xs;
 }
 
 @utility ca-button--sm {
   @apply skin-base:h-8 skin-base:px-3 skin-base:text-sm;
   @apply skin-calaca:h-8 skin-calaca:px-3 skin-calaca:text-sm;
   @apply skin-calaca:h-8 skin-calaca:px-3 skin-calaca:text-sm;
-  @apply skin-bloque:h-8 skin-bloque:px-3 skin-bloque:text-sm;
-  @apply skin-bloque:h-10 skin-bloque:px-4 skin-bloque:text-xs;
 }
 
 @utility ca-button--md {
   @apply skin-base:h-9 skin-base:px-4 skin-base:text-sm;
   @apply skin-calaca:h-9 skin-calaca:px-4 skin-calaca:text-sm;
   @apply skin-calaca:h-10 skin-calaca:px-5 skin-calaca:text-base;
-  @apply skin-bloque:h-9 skin-bloque:px-4 skin-bloque:text-sm;
-  @apply skin-bloque:h-12 skin-bloque:px-6 skin-bloque:text-sm;
 }
 
 @utility ca-button--lg {
   @apply skin-base:h-11 skin-base:px-5 skin-base:text-base;
   @apply skin-calaca:h-11 skin-calaca:px-5 skin-calaca:text-base;
   @apply skin-calaca:h-12 skin-calaca:px-6 skin-calaca:text-lg;
-  @apply skin-bloque:h-11 skin-bloque:px-5 skin-bloque:text-base;
-  @apply skin-bloque:h-14 skin-bloque:px-8 skin-bloque:text-base;
+}
+
+@utility ca-button--xl {
+  @apply skin-base:h-12 skin-base:px-6 skin-base:text-lg;
+  @apply skin-calaca:h-12 skin-calaca:px-6 skin-calaca:text-lg;
+}
+
+@utility ca-button--icon {
+  @apply skin-base:size-9 skin-base:p-0;
+  @apply skin-calaca:size-9 skin-calaca:p-0;
 }
 
 @utility ca-card {
   @apply skin-base:gap-4 skin-base:rounded-card skin-base:border skin-base:border-border skin-base:bg-background skin-base:p-6 skin-base:text-foreground skin-base:shadow-xs;
   @apply skin-calaca:gap-4 skin-calaca:rounded-card skin-calaca:border skin-calaca:border-border skin-calaca:bg-background skin-calaca:p-6 skin-calaca:text-foreground skin-calaca:shadow-xs;
   @apply skin-calaca:border-2 skin-calaca:border-input skin-calaca:shadow-[6px_6px_0_0_var(--color-foreground)];
-  @apply skin-bloque:gap-4 skin-bloque:rounded-card skin-bloque:border skin-bloque:border-border skin-bloque:bg-background skin-bloque:p-6 skin-bloque:text-foreground skin-bloque:shadow-xs;
-  @apply skin-bloque:gap-6 skin-bloque:rounded-none skin-bloque:border-2 skin-bloque:border-foreground skin-bloque:p-8 skin-bloque:shadow-[6px_6px_0_0_var(--color-foreground)];
 }
 
 @utility ca-card__title {
   @apply skin-base:font-display skin-base:text-lg skin-base:leading-tight skin-base:font-semibold skin-base:text-balance;
   @apply skin-calaca:font-display skin-calaca:text-lg skin-calaca:leading-tight skin-calaca:font-semibold skin-calaca:text-balance;
   @apply skin-calaca:text-xl skin-calaca:font-black skin-calaca:tracking-[-0.02em];
-  @apply skin-bloque:font-display skin-bloque:text-lg skin-bloque:leading-tight skin-bloque:font-semibold skin-bloque:text-balance;
-  @apply skin-bloque:text-xl skin-bloque:font-bold skin-bloque:tracking-wide skin-bloque:uppercase;
 }
 
 @utility ca-card__description {
   @apply skin-base:text-sm skin-base:text-muted-foreground skin-base:text-pretty;
   @apply skin-calaca:text-sm skin-calaca:text-muted-foreground skin-calaca:text-pretty;
-  @apply skin-bloque:text-sm skin-bloque:text-muted-foreground skin-bloque:text-pretty;
 }
 
 @utility ca-card__footer {
   @apply skin-base:gap-2 skin-base:pt-2;
   @apply skin-calaca:gap-2 skin-calaca:pt-2;
-  @apply skin-bloque:gap-2 skin-bloque:pt-2;
-  @apply skin-bloque:gap-4 skin-bloque:pt-4;
 }
 
 @utility ca-field {
   @apply skin-base:gap-1.5;
   @apply skin-calaca:gap-1.5;
-  @apply skin-bloque:gap-1.5;
-  @apply skin-bloque:gap-2;
 }
 
 @utility ca-field__label {
   @apply skin-base:text-sm skin-base:font-medium skin-base:text-foreground skin-base:[legend&]:mb-1.5;
   @apply skin-calaca:text-sm skin-calaca:font-medium skin-calaca:text-foreground skin-calaca:[legend&]:mb-1.5;
   @apply skin-calaca:font-bold;
-  @apply skin-bloque:text-sm skin-bloque:font-medium skin-bloque:text-foreground skin-bloque:[legend&]:mb-1.5;
-  @apply skin-bloque:text-xs skin-bloque:font-bold skin-bloque:tracking-wide skin-bloque:uppercase;
 }
 
 @utility ca-field__hint {
   @apply skin-base:text-sm skin-base:text-muted-foreground;
   @apply skin-calaca:text-sm skin-calaca:text-muted-foreground;
-  @apply skin-bloque:text-sm skin-bloque:text-muted-foreground;
 }
 
 @utility ca-field__error {
   @apply skin-base:text-sm skin-base:font-medium skin-base:text-destructive;
   @apply skin-calaca:text-sm skin-calaca:font-medium skin-calaca:text-destructive;
-  @apply skin-bloque:text-sm skin-bloque:font-medium skin-bloque:text-destructive;
 }
 
 @utility ca-input {
@@ -594,30 +429,21 @@
   @apply skin-calaca:rounded-lg skin-calaca:border skin-calaca:border-input skin-calaca:bg-background skin-calaca:text-foreground skin-calaca:placeholder:text-muted-foreground;
   @apply skin-calaca:aria-invalid:border-destructive skin-calaca:disabled:opacity-60;
   @apply skin-calaca:rounded-xl skin-calaca:border-2 skin-calaca:focus-visible:[--tw-outline-style:dashed];
-  @apply skin-bloque:rounded-lg skin-bloque:border skin-bloque:border-input skin-bloque:bg-background skin-bloque:text-foreground skin-bloque:placeholder:text-muted-foreground;
-  @apply skin-bloque:aria-invalid:border-destructive skin-bloque:disabled:opacity-60;
-  @apply skin-bloque:rounded-none skin-bloque:border-2 skin-bloque:border-foreground;
 }
 
 @utility ca-input--sm {
   @apply skin-base:h-8 skin-base:px-2.5 skin-base:text-base skin-base:sm:text-sm;
   @apply skin-calaca:h-8 skin-calaca:px-2.5 skin-calaca:text-base skin-calaca:sm:text-sm;
-  @apply skin-bloque:h-8 skin-bloque:px-2.5 skin-bloque:text-base skin-bloque:sm:text-sm;
-  @apply skin-bloque:h-10 skin-bloque:px-3;
 }
 
 @utility ca-input--md {
   @apply skin-base:h-9 skin-base:px-3 skin-base:text-base skin-base:sm:text-sm;
   @apply skin-calaca:h-9 skin-calaca:px-3 skin-calaca:text-base skin-calaca:sm:text-sm;
-  @apply skin-bloque:h-9 skin-bloque:px-3 skin-bloque:text-base skin-bloque:sm:text-sm;
-  @apply skin-bloque:h-12 skin-bloque:px-4;
 }
 
 @utility ca-input--lg {
   @apply skin-base:h-11 skin-base:px-3.5 skin-base:text-base;
   @apply skin-calaca:h-11 skin-calaca:px-3.5 skin-calaca:text-base;
-  @apply skin-bloque:h-11 skin-bloque:px-3.5 skin-bloque:text-base;
-  @apply skin-bloque:h-14 skin-bloque:px-5;
 }
 
 @utility ca-select {
@@ -636,98 +462,68 @@
   @apply skin-calaca:rounded-xl skin-calaca:border-2 skin-calaca:focus-visible:[--tw-outline-style:dashed];
   @apply skin-calaca:supports-[appearance:base-select]:[&::picker(select)]:rounded-xl skin-calaca:supports-[appearance:base-select]:[&::picker(select)]:border-2 skin-calaca:supports-[appearance:base-select]:[&::picker(select)]:border-input skin-calaca:supports-[appearance:base-select]:[&::picker(select)]:p-1.5 skin-calaca:supports-[appearance:base-select]:[&::picker(select)]:shadow-[4px_4px_0_0_var(--color-foreground)];
   @apply skin-calaca:supports-[appearance:base-select]:[&_option]:rounded-lg skin-calaca:supports-[appearance:base-select]:[&_option]:font-semibold skin-calaca:supports-[appearance:base-select]:[&_option:checked]:bg-primary skin-calaca:supports-[appearance:base-select]:[&_option:checked]:text-primary-foreground;
-  @apply skin-bloque:appearance-none skin-bloque:rounded-lg skin-bloque:border skin-bloque:border-input skin-bloque:bg-background skin-bloque:text-foreground skin-bloque:disabled:opacity-60 skin-bloque:aria-invalid:border-destructive;
-  @apply skin-bloque:bg-[linear-gradient(45deg,transparent_50%,currentColor_50%),linear-gradient(135deg,currentColor_50%,transparent_50%)] skin-bloque:bg-size-[0.3125rem_0.3125rem] skin-bloque:bg-no-repeat;
-  @apply skin-bloque:[background-position:calc(100%-1.125rem)_50%,calc(100%-0.8125rem)_50%] skin-bloque:rtl:[background-position:0.8125rem_50%,1.125rem_50%] skin-bloque:forced-colors:appearance-auto;
-  @apply skin-bloque:supports-[appearance:base-select]:[appearance:base-select] skin-bloque:supports-[appearance:base-select]:[&::picker(select)]:[appearance:base-select];
-  @apply skin-bloque:supports-[appearance:base-select]:[&::picker(select)]:my-1 skin-bloque:supports-[appearance:base-select]:[&::picker(select)]:rounded-lg skin-bloque:supports-[appearance:base-select]:[&::picker(select)]:border skin-bloque:supports-[appearance:base-select]:[&::picker(select)]:border-border skin-bloque:supports-[appearance:base-select]:[&::picker(select)]:bg-background skin-bloque:supports-[appearance:base-select]:[&::picker(select)]:p-1 skin-bloque:supports-[appearance:base-select]:[&::picker(select)]:text-foreground skin-bloque:supports-[appearance:base-select]:[&::picker(select)]:shadow-lg;
-  @apply skin-bloque:supports-[appearance:base-select]:[&_option]:rounded-md skin-bloque:supports-[appearance:base-select]:[&_option]:px-2.5 skin-bloque:supports-[appearance:base-select]:[&_option]:py-1.5 skin-bloque:supports-[appearance:base-select]:[&_option:checked]:font-medium skin-bloque:supports-[appearance:base-select]:[&_option:is(:hover,:focus-visible)]:bg-muted skin-bloque:supports-[appearance:base-select]:[&_option::checkmark]:me-2;
-  @apply skin-bloque:rounded-none skin-bloque:border-2 skin-bloque:border-foreground;
-  @apply skin-bloque:supports-[appearance:base-select]:[&::picker(select)]:rounded-none skin-bloque:supports-[appearance:base-select]:[&::picker(select)]:border-2 skin-bloque:supports-[appearance:base-select]:[&::picker(select)]:border-foreground skin-bloque:supports-[appearance:base-select]:[&::picker(select)]:p-0 skin-bloque:supports-[appearance:base-select]:[&::picker(select)]:shadow-[4px_4px_0_0_var(--color-foreground)];
-  @apply skin-bloque:supports-[appearance:base-select]:[&_option]:rounded-none skin-bloque:supports-[appearance:base-select]:[&_option]:px-4 skin-bloque:supports-[appearance:base-select]:[&_option]:py-2.5 skin-bloque:supports-[appearance:base-select]:[&_option:checked]:bg-surface-inverse skin-bloque:supports-[appearance:base-select]:[&_option:checked]:text-on-inverse;
 }
 
 @utility ca-select--sm {
   @apply skin-base:h-8 skin-base:ps-2.5 skin-base:pe-8 skin-base:text-base skin-base:sm:text-sm;
   @apply skin-calaca:h-8 skin-calaca:ps-2.5 skin-calaca:pe-8 skin-calaca:text-base skin-calaca:sm:text-sm;
-  @apply skin-bloque:h-8 skin-bloque:ps-2.5 skin-bloque:pe-8 skin-bloque:text-base skin-bloque:sm:text-sm;
-  @apply skin-bloque:h-10 skin-bloque:ps-3;
 }
 
 @utility ca-select--md {
   @apply skin-base:h-9 skin-base:ps-3 skin-base:pe-9 skin-base:text-base skin-base:sm:text-sm;
   @apply skin-calaca:h-9 skin-calaca:ps-3 skin-calaca:pe-9 skin-calaca:text-base skin-calaca:sm:text-sm;
-  @apply skin-bloque:h-9 skin-bloque:ps-3 skin-bloque:pe-9 skin-bloque:text-base skin-bloque:sm:text-sm;
-  @apply skin-bloque:h-12 skin-bloque:ps-4;
 }
 
 @utility ca-select--lg {
   @apply skin-base:h-11 skin-base:ps-3.5 skin-base:pe-10 skin-base:text-base;
   @apply skin-calaca:h-11 skin-calaca:ps-3.5 skin-calaca:pe-10 skin-calaca:text-base;
-  @apply skin-bloque:h-11 skin-bloque:ps-3.5 skin-bloque:pe-10 skin-bloque:text-base;
-  @apply skin-bloque:h-14 skin-bloque:ps-5;
 }
 
 @utility ca-combobox {
   @apply skin-base:text-foreground;
   @apply skin-calaca:text-foreground;
-  @apply skin-bloque:text-foreground;
 }
 
 @utility ca-combobox__listbox {
   @apply skin-base:my-1 skin-base:rounded-lg skin-base:border skin-base:border-border skin-base:bg-background skin-base:p-1 skin-base:shadow-lg;
   @apply skin-calaca:my-1 skin-calaca:rounded-lg skin-calaca:border skin-calaca:border-border skin-calaca:bg-background skin-calaca:p-1 skin-calaca:shadow-lg;
   @apply skin-calaca:rounded-xl skin-calaca:border-2 skin-calaca:border-input skin-calaca:p-1.5 skin-calaca:shadow-[4px_4px_0_0_var(--color-foreground)];
-  @apply skin-bloque:my-1 skin-bloque:rounded-lg skin-bloque:border skin-bloque:border-border skin-bloque:bg-background skin-bloque:p-1 skin-bloque:shadow-lg;
-  @apply skin-bloque:rounded-none skin-bloque:border-2 skin-bloque:border-foreground skin-bloque:p-0 skin-bloque:shadow-[4px_4px_0_0_var(--color-foreground)];
 }
 
 @utility ca-combobox__option {
   @apply skin-base:rounded-md skin-base:px-2.5 skin-base:py-1.5 skin-base:text-sm skin-base:text-foreground skin-base:no-underline skin-base:aria-selected:bg-muted skin-base:aria-disabled:opacity-60 skin-base:hover:bg-muted;
   @apply skin-calaca:rounded-md skin-calaca:px-2.5 skin-calaca:py-1.5 skin-calaca:text-sm skin-calaca:text-foreground skin-calaca:no-underline skin-calaca:aria-selected:bg-muted skin-calaca:aria-disabled:opacity-60 skin-calaca:hover:bg-muted;
   @apply skin-calaca:rounded-lg skin-calaca:font-semibold;
-  @apply skin-bloque:rounded-md skin-bloque:px-2.5 skin-bloque:py-1.5 skin-bloque:text-sm skin-bloque:text-foreground skin-bloque:no-underline skin-bloque:aria-selected:bg-muted skin-bloque:aria-disabled:opacity-60 skin-bloque:hover:bg-muted;
-  @apply skin-bloque:rounded-none skin-bloque:px-4 skin-bloque:py-2.5 skin-bloque:aria-selected:bg-surface-inverse skin-bloque:aria-selected:text-on-inverse;
 }
 
 @utility ca-checkbox {
   @apply skin-base:gap-2 skin-base:text-sm skin-base:text-foreground skin-base:has-disabled:opacity-60;
   @apply skin-calaca:gap-2 skin-calaca:text-sm skin-calaca:text-foreground skin-calaca:has-disabled:opacity-60;
   @apply skin-calaca:font-semibold;
-  @apply skin-bloque:gap-2 skin-bloque:text-sm skin-bloque:text-foreground skin-bloque:has-disabled:opacity-60;
-  @apply skin-bloque:gap-3 skin-bloque:text-base;
 }
 
 @utility ca-checkbox__input {
   @apply skin-base:size-4 skin-base:accent-primary;
   @apply skin-calaca:size-4 skin-calaca:accent-primary;
   @apply skin-calaca:size-5;
-  @apply skin-bloque:size-4 skin-bloque:accent-primary;
-  @apply skin-bloque:size-5;
 }
 
 @utility ca-radio {
   @apply skin-base:gap-2 skin-base:text-sm skin-base:text-foreground skin-base:has-disabled:opacity-60;
   @apply skin-calaca:gap-2 skin-calaca:text-sm skin-calaca:text-foreground skin-calaca:has-disabled:opacity-60;
   @apply skin-calaca:font-semibold;
-  @apply skin-bloque:gap-2 skin-bloque:text-sm skin-bloque:text-foreground skin-bloque:has-disabled:opacity-60;
-  @apply skin-bloque:gap-3 skin-bloque:text-base;
 }
 
 @utility ca-radio__input {
   @apply skin-base:size-4 skin-base:accent-primary;
   @apply skin-calaca:size-4 skin-calaca:accent-primary;
   @apply skin-calaca:size-5;
-  @apply skin-bloque:size-4 skin-bloque:accent-primary;
-  @apply skin-bloque:size-5;
 }
 
 @utility ca-switch {
   @apply skin-base:gap-2.5 skin-base:text-sm skin-base:text-foreground skin-base:has-disabled:opacity-60;
   @apply skin-calaca:gap-2.5 skin-calaca:text-sm skin-calaca:text-foreground skin-calaca:has-disabled:opacity-60;
   @apply skin-calaca:font-semibold;
-  @apply skin-bloque:gap-2.5 skin-bloque:text-sm skin-bloque:text-foreground skin-bloque:has-disabled:opacity-60;
-  @apply skin-bloque:gap-3 skin-bloque:text-base;
 }
 
 @utility ca-switch__input {
@@ -742,14 +538,58 @@
   @apply skin-calaca:checked:bg-[radial-gradient(circle_closest-side,var(--color-primary-foreground)_calc(100%-1px),transparent_100%)] skin-calaca:checked:bg-primary;
   @apply skin-calaca:motion-safe:transition-[background-color,background-position] skin-calaca:motion-safe:duration-150;
   @apply skin-calaca:h-6 skin-calaca:w-11 skin-calaca:border-2 skin-calaca:border-input skin-calaca:bg-size-[1.125rem_1.125rem] skin-calaca:[background-position:0.0625rem_50%] skin-calaca:checked:[background-position:calc(100%-0.0625rem)_50%] skin-calaca:rtl:[background-position:calc(100%-0.0625rem)_50%] skin-calaca:rtl:checked:[background-position:0.0625rem_50%] skin-calaca:focus-visible:[--tw-outline-style:dashed];
-  @apply skin-bloque:h-5 skin-bloque:w-9 skin-bloque:appearance-none skin-bloque:rounded-full skin-bloque:bg-input skin-bloque:forced-colors:appearance-auto;
-  @apply skin-bloque:bg-[radial-gradient(circle_closest-side,var(--color-background)_calc(100%-1px),transparent_100%)] skin-bloque:bg-size-[1rem_1rem] skin-bloque:bg-no-repeat;
-  @apply skin-bloque:[background-position:0.125rem_50%] skin-bloque:checked:[background-position:calc(100%-0.125rem)_50%] skin-bloque:rtl:[background-position:calc(100%-0.125rem)_50%] skin-bloque:rtl:checked:[background-position:0.125rem_50%];
-  @apply skin-bloque:checked:bg-[radial-gradient(circle_closest-side,var(--color-primary-foreground)_calc(100%-1px),transparent_100%)] skin-bloque:checked:bg-primary;
-  @apply skin-bloque:motion-safe:transition-[background-color,background-position] skin-bloque:motion-safe:duration-150;
-  @apply skin-bloque:rounded-none skin-bloque:border-2 skin-bloque:border-foreground;
-  @apply skin-bloque:bg-[linear-gradient(var(--color-background),var(--color-background))];
-  @apply skin-bloque:checked:bg-[linear-gradient(var(--color-primary-foreground),var(--color-primary-foreground))];
+}
+
+@utility ca-checkbox__control {
+  @apply skin-base:size-4.5 skin-base:rounded-[5px] skin-base:border skin-base:border-input skin-base:bg-background skin-base:shadow-xs;
+  @apply skin-base:data-disabled:opacity-50;
+  @apply skin-base:data-checked:border-primary skin-base:data-checked:bg-primary skin-base:data-checked:text-primary-foreground;
+  @apply skin-base:data-indeterminate:border-primary skin-base:data-indeterminate:bg-primary skin-base:data-indeterminate:text-primary-foreground;
+  @apply skin-base:motion-safe:transition-colors;
+  @apply skin-calaca:size-4.5 skin-calaca:rounded-[5px] skin-calaca:border skin-calaca:border-input skin-calaca:bg-background skin-calaca:shadow-xs;
+  @apply skin-calaca:data-disabled:opacity-50;
+  @apply skin-calaca:data-checked:border-primary skin-calaca:data-checked:bg-primary skin-calaca:data-checked:text-primary-foreground;
+  @apply skin-calaca:data-indeterminate:border-primary skin-calaca:data-indeterminate:bg-primary skin-calaca:data-indeterminate:text-primary-foreground;
+  @apply skin-calaca:motion-safe:transition-colors;
+}
+
+@utility ca-checkbox__indicator {
+  @apply skin-base:size-full skin-base:text-current skin-base:[&_svg:not([class*='size-'])]:size-3.5;
+  @apply skin-calaca:size-full skin-calaca:text-current skin-calaca:[&_svg:not([class*='size-'])]:size-3.5;
+}
+
+@utility ca-radio__control {
+  @apply skin-base:size-4.5 skin-base:rounded-full skin-base:border skin-base:border-input skin-base:bg-background skin-base:shadow-xs;
+  @apply skin-base:data-disabled:opacity-50;
+  @apply skin-base:data-checked:border-primary skin-base:data-checked:bg-primary skin-base:data-checked:text-primary-foreground;
+  @apply skin-base:motion-safe:transition-colors;
+  @apply skin-calaca:size-4.5 skin-calaca:rounded-full skin-calaca:border skin-calaca:border-input skin-calaca:bg-background skin-calaca:shadow-xs;
+  @apply skin-calaca:data-disabled:opacity-50;
+  @apply skin-calaca:data-checked:border-primary skin-calaca:data-checked:bg-primary skin-calaca:data-checked:text-primary-foreground;
+  @apply skin-calaca:motion-safe:transition-colors;
+}
+
+@utility ca-radio__indicator {
+  @apply skin-base:size-full skin-base:text-current skin-base:[&_svg:not([class*='size-'])]:size-2.5;
+  @apply skin-calaca:size-full skin-calaca:text-current skin-calaca:[&_svg:not([class*='size-'])]:size-2.5;
+}
+
+@utility ca-switch__control {
+  @apply skin-base:h-[calc(var(--thumb-size)+2px)] skin-base:w-[calc(var(--thumb-size)*2-2px)] skin-base:rounded-full skin-base:p-px skin-base:[--thumb-size:--spacing(5)];
+  @apply skin-base:bg-input skin-base:data-checked:bg-primary skin-base:data-disabled:opacity-60;
+  @apply skin-base:motion-safe:transition-colors;
+  @apply skin-calaca:h-[calc(var(--thumb-size)+2px)] skin-calaca:w-[calc(var(--thumb-size)*2-2px)] skin-calaca:rounded-full skin-calaca:p-px skin-calaca:[--thumb-size:--spacing(5)];
+  @apply skin-calaca:bg-input skin-calaca:data-checked:bg-primary skin-calaca:data-disabled:opacity-60;
+  @apply skin-calaca:motion-safe:transition-colors;
+}
+
+@utility ca-switch__thumb {
+  @apply skin-base:aspect-square skin-base:h-full skin-base:rounded-(--thumb-size) skin-base:bg-background skin-base:shadow-sm;
+  @apply skin-base:data-checked:translate-x-[calc(var(--thumb-size)-4px)] skin-base:rtl:data-checked:-translate-x-[calc(var(--thumb-size)-4px)];
+  @apply skin-base:motion-safe:transition-transform;
+  @apply skin-calaca:aspect-square skin-calaca:h-full skin-calaca:rounded-(--thumb-size) skin-calaca:bg-background skin-calaca:shadow-sm;
+  @apply skin-calaca:data-checked:translate-x-[calc(var(--thumb-size)-4px)] skin-calaca:rtl:data-checked:-translate-x-[calc(var(--thumb-size)-4px)];
+  @apply skin-calaca:motion-safe:transition-transform;
 }
 
 @utility ca-badge {
@@ -758,61 +598,48 @@
   @apply skin-calaca:gap-1 skin-calaca:rounded-full skin-calaca:border skin-calaca:px-2 skin-calaca:py-0.5 skin-calaca:text-xs skin-calaca:font-medium;
   @apply skin-calaca:border-(--ca-pigment-edge) skin-calaca:bg-(--ca-pigment) skin-calaca:text-(--ca-pigment-ink);
   @apply skin-calaca:border-[1.5px] skin-calaca:font-mono skin-calaca:text-[0.7rem] skin-calaca:font-semibold skin-calaca:tracking-[0.08em] skin-calaca:uppercase;
-  @apply skin-bloque:gap-1 skin-bloque:rounded-full skin-bloque:border skin-bloque:px-2 skin-bloque:py-0.5 skin-bloque:text-xs skin-bloque:font-medium;
-  @apply skin-bloque:border-(--ca-pigment-edge) skin-bloque:bg-(--ca-pigment) skin-bloque:text-(--ca-pigment-ink);
-  @apply skin-bloque:rounded-none skin-bloque:border-2 skin-bloque:px-2.5 skin-bloque:py-1 skin-bloque:font-bold skin-bloque:tracking-wide skin-bloque:uppercase;
 }
 
 @utility ca-badge--neutral {
   @apply skin-base:[--ca-pigment:var(--color-muted)] skin-base:[--ca-pigment-ink:var(--color-foreground)] skin-base:[--ca-pigment-edge:var(--color-border)] skin-base:[--ca-pigment-hover:var(--color-muted)] skin-base:[--ca-pigment-edge-hover:var(--color-border)];
   @apply skin-calaca:[--ca-pigment:var(--color-muted)] skin-calaca:[--ca-pigment-ink:var(--color-foreground)] skin-calaca:[--ca-pigment-edge:var(--color-border)] skin-calaca:[--ca-pigment-hover:var(--color-muted)] skin-calaca:[--ca-pigment-edge-hover:var(--color-border)];
-  @apply skin-bloque:[--ca-pigment:var(--color-muted)] skin-bloque:[--ca-pigment-ink:var(--color-foreground)] skin-bloque:[--ca-pigment-edge:var(--color-border)] skin-bloque:[--ca-pigment-hover:var(--color-muted)] skin-bloque:[--ca-pigment-edge-hover:var(--color-border)];
 }
 
 @utility ca-badge--primary {
   @apply skin-base:[--ca-pigment:var(--color-primary)] skin-base:[--ca-pigment-ink:var(--color-primary-foreground)] skin-base:[--ca-pigment-edge:var(--color-primary)] skin-base:[--ca-pigment-hover:var(--color-primary)] skin-base:[--ca-pigment-edge-hover:var(--color-primary)];
   @apply skin-calaca:[--ca-pigment:var(--color-primary)] skin-calaca:[--ca-pigment-ink:var(--color-primary-foreground)] skin-calaca:[--ca-pigment-edge:var(--color-primary)] skin-calaca:[--ca-pigment-hover:var(--color-primary)] skin-calaca:[--ca-pigment-edge-hover:var(--color-primary)];
-  @apply skin-bloque:[--ca-pigment:var(--color-primary)] skin-bloque:[--ca-pigment-ink:var(--color-primary-foreground)] skin-bloque:[--ca-pigment-edge:var(--color-primary)] skin-bloque:[--ca-pigment-hover:var(--color-primary)] skin-bloque:[--ca-pigment-edge-hover:var(--color-primary)];
 }
 
 @utility ca-badge--success {
   @apply skin-base:[--ca-pigment:var(--color-background)] skin-base:[--ca-pigment-ink:var(--color-success)] skin-base:[--ca-pigment-edge:currentColor] skin-base:[--ca-pigment-hover:var(--color-background)] skin-base:[--ca-pigment-edge-hover:currentColor];
   @apply skin-calaca:[--ca-pigment:var(--color-background)] skin-calaca:[--ca-pigment-ink:var(--color-success)] skin-calaca:[--ca-pigment-edge:currentColor] skin-calaca:[--ca-pigment-hover:var(--color-background)] skin-calaca:[--ca-pigment-edge-hover:currentColor];
-  @apply skin-bloque:[--ca-pigment:var(--color-background)] skin-bloque:[--ca-pigment-ink:var(--color-success)] skin-bloque:[--ca-pigment-edge:currentColor] skin-bloque:[--ca-pigment-hover:var(--color-background)] skin-bloque:[--ca-pigment-edge-hover:currentColor];
 }
 
 @utility ca-badge--warning {
   @apply skin-base:[--ca-pigment:var(--color-background)] skin-base:[--ca-pigment-ink:var(--color-warning)] skin-base:[--ca-pigment-edge:currentColor] skin-base:[--ca-pigment-hover:var(--color-background)] skin-base:[--ca-pigment-edge-hover:currentColor];
   @apply skin-calaca:[--ca-pigment:var(--color-background)] skin-calaca:[--ca-pigment-ink:var(--color-warning)] skin-calaca:[--ca-pigment-edge:currentColor] skin-calaca:[--ca-pigment-hover:var(--color-background)] skin-calaca:[--ca-pigment-edge-hover:currentColor];
-  @apply skin-bloque:[--ca-pigment:var(--color-background)] skin-bloque:[--ca-pigment-ink:var(--color-warning)] skin-bloque:[--ca-pigment-edge:currentColor] skin-bloque:[--ca-pigment-hover:var(--color-background)] skin-bloque:[--ca-pigment-edge-hover:currentColor];
 }
 
 @utility ca-badge--danger {
   @apply skin-base:[--ca-pigment:var(--color-background)] skin-base:[--ca-pigment-ink:var(--color-destructive)] skin-base:[--ca-pigment-edge:currentColor] skin-base:[--ca-pigment-hover:var(--color-background)] skin-base:[--ca-pigment-edge-hover:currentColor];
   @apply skin-calaca:[--ca-pigment:var(--color-background)] skin-calaca:[--ca-pigment-ink:var(--color-destructive)] skin-calaca:[--ca-pigment-edge:currentColor] skin-calaca:[--ca-pigment-hover:var(--color-background)] skin-calaca:[--ca-pigment-edge-hover:currentColor];
-  @apply skin-bloque:[--ca-pigment:var(--color-background)] skin-bloque:[--ca-pigment-ink:var(--color-destructive)] skin-bloque:[--ca-pigment-edge:currentColor] skin-bloque:[--ca-pigment-hover:var(--color-background)] skin-bloque:[--ca-pigment-edge-hover:currentColor];
 }
 
 @utility ca-badge--info {
   @apply skin-base:[--ca-pigment:var(--color-background)] skin-base:[--ca-pigment-ink:var(--color-info)] skin-base:[--ca-pigment-edge:currentColor] skin-base:[--ca-pigment-hover:var(--color-background)] skin-base:[--ca-pigment-edge-hover:currentColor];
   @apply skin-calaca:[--ca-pigment:var(--color-background)] skin-calaca:[--ca-pigment-ink:var(--color-info)] skin-calaca:[--ca-pigment-edge:currentColor] skin-calaca:[--ca-pigment-hover:var(--color-background)] skin-calaca:[--ca-pigment-edge-hover:currentColor];
-  @apply skin-bloque:[--ca-pigment:var(--color-background)] skin-bloque:[--ca-pigment-ink:var(--color-info)] skin-bloque:[--ca-pigment-edge:currentColor] skin-bloque:[--ca-pigment-hover:var(--color-background)] skin-bloque:[--ca-pigment-edge-hover:currentColor];
 }
 
 @utility ca-eyebrow {
   @apply skin-base:gap-2 skin-base:text-xs skin-base:font-medium skin-base:uppercase skin-base:tracking-wider skin-base:text-muted-foreground;
   @apply skin-calaca:gap-2 skin-calaca:text-xs skin-calaca:font-medium skin-calaca:uppercase skin-calaca:tracking-wider skin-calaca:text-muted-foreground;
   @apply skin-calaca:font-mono skin-calaca:text-[0.7rem] skin-calaca:font-semibold skin-calaca:tracking-[0.12em];
-  @apply skin-bloque:gap-2 skin-bloque:text-xs skin-bloque:font-medium skin-bloque:uppercase skin-bloque:tracking-wider skin-bloque:text-muted-foreground;
-  @apply skin-bloque:gap-3 skin-bloque:text-xs skin-bloque:font-bold skin-bloque:tracking-widest;
 }
 
 @utility ca-eyebrow__number {
   @apply skin-base:rounded-full skin-base:border skin-base:border-border skin-base:bg-muted skin-base:px-1.5 skin-base:py-0.5 skin-base:font-medium skin-base:tracking-normal skin-base:tabular-nums skin-base:text-foreground;
   @apply skin-calaca:rounded-full skin-calaca:border skin-calaca:border-border skin-calaca:bg-muted skin-calaca:px-1.5 skin-calaca:py-0.5 skin-calaca:font-medium skin-calaca:tracking-normal skin-calaca:tabular-nums skin-calaca:text-foreground;
   @apply skin-calaca:border-[1.5px] skin-calaca:border-foreground skin-calaca:bg-primary skin-calaca:px-[0.45rem] skin-calaca:py-0 skin-calaca:font-bold skin-calaca:text-primary-foreground;
-  @apply skin-bloque:rounded-full skin-bloque:border skin-bloque:border-border skin-bloque:bg-muted skin-bloque:px-1.5 skin-bloque:py-0.5 skin-bloque:font-medium skin-bloque:tracking-normal skin-bloque:tabular-nums skin-bloque:text-foreground;
-  @apply skin-bloque:rounded-none skin-bloque:border-2 skin-bloque:border-foreground skin-bloque:bg-surface-inverse skin-bloque:px-2 skin-bloque:py-0.5 skin-bloque:font-bold skin-bloque:text-on-inverse;
 }
 
 @utility ca-alert {
@@ -821,68 +648,53 @@
   @apply skin-calaca:gap-1 skin-calaca:rounded-lg skin-calaca:border skin-calaca:p-4 skin-calaca:text-sm;
   @apply skin-calaca:border-(--ca-pigment-edge) skin-calaca:bg-(--ca-pigment) skin-calaca:text-(--ca-pigment-ink);
   @apply skin-calaca:rounded-xl skin-calaca:border-2;
-  @apply skin-bloque:gap-1 skin-bloque:rounded-lg skin-bloque:border skin-bloque:p-4 skin-bloque:text-sm;
-  @apply skin-bloque:border-(--ca-pigment-edge) skin-bloque:bg-(--ca-pigment) skin-bloque:text-(--ca-pigment-ink);
-  @apply skin-bloque:gap-2 skin-bloque:rounded-none skin-bloque:border-2 skin-bloque:p-5;
 }
 
 @utility ca-alert__title {
   @apply skin-base:font-semibold skin-base:text-(--ca-pigment-title);
   @apply skin-calaca:font-semibold skin-calaca:text-(--ca-pigment-title);
   @apply skin-calaca:font-extrabold;
-  @apply skin-bloque:font-semibold skin-bloque:text-(--ca-pigment-title);
-  @apply skin-bloque:tracking-wide skin-bloque:uppercase;
 }
 
 @utility ca-alert__description {
   @apply skin-base:text-pretty;
   @apply skin-calaca:text-pretty;
-  @apply skin-bloque:text-pretty;
 }
 
 @utility ca-alert__actions {
   @apply skin-base:gap-2 skin-base:pt-2;
   @apply skin-calaca:gap-2 skin-calaca:pt-2;
-  @apply skin-bloque:gap-2 skin-bloque:pt-2;
-  @apply skin-bloque:gap-4 skin-bloque:pt-3;
 }
 
 @utility ca-alert--neutral {
   @apply skin-base:[--ca-pigment:var(--color-muted)] skin-base:[--ca-pigment-edge:var(--color-border)] skin-base:[--ca-pigment-ink:var(--color-foreground)] skin-base:[--ca-pigment-title:var(--color-foreground)];
   @apply skin-calaca:[--ca-pigment:var(--color-muted)] skin-calaca:[--ca-pigment-edge:var(--color-border)] skin-calaca:[--ca-pigment-ink:var(--color-foreground)] skin-calaca:[--ca-pigment-title:var(--color-foreground)];
-  @apply skin-bloque:[--ca-pigment:var(--color-muted)] skin-bloque:[--ca-pigment-edge:var(--color-border)] skin-bloque:[--ca-pigment-ink:var(--color-foreground)] skin-bloque:[--ca-pigment-title:var(--color-foreground)];
 }
 
 @utility ca-alert--info {
   @apply skin-base:[--ca-pigment:color-mix(in_oklab,var(--color-info)_8%,var(--color-background))] skin-base:[--ca-pigment-edge:var(--color-info)] skin-base:[--ca-pigment-ink:var(--color-foreground)] skin-base:[--ca-pigment-title:var(--color-info)];
   @apply skin-calaca:[--ca-pigment:color-mix(in_oklab,var(--color-info)_8%,var(--color-background))] skin-calaca:[--ca-pigment-edge:var(--color-info)] skin-calaca:[--ca-pigment-ink:var(--color-foreground)] skin-calaca:[--ca-pigment-title:var(--color-info)];
-  @apply skin-bloque:[--ca-pigment:color-mix(in_oklab,var(--color-info)_8%,var(--color-background))] skin-bloque:[--ca-pigment-edge:var(--color-info)] skin-bloque:[--ca-pigment-ink:var(--color-foreground)] skin-bloque:[--ca-pigment-title:var(--color-info)];
 }
 
 @utility ca-alert--success {
   @apply skin-base:[--ca-pigment:color-mix(in_oklab,var(--color-success)_8%,var(--color-background))] skin-base:[--ca-pigment-edge:var(--color-success)] skin-base:[--ca-pigment-ink:var(--color-foreground)] skin-base:[--ca-pigment-title:var(--color-success)];
   @apply skin-calaca:[--ca-pigment:color-mix(in_oklab,var(--color-success)_8%,var(--color-background))] skin-calaca:[--ca-pigment-edge:var(--color-success)] skin-calaca:[--ca-pigment-ink:var(--color-foreground)] skin-calaca:[--ca-pigment-title:var(--color-success)];
-  @apply skin-bloque:[--ca-pigment:color-mix(in_oklab,var(--color-success)_8%,var(--color-background))] skin-bloque:[--ca-pigment-edge:var(--color-success)] skin-bloque:[--ca-pigment-ink:var(--color-foreground)] skin-bloque:[--ca-pigment-title:var(--color-success)];
 }
 
 @utility ca-alert--warning {
   @apply skin-base:[--ca-pigment:color-mix(in_oklab,var(--color-warning)_8%,var(--color-background))] skin-base:[--ca-pigment-edge:var(--color-warning)] skin-base:[--ca-pigment-ink:var(--color-foreground)] skin-base:[--ca-pigment-title:var(--color-warning)];
   @apply skin-calaca:[--ca-pigment:color-mix(in_oklab,var(--color-warning)_8%,var(--color-background))] skin-calaca:[--ca-pigment-edge:var(--color-warning)] skin-calaca:[--ca-pigment-ink:var(--color-foreground)] skin-calaca:[--ca-pigment-title:var(--color-warning)];
-  @apply skin-bloque:[--ca-pigment:color-mix(in_oklab,var(--color-warning)_8%,var(--color-background))] skin-bloque:[--ca-pigment-edge:var(--color-warning)] skin-bloque:[--ca-pigment-ink:var(--color-foreground)] skin-bloque:[--ca-pigment-title:var(--color-warning)];
 }
 
 @utility ca-alert--danger {
   @apply skin-base:[--ca-pigment:color-mix(in_oklab,var(--color-destructive)_8%,var(--color-background))] skin-base:[--ca-pigment-edge:var(--color-destructive)] skin-base:[--ca-pigment-ink:var(--color-foreground)] skin-base:[--ca-pigment-title:var(--color-destructive)];
   @apply skin-calaca:[--ca-pigment:color-mix(in_oklab,var(--color-destructive)_8%,var(--color-background))] skin-calaca:[--ca-pigment-edge:var(--color-destructive)] skin-calaca:[--ca-pigment-ink:var(--color-foreground)] skin-calaca:[--ca-pigment-title:var(--color-destructive)];
-  @apply skin-bloque:[--ca-pigment:color-mix(in_oklab,var(--color-destructive)_8%,var(--color-background))] skin-bloque:[--ca-pigment-edge:var(--color-destructive)] skin-bloque:[--ca-pigment-ink:var(--color-foreground)] skin-bloque:[--ca-pigment-title:var(--color-destructive)];
 }
 
 @utility ca-accordion {
   @apply skin-base:divide-y skin-base:divide-border skin-base:border-y skin-base:border-border skin-base:text-foreground;
   @apply skin-calaca:divide-y skin-calaca:divide-border skin-calaca:border-y skin-calaca:border-border skin-calaca:text-foreground;
   @apply skin-calaca:divide-y-2 skin-calaca:divide-border skin-calaca:rounded-card skin-calaca:border-2 skin-calaca:border-input skin-calaca:shadow-[4px_4px_0_0_var(--color-foreground)];
-  @apply skin-bloque:divide-y skin-bloque:divide-border skin-bloque:border-y skin-bloque:border-border skin-bloque:text-foreground;
-  @apply skin-bloque:divide-y-2 skin-bloque:divide-foreground skin-bloque:border-2 skin-bloque:border-foreground;
 }
 
 @utility ca-accordion__item {
@@ -890,39 +702,29 @@
   @apply skin-base:motion-safe:[&::details-content]:transition-[height,content-visibility] skin-base:motion-safe:[&::details-content]:duration-200 skin-base:motion-safe:[&::details-content]:transition-discrete;
   @apply skin-calaca:[interpolate-size:allow-keywords] skin-calaca:[&::details-content]:h-0 skin-calaca:[&::details-content]:overflow-hidden skin-calaca:open:[&::details-content]:h-auto;
   @apply skin-calaca:motion-safe:[&::details-content]:transition-[height,content-visibility] skin-calaca:motion-safe:[&::details-content]:duration-200 skin-calaca:motion-safe:[&::details-content]:transition-discrete;
-  @apply skin-bloque:[interpolate-size:allow-keywords] skin-bloque:[&::details-content]:h-0 skin-bloque:[&::details-content]:overflow-hidden skin-bloque:open:[&::details-content]:h-auto;
-  @apply skin-bloque:motion-safe:[&::details-content]:transition-[height,content-visibility] skin-bloque:motion-safe:[&::details-content]:duration-200 skin-bloque:motion-safe:[&::details-content]:transition-discrete;
 }
 
 @utility ca-accordion__trigger {
   @apply skin-base:gap-4 skin-base:py-4 skin-base:font-medium skin-base:[&::after]:motion-safe:transition-[rotate] skin-base:[&::after]:motion-safe:duration-150;
   @apply skin-calaca:gap-4 skin-calaca:py-4 skin-calaca:font-medium skin-calaca:[&::after]:motion-safe:transition-[rotate] skin-calaca:[&::after]:motion-safe:duration-150;
   @apply skin-calaca:px-5 skin-calaca:font-extrabold skin-calaca:focus-visible:[--tw-outline-style:dashed];
-  @apply skin-bloque:gap-4 skin-bloque:py-4 skin-bloque:font-medium skin-bloque:[&::after]:motion-safe:transition-[rotate] skin-bloque:[&::after]:motion-safe:duration-150;
-  @apply skin-bloque:px-5 skin-bloque:py-5 skin-bloque:text-sm skin-bloque:font-bold skin-bloque:tracking-wide skin-bloque:uppercase;
 }
 
 @utility ca-accordion__content {
   @apply skin-base:pb-4 skin-base:text-sm skin-base:text-muted-foreground skin-base:text-pretty;
   @apply skin-calaca:pb-4 skin-calaca:text-sm skin-calaca:text-muted-foreground skin-calaca:text-pretty;
   @apply skin-calaca:px-5;
-  @apply skin-bloque:pb-4 skin-bloque:text-sm skin-bloque:text-muted-foreground skin-bloque:text-pretty;
-  @apply skin-bloque:px-5 skin-bloque:pb-5;
 }
 
 @utility ca-tabs {
   @apply skin-base:gap-4;
   @apply skin-calaca:gap-4;
-  @apply skin-bloque:gap-4;
-  @apply skin-bloque:gap-6;
 }
 
 @utility ca-tabs__list {
   @apply skin-base:w-fit skin-base:gap-1 skin-base:rounded-lg skin-base:bg-muted skin-base:p-1;
   @apply skin-calaca:w-fit skin-calaca:gap-1 skin-calaca:rounded-lg skin-calaca:bg-muted skin-calaca:p-1;
   @apply skin-calaca:rounded-xl skin-calaca:border-2 skin-calaca:border-input skin-calaca:p-1;
-  @apply skin-bloque:w-fit skin-bloque:gap-1 skin-bloque:rounded-lg skin-bloque:bg-muted skin-bloque:p-1;
-  @apply skin-bloque:gap-0 skin-bloque:rounded-none skin-bloque:border-2 skin-bloque:border-foreground skin-bloque:bg-transparent skin-bloque:p-0;
 }
 
 @utility ca-tabs__tab {
@@ -933,55 +735,42 @@
   @apply skin-calaca:interact:text-foreground skin-calaca:aria-selected:bg-background skin-calaca:aria-selected:text-foreground skin-calaca:aria-selected:shadow-xs skin-calaca:disabled:opacity-60;
   @apply skin-calaca:motion-safe:transition-[background-color,color] skin-calaca:motion-safe:duration-150;
   @apply skin-calaca:rounded-lg skin-calaca:font-bold skin-calaca:aria-selected:bg-primary skin-calaca:aria-selected:text-primary-foreground skin-calaca:aria-selected:shadow-none skin-calaca:focus-visible:[--tw-outline-style:dashed];
-  @apply skin-bloque:rounded-md skin-bloque:border-0 skin-bloque:bg-transparent skin-bloque:px-3 skin-bloque:py-1.5 skin-bloque:text-sm skin-bloque:font-medium skin-bloque:text-muted-foreground;
-  @apply skin-bloque:interact:text-foreground skin-bloque:aria-selected:bg-background skin-bloque:aria-selected:text-foreground skin-bloque:aria-selected:shadow-xs skin-bloque:disabled:opacity-60;
-  @apply skin-bloque:motion-safe:transition-[background-color,color] skin-bloque:motion-safe:duration-150;
-  @apply skin-bloque:rounded-none skin-bloque:px-5 skin-bloque:py-3 skin-bloque:text-xs skin-bloque:font-bold skin-bloque:tracking-wide skin-bloque:uppercase skin-bloque:aria-selected:bg-surface-inverse skin-bloque:aria-selected:text-on-inverse skin-bloque:aria-selected:shadow-none skin-bloque:motion-safe:duration-75;
 }
 
 @utility ca-tabs__panel {
   @apply skin-base:rounded-sm skin-base:text-sm skin-base:text-foreground;
   @apply skin-calaca:rounded-sm skin-calaca:text-sm skin-calaca:text-foreground;
-  @apply skin-bloque:rounded-sm skin-bloque:text-sm skin-bloque:text-foreground;
-  @apply skin-bloque:rounded-none skin-bloque:text-base;
 }
 
 @utility ca-breadcrumb {
   @apply skin-base:text-sm skin-base:text-muted-foreground;
   @apply skin-calaca:text-sm skin-calaca:text-muted-foreground;
-  @apply skin-bloque:text-sm skin-bloque:text-muted-foreground;
-  @apply skin-bloque:text-xs skin-bloque:font-bold skin-bloque:tracking-wide skin-bloque:uppercase;
 }
 
 @utility ca-breadcrumb__list {
   @apply skin-base:gap-1.5;
   @apply skin-calaca:gap-1.5;
-  @apply skin-bloque:gap-1.5;
 }
 
 @utility ca-breadcrumb__item {
   @apply skin-base:gap-1.5;
   @apply skin-calaca:gap-1.5;
-  @apply skin-bloque:gap-1.5;
 }
 
 @utility ca-breadcrumb__link {
   @apply skin-base:rounded-sm skin-base:text-muted-foreground skin-base:underline-offset-4 skin-base:interact:text-foreground skin-base:interact:underline skin-base:aria-[current=page]:font-medium skin-base:aria-[current=page]:text-foreground skin-base:aria-[current=page]:no-underline;
   @apply skin-calaca:rounded-sm skin-calaca:text-muted-foreground skin-calaca:underline-offset-4 skin-calaca:interact:text-foreground skin-calaca:interact:underline skin-calaca:aria-[current=page]:font-medium skin-calaca:aria-[current=page]:text-foreground skin-calaca:aria-[current=page]:no-underline;
   @apply skin-calaca:font-semibold;
-  @apply skin-bloque:rounded-sm skin-bloque:text-muted-foreground skin-bloque:underline-offset-4 skin-bloque:interact:text-foreground skin-bloque:interact:underline skin-bloque:aria-[current=page]:font-medium skin-bloque:aria-[current=page]:text-foreground skin-bloque:aria-[current=page]:no-underline;
 }
 
 @utility ca-pagination {
   @apply skin-base:text-sm;
   @apply skin-calaca:text-sm;
-  @apply skin-bloque:text-sm;
 }
 
 @utility ca-pagination__list {
   @apply skin-base:gap-1;
   @apply skin-calaca:gap-1;
-  @apply skin-bloque:gap-1;
 }
 
 @utility ca-pagination__link {
@@ -990,47 +779,37 @@
   @apply skin-calaca:h-9 skin-calaca:gap-1 skin-calaca:rounded-lg skin-calaca:border skin-calaca:border-transparent skin-calaca:px-3 skin-calaca:font-medium skin-calaca:text-foreground skin-calaca:no-underline;
   @apply skin-calaca:interact:bg-muted skin-calaca:aria-[current=page]:border-input skin-calaca:aria-[current=page]:bg-background skin-calaca:aria-disabled:pointer-events-none skin-calaca:aria-disabled:opacity-60;
   @apply skin-calaca:rounded-xl skin-calaca:border-2 skin-calaca:font-bold skin-calaca:aria-[current=page]:border-input skin-calaca:aria-[current=page]:bg-primary skin-calaca:aria-[current=page]:text-primary-foreground skin-calaca:focus-visible:[--tw-outline-style:dashed];
-  @apply skin-bloque:h-9 skin-bloque:gap-1 skin-bloque:rounded-lg skin-bloque:border skin-bloque:border-transparent skin-bloque:px-3 skin-bloque:font-medium skin-bloque:text-foreground skin-bloque:no-underline;
-  @apply skin-bloque:interact:bg-muted skin-bloque:aria-[current=page]:border-input skin-bloque:aria-[current=page]:bg-background skin-bloque:aria-disabled:pointer-events-none skin-bloque:aria-disabled:opacity-60;
-  @apply skin-bloque:rounded-none skin-bloque:border-2 skin-bloque:font-bold skin-bloque:aria-[current=page]:border-foreground skin-bloque:aria-[current=page]:bg-surface-inverse skin-bloque:aria-[current=page]:text-on-inverse;
 }
 
 @utility ca-pagination__ellipsis {
   @apply skin-base:h-9 skin-base:min-w-9 skin-base:text-muted-foreground;
   @apply skin-calaca:h-9 skin-calaca:min-w-9 skin-calaca:text-muted-foreground;
-  @apply skin-bloque:h-9 skin-bloque:min-w-9 skin-bloque:text-muted-foreground;
 }
 
 @utility ca-avatar {
   @apply skin-base:rounded-full skin-base:bg-muted skin-base:font-medium skin-base:text-foreground;
   @apply skin-calaca:rounded-full skin-calaca:bg-muted skin-calaca:font-medium skin-calaca:text-foreground;
   @apply skin-calaca:border-2 skin-calaca:border-input skin-calaca:font-extrabold;
-  @apply skin-bloque:rounded-full skin-bloque:bg-muted skin-bloque:font-medium skin-bloque:text-foreground;
-  @apply skin-bloque:rounded-none skin-bloque:border-2 skin-bloque:border-foreground skin-bloque:font-bold;
 }
 
 @utility ca-avatar__image {
   @apply skin-base:rounded-[inherit];
   @apply skin-calaca:rounded-[inherit];
-  @apply skin-bloque:rounded-[inherit];
 }
 
 @utility ca-avatar--sm {
   @apply skin-base:size-8 skin-base:text-xs;
   @apply skin-calaca:size-8 skin-calaca:text-xs;
-  @apply skin-bloque:size-8 skin-bloque:text-xs;
 }
 
 @utility ca-avatar--md {
   @apply skin-base:size-10 skin-base:text-sm;
   @apply skin-calaca:size-10 skin-calaca:text-sm;
-  @apply skin-bloque:size-10 skin-bloque:text-sm;
 }
 
 @utility ca-avatar--lg {
   @apply skin-base:size-14 skin-base:text-lg;
   @apply skin-calaca:size-14 skin-calaca:text-lg;
-  @apply skin-bloque:size-14 skin-bloque:text-lg;
 }
 
 @utility ca-progress {
@@ -1041,10 +820,6 @@
   @apply skin-calaca:[&::-webkit-progress-bar]:bg-muted skin-calaca:[&::-webkit-progress-value]:rounded-full skin-calaca:[&::-webkit-progress-value]:bg-primary skin-calaca:[&::-moz-progress-bar]:rounded-full skin-calaca:[&::-moz-progress-bar]:bg-primary;
   @apply skin-calaca:motion-safe:[&::-webkit-progress-value]:transition-[width] skin-calaca:motion-safe:[&::-webkit-progress-value]:duration-300;
   @apply skin-calaca:h-3 skin-calaca:border-2 skin-calaca:border-input;
-  @apply skin-bloque:h-2 skin-bloque:appearance-none skin-bloque:overflow-hidden skin-bloque:rounded-full skin-bloque:border-0 skin-bloque:bg-muted skin-bloque:text-primary skin-bloque:forced-colors:appearance-auto;
-  @apply skin-bloque:[&::-webkit-progress-bar]:bg-muted skin-bloque:[&::-webkit-progress-value]:rounded-full skin-bloque:[&::-webkit-progress-value]:bg-primary skin-bloque:[&::-moz-progress-bar]:rounded-full skin-bloque:[&::-moz-progress-bar]:bg-primary;
-  @apply skin-bloque:motion-safe:[&::-webkit-progress-value]:transition-[width] skin-bloque:motion-safe:[&::-webkit-progress-value]:duration-300;
-  @apply skin-bloque:h-4 skin-bloque:rounded-none skin-bloque:border-2 skin-bloque:border-foreground skin-bloque:[&::-webkit-progress-value]:rounded-none skin-bloque:[&::-moz-progress-bar]:rounded-none;
 }
 
 @utility ca-table {
@@ -1053,86 +828,65 @@
   @apply skin-calaca:rounded-lg skin-calaca:border skin-calaca:border-border skin-calaca:text-sm skin-calaca:text-foreground;
   @apply skin-calaca:[:where(&)_th]:bg-muted skin-calaca:[:where(&)_th]:px-3 skin-calaca:[:where(&)_th]:py-2 skin-calaca:[:where(&)_th]:font-medium skin-calaca:[:where(&)_th]:text-muted-foreground skin-calaca:[:where(&)_td]:border-t skin-calaca:[:where(&)_td]:border-border skin-calaca:[:where(&)_td]:px-3 skin-calaca:[:where(&)_td]:py-2.5;
   @apply skin-calaca:rounded-card skin-calaca:border-2 skin-calaca:border-input skin-calaca:[:where(&)_th]:font-mono skin-calaca:[:where(&)_th]:text-[0.7rem] skin-calaca:[:where(&)_th]:font-semibold skin-calaca:[:where(&)_th]:tracking-[0.12em] skin-calaca:[:where(&)_th]:uppercase;
-  @apply skin-bloque:rounded-lg skin-bloque:border skin-bloque:border-border skin-bloque:text-sm skin-bloque:text-foreground;
-  @apply skin-bloque:[:where(&)_th]:bg-muted skin-bloque:[:where(&)_th]:px-3 skin-bloque:[:where(&)_th]:py-2 skin-bloque:[:where(&)_th]:font-medium skin-bloque:[:where(&)_th]:text-muted-foreground skin-bloque:[:where(&)_td]:border-t skin-bloque:[:where(&)_td]:border-border skin-bloque:[:where(&)_td]:px-3 skin-bloque:[:where(&)_td]:py-2.5;
-  @apply skin-bloque:rounded-none skin-bloque:border-2 skin-bloque:border-foreground skin-bloque:[:where(&)_th]:bg-transparent skin-bloque:[:where(&)_th]:font-bold skin-bloque:[:where(&)_th]:tracking-wide skin-bloque:[:where(&)_th]:uppercase skin-bloque:[:where(&)_th]:text-xs skin-bloque:[:where(&)_th]:text-foreground skin-bloque:[:where(&)_td]:border-t-2 skin-bloque:[:where(&)_td]:border-foreground;
 }
 
 @utility ca-table__caption {
   @apply skin-base:px-3 skin-base:py-2 skin-base:text-sm skin-base:font-medium;
   @apply skin-calaca:px-3 skin-calaca:py-2 skin-calaca:text-sm skin-calaca:font-medium;
-  @apply skin-bloque:px-3 skin-bloque:py-2 skin-bloque:text-sm skin-bloque:font-medium;
 }
 
 @utility ca-skeleton {
   @apply skin-base:bg-muted skin-base:motion-safe:animate-pulse;
   @apply skin-calaca:bg-muted skin-calaca:motion-safe:animate-pulse;
-  @apply skin-bloque:bg-muted skin-bloque:motion-safe:animate-pulse;
-  @apply skin-bloque:motion-safe:animate-none;
 }
 
 @utility ca-skeleton--text {
   @apply skin-base:h-[1lh] skin-base:w-full skin-base:rounded-sm;
   @apply skin-calaca:h-[1lh] skin-calaca:w-full skin-calaca:rounded-sm;
-  @apply skin-bloque:h-[1lh] skin-bloque:w-full skin-bloque:rounded-sm;
-  @apply skin-bloque:rounded-none;
 }
 
 @utility ca-skeleton--circle {
   @apply skin-base:size-10 skin-base:rounded-full;
   @apply skin-calaca:size-10 skin-calaca:rounded-full;
-  @apply skin-bloque:size-10 skin-bloque:rounded-full;
 }
 
 @utility ca-skeleton--block {
   @apply skin-base:h-24 skin-base:w-full skin-base:rounded-card;
   @apply skin-calaca:h-24 skin-calaca:w-full skin-calaca:rounded-card;
   @apply skin-calaca:rounded-card;
-  @apply skin-bloque:h-24 skin-bloque:w-full skin-bloque:rounded-card;
-  @apply skin-bloque:rounded-none;
 }
 
 @utility ca-empty-state {
   @apply skin-base:gap-3 skin-base:rounded-card skin-base:border skin-base:border-dashed skin-base:border-border skin-base:px-6 skin-base:py-10 skin-base:text-foreground;
   @apply skin-calaca:gap-3 skin-calaca:rounded-card skin-calaca:border skin-calaca:border-dashed skin-calaca:border-border skin-calaca:px-6 skin-calaca:py-10 skin-calaca:text-foreground;
   @apply skin-calaca:border-2 skin-calaca:border-dashed skin-calaca:border-input;
-  @apply skin-bloque:gap-3 skin-bloque:rounded-card skin-bloque:border skin-bloque:border-dashed skin-bloque:border-border skin-bloque:px-6 skin-bloque:py-10 skin-bloque:text-foreground;
-  @apply skin-bloque:gap-4 skin-bloque:rounded-none skin-bloque:border-2 skin-bloque:border-foreground skin-bloque:px-8 skin-bloque:py-12;
 }
 
 @utility ca-empty-state__media {
   @apply skin-base:mb-1 skin-base:size-12 skin-base:rounded-full skin-base:bg-muted skin-base:text-muted-foreground;
   @apply skin-calaca:mb-1 skin-calaca:size-12 skin-calaca:rounded-full skin-calaca:bg-muted skin-calaca:text-muted-foreground;
   @apply skin-calaca:border-2 skin-calaca:border-input skin-calaca:bg-primary skin-calaca:text-primary-foreground;
-  @apply skin-bloque:mb-1 skin-bloque:size-12 skin-bloque:rounded-full skin-bloque:bg-muted skin-bloque:text-muted-foreground;
-  @apply skin-bloque:rounded-none skin-bloque:border-2 skin-bloque:border-foreground;
 }
 
 @utility ca-empty-state__title {
   @apply skin-base:font-display skin-base:text-lg skin-base:font-semibold skin-base:text-balance;
   @apply skin-calaca:font-display skin-calaca:text-lg skin-calaca:font-semibold skin-calaca:text-balance;
   @apply skin-calaca:text-xl skin-calaca:font-black skin-calaca:tracking-[-0.02em];
-  @apply skin-bloque:font-display skin-bloque:text-lg skin-bloque:font-semibold skin-bloque:text-balance;
-  @apply skin-bloque:font-bold skin-bloque:tracking-wide skin-bloque:uppercase;
 }
 
 @utility ca-empty-state__description {
   @apply skin-base:text-sm skin-base:text-muted-foreground skin-base:text-pretty;
   @apply skin-calaca:text-sm skin-calaca:text-muted-foreground skin-calaca:text-pretty;
-  @apply skin-bloque:text-sm skin-bloque:text-muted-foreground skin-bloque:text-pretty;
 }
 
 @utility ca-empty-state__actions {
   @apply skin-base:gap-2 skin-base:pt-2;
   @apply skin-calaca:gap-2 skin-calaca:pt-2;
-  @apply skin-bloque:gap-2 skin-bloque:pt-2;
-  @apply skin-bloque:gap-4 skin-bloque:pt-4;
 }
 
 @utility ca-tooltip {
   @apply skin-base:align-middle;
   @apply skin-calaca:align-middle;
-  @apply skin-bloque:align-middle;
 }
 
 @utility ca-tooltip__content {
@@ -1141,15 +895,23 @@
   @apply skin-calaca:mb-2 skin-calaca:rounded-md skin-calaca:bg-surface-inverse skin-calaca:px-2.5 skin-calaca:py-1.5 skin-calaca:text-xs skin-calaca:font-medium skin-calaca:text-on-inverse skin-calaca:shadow-md skin-calaca:text-balance;
   @apply skin-calaca:opacity-0 skin-calaca:motion-safe:transition-[opacity,visibility] skin-calaca:motion-safe:duration-150 skin-calaca:[:where(.ca-tooltip:hover:not([data-dismissed]))>&]:opacity-100 skin-calaca:[:where(.ca-tooltip:has(:focus-visible):not([data-dismissed]))>&]:opacity-100;
   @apply skin-calaca:rounded-lg skin-calaca:font-bold;
-  @apply skin-bloque:mb-2 skin-bloque:rounded-md skin-bloque:bg-surface-inverse skin-bloque:px-2.5 skin-bloque:py-1.5 skin-bloque:text-xs skin-bloque:font-medium skin-bloque:text-on-inverse skin-bloque:shadow-md skin-bloque:text-balance;
-  @apply skin-bloque:opacity-0 skin-bloque:motion-safe:transition-[opacity,visibility] skin-bloque:motion-safe:duration-150 skin-bloque:[:where(.ca-tooltip:hover:not([data-dismissed]))>&]:opacity-100 skin-bloque:[:where(.ca-tooltip:has(:focus-visible):not([data-dismissed]))>&]:opacity-100;
-  @apply skin-bloque:rounded-none skin-bloque:px-3 skin-bloque:py-2 skin-bloque:font-bold skin-bloque:tracking-wide skin-bloque:uppercase;
+}
+
+@utility ca-tooltip__popup {
+  @apply skin-base:rounded-md skin-base:bg-surface-inverse skin-base:px-2.5 skin-base:py-1.5 skin-base:text-xs skin-base:font-medium skin-base:text-on-inverse skin-base:shadow-md skin-base:text-balance;
+  @apply skin-base:motion-safe:transition-[opacity,scale] skin-base:motion-safe:duration-150 skin-base:data-ending-style:opacity-0 skin-base:data-ending-style:scale-98 skin-base:data-starting-style:opacity-0 skin-base:data-starting-style:scale-98;
+  @apply skin-calaca:rounded-md skin-calaca:bg-surface-inverse skin-calaca:px-2.5 skin-calaca:py-1.5 skin-calaca:text-xs skin-calaca:font-medium skin-calaca:text-on-inverse skin-calaca:shadow-md skin-calaca:text-balance;
+  @apply skin-calaca:motion-safe:transition-[opacity,scale] skin-calaca:motion-safe:duration-150 skin-calaca:data-ending-style:opacity-0 skin-calaca:data-ending-style:scale-98 skin-calaca:data-starting-style:opacity-0 skin-calaca:data-starting-style:scale-98;
+}
+
+@utility ca-tooltip__arrow {
+  @apply skin-base:rounded-[2px] skin-base:bg-surface-inverse skin-base:fill-surface-inverse;
+  @apply skin-calaca:rounded-[2px] skin-calaca:bg-surface-inverse skin-calaca:fill-surface-inverse;
 }
 
 @utility ca-popover {
   @apply skin-base:align-middle;
   @apply skin-calaca:align-middle;
-  @apply skin-bloque:align-middle;
 }
 
 @utility ca-popover__panel {
@@ -1158,25 +920,18 @@
   @apply skin-calaca:w-80 skin-calaca:gap-3 skin-calaca:rounded-lg skin-calaca:border skin-calaca:border-border skin-calaca:bg-background skin-calaca:p-4 skin-calaca:text-sm skin-calaca:text-foreground skin-calaca:shadow-lg;
   @apply skin-calaca:motion-safe:transition-[opacity,translate] skin-calaca:motion-safe:duration-100 skin-calaca:motion-safe:ease-out skin-calaca:starting:ca-open:-translate-y-1 skin-calaca:starting:ca-open:opacity-0;
   @apply skin-calaca:rounded-xl skin-calaca:border-2 skin-calaca:border-input skin-calaca:shadow-[4px_4px_0_0_var(--color-foreground)];
-  @apply skin-bloque:w-80 skin-bloque:gap-3 skin-bloque:rounded-lg skin-bloque:border skin-bloque:border-border skin-bloque:bg-background skin-bloque:p-4 skin-bloque:text-sm skin-bloque:text-foreground skin-bloque:shadow-lg;
-  @apply skin-bloque:motion-safe:transition-[opacity,translate] skin-bloque:motion-safe:duration-100 skin-bloque:motion-safe:ease-out skin-bloque:starting:ca-open:-translate-y-1 skin-bloque:starting:ca-open:opacity-0;
-  @apply skin-bloque:gap-4 skin-bloque:rounded-none skin-bloque:border-2 skin-bloque:border-foreground skin-bloque:p-5 skin-bloque:shadow-[4px_4px_0_0_var(--color-foreground)] skin-bloque:motion-safe:duration-75 skin-bloque:motion-safe:ease-linear;
 }
 
 @utility ca-navbar {
   @apply skin-base:gap-4 skin-base:border-b skin-base:border-border skin-base:bg-background skin-base:px-4 skin-base:py-2 skin-base:text-sm skin-base:text-foreground;
   @apply skin-calaca:gap-4 skin-calaca:border-b skin-calaca:border-border skin-calaca:bg-background skin-calaca:px-4 skin-calaca:py-2 skin-calaca:text-sm skin-calaca:text-foreground;
   @apply skin-calaca:border-b-2 skin-calaca:border-input;
-  @apply skin-bloque:gap-4 skin-bloque:border-b skin-bloque:border-border skin-bloque:bg-background skin-bloque:px-4 skin-bloque:py-2 skin-bloque:text-sm skin-bloque:text-foreground;
-  @apply skin-bloque:border-b-2 skin-bloque:border-foreground skin-bloque:px-6 skin-bloque:py-3;
 }
 
 @utility ca-navbar__brand {
   @apply skin-base:gap-2 skin-base:rounded-md skin-base:font-display skin-base:text-base skin-base:font-semibold skin-base:text-foreground;
   @apply skin-calaca:gap-2 skin-calaca:rounded-md skin-calaca:font-display skin-calaca:text-base skin-calaca:font-semibold skin-calaca:text-foreground;
   @apply skin-calaca:text-xl skin-calaca:font-black skin-calaca:tracking-[-0.04em];
-  @apply skin-bloque:gap-2 skin-bloque:rounded-md skin-bloque:font-display skin-bloque:text-base skin-bloque:font-semibold skin-bloque:text-foreground;
-  @apply skin-bloque:font-bold skin-bloque:tracking-wide skin-bloque:uppercase;
 }
 
 @utility ca-navbar__menu {
@@ -1185,107 +940,83 @@
   @apply skin-calaca:gap-0.5 skin-calaca:rounded-lg skin-calaca:border skin-calaca:border-border skin-calaca:bg-background skin-calaca:p-1 skin-calaca:text-foreground skin-calaca:shadow-lg;
   @apply skin-calaca:ca-navbar-wide:gap-1 skin-calaca:ca-navbar-wide:rounded-none skin-calaca:ca-navbar-wide:border-0 skin-calaca:ca-navbar-wide:bg-transparent skin-calaca:ca-navbar-wide:p-0 skin-calaca:ca-navbar-wide:shadow-none;
   @apply skin-calaca:rounded-xl skin-calaca:border-2 skin-calaca:border-input skin-calaca:shadow-[4px_4px_0_0_var(--color-foreground)] skin-calaca:ca-navbar-wide:border-0 skin-calaca:ca-navbar-wide:shadow-none;
-  @apply skin-bloque:gap-0.5 skin-bloque:rounded-lg skin-bloque:border skin-bloque:border-border skin-bloque:bg-background skin-bloque:p-1 skin-bloque:text-foreground skin-bloque:shadow-lg;
-  @apply skin-bloque:ca-navbar-wide:gap-1 skin-bloque:ca-navbar-wide:rounded-none skin-bloque:ca-navbar-wide:border-0 skin-bloque:ca-navbar-wide:bg-transparent skin-bloque:ca-navbar-wide:p-0 skin-bloque:ca-navbar-wide:shadow-none;
-  @apply skin-bloque:rounded-none skin-bloque:border-2 skin-bloque:border-foreground skin-bloque:p-0 skin-bloque:shadow-[4px_4px_0_0_var(--color-foreground)] skin-bloque:ca-navbar-wide:border-0 skin-bloque:ca-navbar-wide:shadow-none;
 }
 
 @utility ca-navbar__link {
   @apply skin-base:rounded-md skin-base:px-3 skin-base:py-2 skin-base:font-medium skin-base:text-muted-foreground skin-base:interact:bg-muted skin-base:interact:text-foreground skin-base:aria-[current=page]:bg-muted skin-base:aria-[current=page]:text-foreground;
   @apply skin-calaca:rounded-md skin-calaca:px-3 skin-calaca:py-2 skin-calaca:font-medium skin-calaca:text-muted-foreground skin-calaca:interact:bg-muted skin-calaca:interact:text-foreground skin-calaca:aria-[current=page]:bg-muted skin-calaca:aria-[current=page]:text-foreground;
   @apply skin-calaca:rounded-full skin-calaca:border-[1.5px] skin-calaca:border-transparent skin-calaca:font-bold skin-calaca:interact:border-input skin-calaca:interact:bg-transparent skin-calaca:aria-[current=page]:border-input skin-calaca:aria-[current=page]:bg-primary skin-calaca:aria-[current=page]:text-primary-foreground;
-  @apply skin-bloque:rounded-md skin-bloque:px-3 skin-bloque:py-2 skin-bloque:font-medium skin-bloque:text-muted-foreground skin-bloque:interact:bg-muted skin-bloque:interact:text-foreground skin-bloque:aria-[current=page]:bg-muted skin-bloque:aria-[current=page]:text-foreground;
-  @apply skin-bloque:rounded-none skin-bloque:text-xs skin-bloque:font-bold skin-bloque:tracking-wide skin-bloque:uppercase skin-bloque:aria-[current=page]:bg-surface-inverse skin-bloque:aria-[current=page]:text-on-inverse;
 }
 
 @utility ca-navbar__actions {
   @apply skin-base:gap-2;
   @apply skin-calaca:gap-2;
-  @apply skin-bloque:gap-2;
 }
 
 @utility ca-navbar__toggle {
   @apply skin-base:size-9 skin-base:rounded-lg skin-base:border-0 skin-base:bg-transparent skin-base:text-foreground skin-base:interact:bg-muted;
   @apply skin-calaca:size-9 skin-calaca:rounded-lg skin-calaca:border-0 skin-calaca:bg-transparent skin-calaca:text-foreground skin-calaca:interact:bg-muted;
   @apply skin-calaca:rounded-xl skin-calaca:border-2 skin-calaca:border-input;
-  @apply skin-bloque:size-9 skin-bloque:rounded-lg skin-bloque:border-0 skin-bloque:bg-transparent skin-bloque:text-foreground skin-bloque:interact:bg-muted;
-  @apply skin-bloque:size-10 skin-bloque:rounded-none skin-bloque:border-2 skin-bloque:border-foreground;
 }
 
 @utility ca-sidebar {
   @apply skin-base:gap-6 skin-base:text-sm;
   @apply skin-calaca:gap-6 skin-calaca:text-sm;
-  @apply skin-bloque:gap-6 skin-bloque:text-sm;
 }
 
 @utility ca-sidebar__group {
   @apply skin-base:gap-1;
   @apply skin-calaca:gap-1;
-  @apply skin-bloque:gap-1;
 }
 
 @utility ca-sidebar__heading {
   @apply skin-base:px-3 skin-base:pb-1 skin-base:text-xs skin-base:font-semibold skin-base:uppercase skin-base:tracking-wider skin-base:text-foreground;
   @apply skin-calaca:px-3 skin-calaca:pb-1 skin-calaca:text-xs skin-calaca:font-semibold skin-calaca:uppercase skin-calaca:tracking-wider skin-calaca:text-foreground;
   @apply skin-calaca:border-b-2 skin-calaca:border-input skin-calaca:pb-2 skin-calaca:font-mono skin-calaca:text-[0.7rem] skin-calaca:font-bold skin-calaca:tracking-[0.12em] skin-calaca:uppercase;
-  @apply skin-bloque:px-3 skin-bloque:pb-1 skin-bloque:text-xs skin-bloque:font-semibold skin-bloque:uppercase skin-bloque:tracking-wider skin-bloque:text-foreground;
-  @apply skin-bloque:font-bold skin-bloque:tracking-wide skin-bloque:uppercase;
 }
 
 @utility ca-sidebar__subheading {
   @apply skin-base:px-3 skin-base:pt-4 skin-base:pb-1 skin-base:text-xs skin-base:font-medium skin-base:uppercase skin-base:tracking-wide skin-base:text-muted-foreground;
   @apply skin-calaca:px-3 skin-calaca:pt-4 skin-calaca:pb-1 skin-calaca:text-xs skin-calaca:font-medium skin-calaca:uppercase skin-calaca:tracking-wide skin-calaca:text-muted-foreground;
   @apply skin-calaca:flex skin-calaca:items-center skin-calaca:gap-1.5 skin-calaca:font-mono skin-calaca:text-[0.7rem] skin-calaca:font-bold skin-calaca:tracking-[0.12em] skin-calaca:uppercase skin-calaca:text-foreground skin-calaca:before:size-1.5 skin-calaca:before:shrink-0 skin-calaca:before:rounded-full skin-calaca:before:bg-primary skin-calaca:before:content-[''];
-  @apply skin-bloque:px-3 skin-bloque:pt-4 skin-bloque:pb-1 skin-bloque:text-xs skin-bloque:font-medium skin-bloque:uppercase skin-bloque:tracking-wide skin-bloque:text-muted-foreground;
-  @apply skin-bloque:text-[0.65rem] skin-bloque:font-bold skin-bloque:tracking-[0.15em] skin-bloque:uppercase;
 }
 
 @utility ca-sidebar__list {
   @apply skin-base:gap-0.5;
   @apply skin-calaca:gap-0.5;
-  @apply skin-bloque:gap-0.5;
 }
 
 @utility ca-sidebar__link {
   @apply skin-base:rounded-md skin-base:px-3 skin-base:py-2 skin-base:text-muted-foreground skin-base:interact:bg-muted skin-base:interact:text-foreground skin-base:aria-[current=page]:bg-muted skin-base:aria-[current=page]:font-semibold skin-base:aria-[current=page]:text-foreground;
   @apply skin-calaca:rounded-md skin-calaca:px-3 skin-calaca:py-2 skin-calaca:text-muted-foreground skin-calaca:interact:bg-muted skin-calaca:interact:text-foreground skin-calaca:aria-[current=page]:bg-muted skin-calaca:aria-[current=page]:font-semibold skin-calaca:aria-[current=page]:text-foreground;
   @apply skin-calaca:aria-[current=page]:font-extrabold;
-  @apply skin-bloque:rounded-md skin-bloque:px-3 skin-bloque:py-2 skin-bloque:text-muted-foreground skin-bloque:interact:bg-muted skin-bloque:interact:text-foreground skin-bloque:aria-[current=page]:bg-muted skin-bloque:aria-[current=page]:font-semibold skin-bloque:aria-[current=page]:text-foreground;
-  @apply skin-bloque:rounded-none skin-bloque:font-bold skin-bloque:aria-[current=page]:bg-surface-inverse skin-bloque:aria-[current=page]:text-on-inverse;
 }
 
 @utility ca-stat {
   @apply skin-base:gap-1 skin-base:text-foreground;
   @apply skin-calaca:gap-1 skin-calaca:text-foreground;
-  @apply skin-bloque:gap-1 skin-bloque:text-foreground;
 }
 
 @utility ca-stat__label {
   @apply skin-base:text-sm skin-base:font-medium skin-base:text-muted-foreground;
   @apply skin-calaca:text-sm skin-calaca:font-medium skin-calaca:text-muted-foreground;
   @apply skin-calaca:font-mono skin-calaca:text-[0.7rem] skin-calaca:font-semibold skin-calaca:tracking-[0.12em] skin-calaca:uppercase;
-  @apply skin-bloque:text-sm skin-bloque:font-medium skin-bloque:text-muted-foreground;
-  @apply skin-bloque:text-xs skin-bloque:font-bold skin-bloque:tracking-wide skin-bloque:uppercase;
 }
 
 @utility ca-stat__value {
   @apply skin-base:font-display skin-base:text-3xl skin-base:leading-tight skin-base:font-semibold skin-base:tabular-nums;
   @apply skin-calaca:font-display skin-calaca:text-3xl skin-calaca:leading-tight skin-calaca:font-semibold skin-calaca:tabular-nums;
   @apply skin-calaca:text-4xl skin-calaca:font-black skin-calaca:tracking-[-0.03em];
-  @apply skin-bloque:font-display skin-bloque:text-3xl skin-bloque:leading-tight skin-bloque:font-semibold skin-bloque:tabular-nums;
-  @apply skin-bloque:font-bold;
 }
 
 @utility ca-stat__description {
   @apply skin-base:text-sm skin-base:text-muted-foreground;
   @apply skin-calaca:text-sm skin-calaca:text-muted-foreground;
-  @apply skin-bloque:text-sm skin-bloque:text-muted-foreground;
 }
 
 @utility ca-timeline {
   @apply skin-base:gap-0 skin-base:text-foreground;
   @apply skin-calaca:gap-0 skin-calaca:text-foreground;
-  @apply skin-bloque:gap-0 skin-bloque:text-foreground;
 }
 
 @utility ca-timeline__item {
@@ -1296,30 +1027,22 @@
   @apply skin-calaca:[&::before]:-start-[0.3125rem] skin-calaca:[&::before]:top-1.5 skin-calaca:[&::before]:size-2.5 skin-calaca:[&::before]:rounded-full skin-calaca:[&::before]:border-2 skin-calaca:[&::before]:border-background skin-calaca:[&::before]:bg-muted-foreground;
   @apply skin-calaca:aria-[current=step]:[&::before]:bg-primary skin-calaca:aria-[current=step]:[&::before]:outline-2 skin-calaca:aria-[current=step]:[&::before]:outline-primary;
   @apply skin-calaca:border-s-2 skin-calaca:[&::before]:-start-[0.375rem] skin-calaca:[&::before]:border-input;
-  @apply skin-bloque:gap-0.5 skin-bloque:border-s skin-bloque:border-border skin-bloque:ps-6 skin-bloque:pb-6 skin-bloque:last:border-transparent skin-bloque:last:pb-0;
-  @apply skin-bloque:[&::before]:-start-[0.3125rem] skin-bloque:[&::before]:top-1.5 skin-bloque:[&::before]:size-2.5 skin-bloque:[&::before]:rounded-full skin-bloque:[&::before]:border-2 skin-bloque:[&::before]:border-background skin-bloque:[&::before]:bg-muted-foreground;
-  @apply skin-bloque:aria-[current=step]:[&::before]:bg-primary skin-bloque:aria-[current=step]:[&::before]:outline-2 skin-bloque:aria-[current=step]:[&::before]:outline-primary;
-  @apply skin-bloque:border-s-2 skin-bloque:border-foreground skin-bloque:last:border-transparent skin-bloque:[&::before]:-start-[0.4375rem] skin-bloque:[&::before]:rounded-none skin-bloque:[&::before]:size-3 skin-bloque:[&::before]:bg-foreground;
 }
 
 @utility ca-timeline__time {
   @apply skin-base:text-xs skin-base:font-medium skin-base:text-muted-foreground skin-base:tabular-nums;
   @apply skin-calaca:text-xs skin-calaca:font-medium skin-calaca:text-muted-foreground skin-calaca:tabular-nums;
-  @apply skin-bloque:text-xs skin-bloque:font-medium skin-bloque:text-muted-foreground skin-bloque:tabular-nums;
-  @apply skin-bloque:font-bold skin-bloque:tracking-wide skin-bloque:uppercase;
 }
 
 @utility ca-timeline__title {
   @apply skin-base:text-sm skin-base:font-semibold;
   @apply skin-calaca:text-sm skin-calaca:font-semibold;
   @apply skin-calaca:font-extrabold;
-  @apply skin-bloque:text-sm skin-bloque:font-semibold;
 }
 
 @utility ca-timeline__description {
   @apply skin-base:text-sm skin-base:text-muted-foreground skin-base:text-pretty;
   @apply skin-calaca:text-sm skin-calaca:text-muted-foreground skin-calaca:text-pretty;
-  @apply skin-bloque:text-sm skin-bloque:text-muted-foreground skin-bloque:text-pretty;
 }
 
 @utility ca-file-upload {
@@ -1330,10 +1053,6 @@
   @apply skin-calaca:file:me-3 skin-calaca:file:h-9 skin-calaca:file:rounded-lg skin-calaca:file:border skin-calaca:file:border-input skin-calaca:file:bg-background skin-calaca:file:px-3 skin-calaca:file:text-sm skin-calaca:file:font-medium skin-calaca:file:text-foreground;
   @apply skin-calaca:hover:file:bg-muted;
   @apply skin-calaca:file:h-10 skin-calaca:file:rounded-xl skin-calaca:file:border-2 skin-calaca:file:font-bold;
-  @apply skin-bloque:text-sm skin-bloque:text-muted-foreground skin-bloque:disabled:opacity-60;
-  @apply skin-bloque:file:me-3 skin-bloque:file:h-9 skin-bloque:file:rounded-lg skin-bloque:file:border skin-bloque:file:border-input skin-bloque:file:bg-background skin-bloque:file:px-3 skin-bloque:file:text-sm skin-bloque:file:font-medium skin-bloque:file:text-foreground;
-  @apply skin-bloque:hover:file:bg-muted;
-  @apply skin-bloque:file:h-12 skin-bloque:file:rounded-none skin-bloque:file:border-2 skin-bloque:file:border-foreground skin-bloque:file:px-5 skin-bloque:file:font-bold skin-bloque:file:tracking-wide skin-bloque:file:uppercase skin-bloque:file:text-xs;
 }
 
 @utility ca-sheet {
@@ -1344,265 +1063,296 @@
   @apply skin-calaca:[&:not(.ca-sheet--bottom)]:border-s skin-calaca:[&.ca-sheet--start]:border-s-0 skin-calaca:[&.ca-sheet--start]:border-e skin-calaca:[&.ca-sheet--bottom]:rounded-t-xl skin-calaca:[&.ca-sheet--bottom]:border-t;
   @apply skin-calaca:motion-safe:transition-[opacity,translate] skin-calaca:motion-safe:duration-200 skin-calaca:motion-safe:ease-out skin-calaca:starting:open:opacity-0 skin-calaca:starting:open:[&.ca-sheet--bottom]:translate-y-4;
   @apply skin-calaca:border-input skin-calaca:[&:not(.ca-sheet--bottom)]:border-s-2 skin-calaca:[&.ca-sheet--start]:border-e-2 skin-calaca:[&.ca-sheet--bottom]:rounded-t-[1.25rem] skin-calaca:[&.ca-sheet--bottom]:border-t-2;
-  @apply skin-bloque:gap-4 skin-bloque:border-border skin-bloque:bg-background skin-bloque:p-6 skin-bloque:text-foreground skin-bloque:shadow-xl skin-bloque:backdrop:bg-overlay;
-  @apply skin-bloque:[&:not(.ca-sheet--bottom)]:border-s skin-bloque:[&.ca-sheet--start]:border-s-0 skin-bloque:[&.ca-sheet--start]:border-e skin-bloque:[&.ca-sheet--bottom]:rounded-t-xl skin-bloque:[&.ca-sheet--bottom]:border-t;
-  @apply skin-bloque:motion-safe:transition-[opacity,translate] skin-bloque:motion-safe:duration-200 skin-bloque:motion-safe:ease-out skin-bloque:starting:open:opacity-0 skin-bloque:starting:open:[&.ca-sheet--bottom]:translate-y-4;
-  @apply skin-bloque:gap-6 skin-bloque:border-foreground skin-bloque:p-8 skin-bloque:[&:not(.ca-sheet--bottom)]:border-s-2 skin-bloque:[&.ca-sheet--start]:border-e-2 skin-bloque:[&.ca-sheet--bottom]:rounded-none skin-bloque:[&.ca-sheet--bottom]:border-t-2 skin-bloque:shadow-none skin-bloque:motion-safe:duration-75 skin-bloque:motion-safe:ease-linear;
 }
 
 @utility ca-sheet__title {
   @apply skin-base:font-display skin-base:text-lg skin-base:leading-tight skin-base:font-semibold skin-base:text-balance;
   @apply skin-calaca:font-display skin-calaca:text-lg skin-calaca:leading-tight skin-calaca:font-semibold skin-calaca:text-balance;
   @apply skin-calaca:text-xl skin-calaca:font-black skin-calaca:tracking-[-0.02em];
-  @apply skin-bloque:font-display skin-bloque:text-lg skin-bloque:leading-tight skin-bloque:font-semibold skin-bloque:text-balance;
-  @apply skin-bloque:text-xl skin-bloque:font-bold skin-bloque:tracking-wide skin-bloque:uppercase;
 }
 
 @utility ca-sheet__description {
   @apply skin-base:text-sm skin-base:text-muted-foreground skin-base:text-pretty;
   @apply skin-calaca:text-sm skin-calaca:text-muted-foreground skin-calaca:text-pretty;
-  @apply skin-bloque:text-sm skin-bloque:text-muted-foreground skin-bloque:text-pretty;
 }
 
 @utility ca-sheet__body {
   @apply skin-base:text-sm;
   @apply skin-calaca:text-sm;
-  @apply skin-bloque:text-sm;
 }
 
 @utility ca-sheet__footer {
   @apply skin-base:gap-2 skin-base:border-t skin-base:border-border skin-base:pt-4;
   @apply skin-calaca:gap-2 skin-calaca:border-t skin-calaca:border-border skin-calaca:pt-4;
   @apply skin-calaca:border-t-2;
-  @apply skin-bloque:gap-2 skin-bloque:border-t skin-bloque:border-border skin-bloque:pt-4;
-  @apply skin-bloque:gap-4 skin-bloque:border-t-2 skin-bloque:border-foreground;
+}
+
+@utility ca-prompt-input {
+  @apply skin-base:rounded-card skin-base:border skin-base:border-border skin-base:bg-background skin-base:p-2 skin-base:shadow-xs skin-base:data-disabled:opacity-64;
+  @apply skin-calaca:rounded-card skin-calaca:border skin-calaca:border-border skin-calaca:bg-background skin-calaca:p-2 skin-calaca:shadow-xs skin-calaca:data-disabled:opacity-64;
+}
+
+@utility ca-prompt-input__textarea {
+  @apply skin-base:min-h-11 skin-base:border-0 skin-base:bg-transparent skin-base:px-2 skin-base:py-2 skin-base:text-sm skin-base:text-foreground skin-base:placeholder:text-muted-foreground skin-base:shadow-none;
+  @apply skin-calaca:min-h-11 skin-calaca:border-0 skin-calaca:bg-transparent skin-calaca:px-2 skin-calaca:py-2 skin-calaca:text-sm skin-calaca:text-foreground skin-calaca:placeholder:text-muted-foreground skin-calaca:shadow-none;
+}
+
+@utility ca-prompt-input__actions {
+  @apply skin-base:gap-2;
+  @apply skin-calaca:gap-2;
+}
+
+@utility ca-icon {
+  @apply skin-base:[--ca-icon-size:1em] skin-base:size-(--ca-icon-size);
+  @apply skin-calaca:[--ca-icon-size:1em] skin-calaca:size-(--ca-icon-size);
+}
+
+@utility ca-icon--sm {
+  @apply skin-base:[--ca-icon-size:0.875em];
+  @apply skin-calaca:[--ca-icon-size:0.875em];
+}
+
+@utility ca-icon--lg {
+  @apply skin-base:[--ca-icon-size:1.25em];
+  @apply skin-calaca:[--ca-icon-size:1.25em];
+}
+
+@utility ca-icon--xl {
+  @apply skin-base:[--ca-icon-size:1.5em];
+  @apply skin-calaca:[--ca-icon-size:1.5em];
+}
+
+@utility ca-scroll-area {
+  @apply skin-base:text-foreground;
+  @apply skin-calaca:text-foreground;
+}
+
+@utility ca-scroll-area__viewport {
+  @apply skin-base:data-has-overflow-y:overscroll-y-contain skin-base:data-has-overflow-x:overscroll-x-contain;
+  @apply skin-calaca:data-has-overflow-y:overscroll-y-contain skin-calaca:data-has-overflow-x:overscroll-x-contain;
+}
+
+@utility ca-scroll-area__content {
+  @apply skin-base:min-h-0;
+  @apply skin-calaca:min-h-0;
+}
+
+@utility ca-scroll-area__scrollbar {
+  @apply skin-base:data-[orientation=horizontal]:h-1.5 skin-base:data-[orientation=vertical]:w-1.5;
+  @apply skin-base:opacity-0 skin-base:transition-opacity skin-base:delay-300 skin-base:data-hovering:opacity-100 skin-base:data-hovering:delay-0 skin-base:data-hovering:duration-100 skin-base:data-scrolling:opacity-100 skin-base:data-scrolling:delay-0 skin-base:data-scrolling:duration-100;
+  @apply skin-calaca:data-[orientation=horizontal]:h-1.5 skin-calaca:data-[orientation=vertical]:w-1.5;
+  @apply skin-calaca:opacity-0 skin-calaca:transition-opacity skin-calaca:delay-300 skin-calaca:data-hovering:opacity-100 skin-calaca:data-hovering:delay-0 skin-calaca:data-hovering:duration-100 skin-calaca:data-scrolling:opacity-100 skin-calaca:data-scrolling:delay-0 skin-calaca:data-scrolling:duration-100;
+}
+
+@utility ca-scroll-area__thumb {
+  @apply skin-base:bg-foreground/20;
+  @apply skin-calaca:bg-foreground/20;
+}
+
+@utility ca-scroll-area__corner {
+  @apply skin-base:bg-transparent;
+  @apply skin-calaca:bg-transparent;
+}
+
+@utility ca-scroll-area--fade {
+  @apply skin-base:[--fade-size:1.5rem];
+  @apply skin-base:[&>.ca-scroll-area__viewport]:mask-t-from-[calc(100%-min(var(--fade-size),var(--scroll-area-overflow-y-start)))];
+  @apply skin-base:[&>.ca-scroll-area__viewport]:mask-b-from-[calc(100%-min(var(--fade-size),var(--scroll-area-overflow-y-end)))];
+  @apply skin-base:[&>.ca-scroll-area__viewport]:mask-l-from-[calc(100%-min(var(--fade-size),var(--scroll-area-overflow-x-start)))];
+  @apply skin-base:[&>.ca-scroll-area__viewport]:mask-r-from-[calc(100%-min(var(--fade-size),var(--scroll-area-overflow-x-end)))];
+  @apply skin-calaca:[--fade-size:1.5rem];
+  @apply skin-calaca:[&>.ca-scroll-area__viewport]:mask-t-from-[calc(100%-min(var(--fade-size),var(--scroll-area-overflow-y-start)))];
+  @apply skin-calaca:[&>.ca-scroll-area__viewport]:mask-b-from-[calc(100%-min(var(--fade-size),var(--scroll-area-overflow-y-end)))];
+  @apply skin-calaca:[&>.ca-scroll-area__viewport]:mask-l-from-[calc(100%-min(var(--fade-size),var(--scroll-area-overflow-x-start)))];
+  @apply skin-calaca:[&>.ca-scroll-area__viewport]:mask-r-from-[calc(100%-min(var(--fade-size),var(--scroll-area-overflow-x-end)))];
+}
+
+@utility ca-scroll-area--gutter {
+  @apply skin-base:[scrollbar-gutter:stable_both_edges] skin-base:[&>.ca-scroll-area__viewport]:data-has-overflow-y:pe-2.5 skin-base:[&>.ca-scroll-area__viewport]:data-has-overflow-x:pb-2.5;
+  @apply skin-calaca:[scrollbar-gutter:stable_both_edges] skin-calaca:[&>.ca-scroll-area__viewport]:data-has-overflow-y:pe-2.5 skin-calaca:[&>.ca-scroll-area__viewport]:data-has-overflow-x:pb-2.5;
 }
 
 @utility ca-separator {
   @apply skin-base:bg-border;
   @apply skin-calaca:bg-border;
-  @apply skin-bloque:bg-border;
-  @apply skin-bloque:bg-foreground;
 }
 
 @utility ca-separator--horizontal {
   @apply skin-base:h-px skin-base:w-full;
   @apply skin-calaca:h-px skin-calaca:w-full;
-  @apply skin-bloque:h-px skin-bloque:w-full;
-  @apply skin-bloque:h-0.5;
 }
 
 @utility ca-separator--vertical {
   @apply skin-base:w-px skin-base:self-stretch;
   @apply skin-calaca:w-px skin-calaca:self-stretch;
-  @apply skin-bloque:w-px skin-bloque:self-stretch;
-  @apply skin-bloque:w-0.5;
 }
 
 @utility ca-spinner {
   @apply skin-base:rounded-full skin-base:border-current skin-base:border-e-transparent skin-base:text-muted-foreground skin-base:motion-safe:animate-spin;
   @apply skin-calaca:rounded-full skin-calaca:border-current skin-calaca:border-e-transparent skin-calaca:text-muted-foreground skin-calaca:motion-safe:animate-spin;
   @apply skin-calaca:text-primary;
-  @apply skin-bloque:rounded-full skin-bloque:border-current skin-bloque:border-e-transparent skin-bloque:text-muted-foreground skin-bloque:motion-safe:animate-spin;
-  @apply skin-bloque:rounded-none skin-bloque:border-foreground;
 }
 
 @utility ca-spinner--sm {
   @apply skin-base:size-3.5 skin-base:border-2;
   @apply skin-calaca:size-3.5 skin-calaca:border-2;
-  @apply skin-bloque:size-3.5 skin-bloque:border-2;
 }
 
 @utility ca-spinner--md {
   @apply skin-base:size-4 skin-base:border-2;
   @apply skin-calaca:size-4 skin-calaca:border-2;
   @apply skin-calaca:border-[3px];
-  @apply skin-bloque:size-4 skin-bloque:border-2;
 }
 
 @utility ca-spinner--lg {
   @apply skin-base:size-6 skin-base:border-[3px];
   @apply skin-calaca:size-6 skin-calaca:border-[3px];
-  @apply skin-bloque:size-6 skin-bloque:border-[3px];
 }
 
 @utility ca-container {
   @apply skin-base:px-4 skin-base:sm:px-6;
   @apply skin-calaca:px-4 skin-calaca:sm:px-6;
-  @apply skin-bloque:px-4 skin-bloque:sm:px-6;
 }
 
 @utility ca-container--sm {
   @apply skin-base:[--ca-container-max:42rem];
   @apply skin-calaca:[--ca-container-max:42rem];
-  @apply skin-bloque:[--ca-container-max:42rem];
 }
 
 @utility ca-container--md {
   @apply skin-base:[--ca-container-max:64rem];
   @apply skin-calaca:[--ca-container-max:64rem];
-  @apply skin-bloque:[--ca-container-max:64rem];
 }
 
 @utility ca-container--lg {
   @apply skin-base:[--ca-container-max:80rem];
   @apply skin-calaca:[--ca-container-max:80rem];
-  @apply skin-bloque:[--ca-container-max:80rem];
 }
 
 @utility ca-stack {
   @apply skin-base:[gap:var(--ca-stack-gap,1rem)];
   @apply skin-calaca:[gap:var(--ca-stack-gap,1rem)];
-  @apply skin-bloque:[gap:var(--ca-stack-gap,1rem)];
 }
 
 @utility ca-stack--sm {
   @apply skin-base:[--ca-stack-gap:0.5rem];
   @apply skin-calaca:[--ca-stack-gap:0.5rem];
-  @apply skin-bloque:[--ca-stack-gap:0.5rem];
 }
 
 @utility ca-stack--md {
   @apply skin-base:[--ca-stack-gap:1rem];
   @apply skin-calaca:[--ca-stack-gap:1rem];
-  @apply skin-bloque:[--ca-stack-gap:1rem];
-  @apply skin-bloque:[--ca-stack-gap:1.5rem];
 }
 
 @utility ca-stack--lg {
   @apply skin-base:[--ca-stack-gap:2rem];
   @apply skin-calaca:[--ca-stack-gap:2rem];
-  @apply skin-bloque:[--ca-stack-gap:2rem];
-  @apply skin-bloque:[--ca-stack-gap:3rem];
 }
 
 @utility ca-cluster {
   @apply skin-base:[gap:var(--ca-cluster-gap,0.5rem)];
   @apply skin-calaca:[gap:var(--ca-cluster-gap,0.5rem)];
-  @apply skin-bloque:[gap:var(--ca-cluster-gap,0.5rem)];
 }
 
 @utility ca-cluster--sm {
   @apply skin-base:[--ca-cluster-gap:0.25rem];
   @apply skin-calaca:[--ca-cluster-gap:0.25rem];
-  @apply skin-bloque:[--ca-cluster-gap:0.25rem];
 }
 
 @utility ca-cluster--md {
   @apply skin-base:[--ca-cluster-gap:0.5rem];
   @apply skin-calaca:[--ca-cluster-gap:0.5rem];
-  @apply skin-bloque:[--ca-cluster-gap:0.5rem];
 }
 
 @utility ca-cluster--lg {
   @apply skin-base:[--ca-cluster-gap:1rem];
   @apply skin-calaca:[--ca-cluster-gap:1rem];
-  @apply skin-bloque:[--ca-cluster-gap:1rem];
 }
 
 @utility ca-grid {
   @apply skin-base:[gap:var(--ca-grid-gap,1.5rem)];
   @apply skin-calaca:[gap:var(--ca-grid-gap,1.5rem)];
-  @apply skin-bloque:[gap:var(--ca-grid-gap,1.5rem)];
 }
 
 @utility ca-grid--sm {
   @apply skin-base:[--ca-grid-gap:0.75rem];
   @apply skin-calaca:[--ca-grid-gap:0.75rem];
-  @apply skin-bloque:[--ca-grid-gap:0.75rem];
 }
 
 @utility ca-grid--md {
   @apply skin-base:[--ca-grid-gap:1.5rem];
   @apply skin-calaca:[--ca-grid-gap:1.5rem];
-  @apply skin-bloque:[--ca-grid-gap:1.5rem];
 }
 
 @utility ca-grid--lg {
   @apply skin-base:[--ca-grid-gap:2.5rem];
   @apply skin-calaca:[--ca-grid-gap:2.5rem];
-  @apply skin-bloque:[--ca-grid-gap:2.5rem];
 }
 
 @utility ca-section {
   @apply skin-base:[padding-block:var(--ca-section-space,4rem)];
   @apply skin-calaca:[padding-block:var(--ca-section-space,4rem)];
-  @apply skin-bloque:[padding-block:var(--ca-section-space,4rem)];
 }
 
 @utility ca-section--sm {
   @apply skin-base:[--ca-section-space:2.5rem];
   @apply skin-calaca:[--ca-section-space:2.5rem];
-  @apply skin-bloque:[--ca-section-space:2.5rem];
 }
 
 @utility ca-section--md {
   @apply skin-base:[--ca-section-space:4rem];
   @apply skin-calaca:[--ca-section-space:4rem];
-  @apply skin-bloque:[--ca-section-space:4rem];
 }
 
 @utility ca-section--lg {
   @apply skin-base:[--ca-section-space:6rem];
   @apply skin-calaca:[--ca-section-space:6rem];
-  @apply skin-bloque:[--ca-section-space:6rem];
-  @apply skin-bloque:[--ca-section-space:8rem];
 }
 
 @utility ca-heading {
   @apply skin-base:font-display skin-base:font-semibold skin-base:tracking-tight skin-base:text-foreground skin-base:text-balance;
   @apply skin-calaca:font-display skin-calaca:font-semibold skin-calaca:tracking-tight skin-calaca:text-foreground skin-calaca:text-balance;
   @apply skin-calaca:font-black skin-calaca:tracking-[-0.03em];
-  @apply skin-bloque:font-display skin-bloque:font-semibold skin-bloque:tracking-tight skin-bloque:text-foreground skin-bloque:text-balance;
-  @apply skin-bloque:font-bold skin-bloque:tracking-wide skin-bloque:uppercase;
 }
 
 @utility ca-heading--xl {
   @apply skin-base:text-4xl/tight skin-base:sm:text-5xl/tight;
   @apply skin-calaca:text-4xl/tight skin-calaca:sm:text-5xl/tight;
-  @apply skin-bloque:text-4xl/tight skin-bloque:sm:text-5xl/tight;
 }
 
 @utility ca-heading--lg {
   @apply skin-base:text-3xl/tight;
   @apply skin-calaca:text-3xl/tight;
-  @apply skin-bloque:text-3xl/tight;
 }
 
 @utility ca-heading--md {
   @apply skin-base:text-2xl/tight;
   @apply skin-calaca:text-2xl/tight;
-  @apply skin-bloque:text-2xl/tight;
 }
 
 @utility ca-heading--sm {
   @apply skin-base:text-xl/tight;
   @apply skin-calaca:text-xl/tight;
-  @apply skin-bloque:text-xl/tight;
 }
 
 @utility ca-text {
   @apply skin-base:text-foreground skin-base:text-pretty;
   @apply skin-calaca:text-foreground skin-calaca:text-pretty;
-  @apply skin-bloque:text-foreground skin-bloque:text-pretty;
 }
 
 @utility ca-text--sm {
   @apply skin-base:text-sm skin-base:leading-normal;
   @apply skin-calaca:text-sm skin-calaca:leading-normal;
-  @apply skin-bloque:text-sm skin-bloque:leading-normal;
 }
 
 @utility ca-text--md {
   @apply skin-base:text-base skin-base:leading-relaxed;
   @apply skin-calaca:text-base skin-calaca:leading-relaxed;
-  @apply skin-bloque:text-base skin-bloque:leading-relaxed;
 }
 
 @utility ca-text--lg {
   @apply skin-base:text-lg skin-base:leading-relaxed;
   @apply skin-calaca:text-lg skin-calaca:leading-relaxed;
-  @apply skin-bloque:text-lg skin-bloque:leading-relaxed;
 }
 
 @utility ca-prose {
@@ -1627,17 +1377,6 @@
   @apply skin-calaca:[:where(&)>:is(pre,figure)]:mt-6 skin-calaca:[:where(&)>:is(pre,figure)+*]:mt-6 skin-calaca:[:where(&)>*:has(+:is(pre,figure))]:mb-6;
   @apply skin-calaca:[&>:is(pre,figure):has(+:is(pre,figure))]:mb-6;
   @apply skin-calaca:[:where(&)_:is(h2,h3,h4)]:font-black skin-calaca:[:where(&)_:is(h2,h3,h4)]:tracking-[-0.02em] skin-calaca:[:where(&)_a]:decoration-primary skin-calaca:[:where(&)_a]:decoration-2;
-  @apply skin-bloque:text-lg skin-bloque:leading-relaxed skin-bloque:text-foreground skin-bloque:[:where(&)>*]:my-0 skin-bloque:[:where(&)>*+*]:mt-6;
-  @apply skin-bloque:[:where(&)_:is(h2,h3,h4)]:font-display skin-bloque:[:where(&)_:is(h2,h3,h4)]:leading-tight skin-bloque:[:where(&)_:is(h2,h3,h4)]:font-semibold skin-bloque:[:where(&)_:is(h2,h3,h4)]:text-balance skin-bloque:[:where(&)>:is(h2,h3,h4)]:mt-8 skin-bloque:[:where(&)_h2]:text-3xl skin-bloque:[:where(&)_h3]:text-2xl skin-bloque:[:where(&)_h4]:text-xl;
-  @apply skin-bloque:[:where(&)_:is(ul,ol)]:ps-6 skin-bloque:[:where(&)_ul]:list-disc skin-bloque:[:where(&)_ol]:list-decimal skin-bloque:[:where(&)_li+li]:mt-1;
-  @apply skin-bloque:[:where(&)_a]:text-foreground skin-bloque:[:where(&)_a]:underline skin-bloque:[:where(&)_a]:underline-offset-4;
-  @apply skin-bloque:[:where(&)_code]:rounded-sm skin-bloque:[:where(&)_code]:bg-muted skin-bloque:[:where(&)_code]:px-1 skin-bloque:[:where(&)_code]:font-mono skin-bloque:[:where(&)_code]:text-[0.875em];
-  @apply skin-bloque:[:where(&)_pre]:overflow-x-auto skin-bloque:[:where(&)_pre]:text-sm skin-bloque:[:where(&)_pre]:leading-relaxed skin-bloque:[:where(&)_pre_code]:bg-transparent skin-bloque:[:where(&)_pre_code]:p-0 skin-bloque:[:where(&)_pre_code]:text-[length:inherit];
-  @apply skin-bloque:[:where(&)_blockquote]:border-s-2 skin-bloque:[:where(&)_blockquote]:border-border skin-bloque:[:where(&)_blockquote]:ps-4 skin-bloque:[:where(&)_blockquote]:text-muted-foreground;
-  @apply skin-bloque:[:where(&)_hr]:h-px skin-bloque:[:where(&)_hr]:border-0 skin-bloque:[:where(&)_hr]:bg-border;
-  @apply skin-bloque:[:where(&)>:is(pre,figure)]:mt-6 skin-bloque:[:where(&)>:is(pre,figure)+*]:mt-6 skin-bloque:[:where(&)>*:has(+:is(pre,figure))]:mb-6;
-  @apply skin-bloque:[&>:is(pre,figure):has(+:is(pre,figure))]:mb-6;
-  @apply skin-bloque:[:where(&)_:is(h2,h3,h4)]:font-bold skin-bloque:[:where(&)_:is(h2,h3,h4)]:tracking-wide skin-bloque:[:where(&)_:is(h2,h3,h4)]:uppercase skin-bloque:[:where(&)_blockquote]:border-foreground;
 }
 
 @utility ca-link {
@@ -1648,70 +1387,53 @@
   @apply skin-calaca:interact:decoration-primary skin-calaca:interact:decoration-[3px] skin-calaca:interact:underline-offset-[6px];
   @apply skin-calaca:motion-safe:transition-[text-decoration-color,text-decoration-thickness,text-underline-offset] skin-calaca:motion-safe:duration-200;
   @apply skin-calaca:focus-visible:[--tw-outline-style:dashed];
-  @apply skin-bloque:text-foreground skin-bloque:underline skin-bloque:decoration-foreground skin-bloque:decoration-2 skin-bloque:underline-offset-4;
-  @apply skin-bloque:interact:decoration-primary skin-bloque:interact:decoration-[3px] skin-bloque:interact:underline-offset-[6px];
-  @apply skin-bloque:motion-safe:transition-[text-decoration-color,text-decoration-thickness,text-underline-offset] skin-bloque:motion-safe:duration-200;
-  @apply skin-bloque:font-bold skin-bloque:decoration-[3px] skin-bloque:interact:decoration-[5px];
 }
 
 @utility ca-code {
   @apply skin-base:rounded-sm skin-base:bg-muted skin-base:px-1 skin-base:py-0.5 skin-base:font-mono skin-base:text-[0.875em] skin-base:text-foreground;
   @apply skin-calaca:rounded-sm skin-calaca:bg-muted skin-calaca:px-1 skin-calaca:py-0.5 skin-calaca:font-mono skin-calaca:text-[0.875em] skin-calaca:text-foreground;
-  @apply skin-bloque:rounded-sm skin-bloque:bg-muted skin-bloque:px-1 skin-bloque:py-0.5 skin-bloque:font-mono skin-bloque:text-[0.875em] skin-bloque:text-foreground;
-  @apply skin-bloque:rounded-none;
 }
 
 @utility ca-code-block {
   @apply skin-base:overflow-hidden skin-base:rounded-lg skin-base:border skin-base:border-border skin-base:bg-muted skin-base:text-foreground;
   @apply skin-calaca:overflow-hidden skin-calaca:rounded-lg skin-calaca:border skin-calaca:border-border skin-calaca:bg-muted skin-calaca:text-foreground;
   @apply skin-calaca:rounded-xl skin-calaca:border-2 skin-calaca:border-input;
-  @apply skin-bloque:overflow-hidden skin-bloque:rounded-lg skin-bloque:border skin-bloque:border-border skin-bloque:bg-muted skin-bloque:text-foreground;
-  @apply skin-bloque:rounded-none skin-bloque:border-2 skin-bloque:border-foreground;
 }
 
 @utility ca-code-block__header {
   @apply skin-base:gap-3 skin-base:border-b skin-base:border-border skin-base:bg-background skin-base:px-4 skin-base:py-1.5;
   @apply skin-calaca:gap-3 skin-calaca:border-b skin-calaca:border-border skin-calaca:bg-background skin-calaca:px-4 skin-calaca:py-1.5;
   @apply skin-calaca:border-b-2 skin-calaca:border-input;
-  @apply skin-bloque:gap-3 skin-bloque:border-b skin-bloque:border-border skin-bloque:bg-background skin-bloque:px-4 skin-bloque:py-1.5;
-  @apply skin-bloque:border-b-2 skin-bloque:border-foreground;
 }
 
 @utility ca-code-block__title {
   @apply skin-base:font-mono skin-base:text-xs skin-base:text-muted-foreground;
   @apply skin-calaca:font-mono skin-calaca:text-xs skin-calaca:text-muted-foreground;
-  @apply skin-bloque:font-mono skin-bloque:text-xs skin-bloque:text-muted-foreground;
-  @apply skin-bloque:font-bold skin-bloque:tracking-wide skin-bloque:uppercase;
 }
 
 @utility ca-code-block__actions {
   @apply skin-base:gap-2;
   @apply skin-calaca:gap-2;
-  @apply skin-bloque:gap-2;
 }
 
 @utility ca-code-block__code {
   @apply skin-base:p-4 skin-base:font-mono skin-base:text-sm skin-base:leading-relaxed;
   @apply skin-calaca:p-4 skin-calaca:font-mono skin-calaca:text-sm skin-calaca:leading-relaxed;
-  @apply skin-bloque:p-4 skin-bloque:font-mono skin-bloque:text-sm skin-bloque:leading-relaxed;
 }
 
 @utility ca-code-block__status {
   @apply skin-base:text-sm;
   @apply skin-calaca:text-sm;
-  @apply skin-bloque:text-sm;
 }
 
 @utility ca-stepper {
   @apply skin-base:gap-x-6 skin-base:gap-y-4 skin-base:text-foreground;
   @apply skin-calaca:gap-x-6 skin-calaca:gap-y-4 skin-calaca:text-foreground;
-  @apply skin-bloque:gap-x-6 skin-bloque:gap-y-4 skin-bloque:text-foreground;
 }
 
 @utility ca-stepper__item {
   @apply skin-base:gap-x-3 skin-base:gap-y-1;
   @apply skin-calaca:gap-x-3 skin-calaca:gap-y-1;
-  @apply skin-bloque:gap-x-3 skin-bloque:gap-y-1;
 }
 
 @utility ca-stepper__marker {
@@ -1720,63 +1442,49 @@
   @apply skin-calaca:mb-1 skin-calaca:size-8 skin-calaca:rounded-full skin-calaca:border-2 skin-calaca:border-input skin-calaca:bg-background skin-calaca:text-sm skin-calaca:font-semibold skin-calaca:tabular-nums skin-calaca:text-muted-foreground;
   @apply skin-calaca:[[data-status=current]>&]:border-primary skin-calaca:[[data-status=current]>&]:text-foreground skin-calaca:[[data-status=complete]>&]:border-primary skin-calaca:[[data-status=complete]>&]:bg-primary skin-calaca:[[data-status=complete]>&]:text-primary-foreground;
   @apply skin-calaca:font-black skin-calaca:[[data-status=current]>&]:border-input skin-calaca:[[data-status=current]>&]:bg-primary skin-calaca:[[data-status=current]>&]:text-primary-foreground skin-calaca:[[data-status=complete]>&]:border-input skin-calaca:[[data-status=complete]>&]:bg-secondary skin-calaca:[[data-status=complete]>&]:text-secondary-foreground;
-  @apply skin-bloque:mb-1 skin-bloque:size-8 skin-bloque:rounded-full skin-bloque:border-2 skin-bloque:border-input skin-bloque:bg-background skin-bloque:text-sm skin-bloque:font-semibold skin-bloque:tabular-nums skin-bloque:text-muted-foreground;
-  @apply skin-bloque:[[data-status=current]>&]:border-primary skin-bloque:[[data-status=current]>&]:text-foreground skin-bloque:[[data-status=complete]>&]:border-primary skin-bloque:[[data-status=complete]>&]:bg-primary skin-bloque:[[data-status=complete]>&]:text-primary-foreground;
-  @apply skin-bloque:rounded-none skin-bloque:font-bold;
 }
 
 @utility ca-stepper__label {
   @apply skin-base:text-sm skin-base:font-medium skin-base:[[data-status=upcoming]>&]:text-muted-foreground;
   @apply skin-calaca:text-sm skin-calaca:font-medium skin-calaca:[[data-status=upcoming]>&]:text-muted-foreground;
   @apply skin-calaca:font-bold;
-  @apply skin-bloque:text-sm skin-bloque:font-medium skin-bloque:[[data-status=upcoming]>&]:text-muted-foreground;
-  @apply skin-bloque:font-bold skin-bloque:tracking-wide skin-bloque:uppercase skin-bloque:text-xs;
 }
 
 @utility ca-stepper__description {
   @apply skin-base:text-xs skin-base:text-muted-foreground;
   @apply skin-calaca:text-xs skin-calaca:text-muted-foreground;
-  @apply skin-bloque:text-xs skin-bloque:text-muted-foreground;
 }
 
 @utility ca-date-range {
   @apply skin-base:gap-1.5 skin-base:text-foreground;
   @apply skin-calaca:gap-1.5 skin-calaca:text-foreground;
-  @apply skin-bloque:gap-1.5 skin-bloque:text-foreground;
 }
 
 @utility ca-date-range__fields {
   @apply skin-base:gap-3;
   @apply skin-calaca:gap-3;
-  @apply skin-bloque:gap-3;
 }
 
 @utility ca-date-range__field {
   @apply skin-base:gap-1.5 skin-base:text-sm skin-base:font-medium;
   @apply skin-calaca:gap-1.5 skin-calaca:text-sm skin-calaca:font-medium;
-  @apply skin-bloque:gap-1.5 skin-bloque:text-sm skin-bloque:font-medium;
 }
 
 @utility ca-date-range__separator {
   @apply skin-base:h-9 skin-base:text-muted-foreground;
   @apply skin-calaca:h-9 skin-calaca:text-muted-foreground;
-  @apply skin-bloque:h-9 skin-bloque:text-muted-foreground;
 }
 
 @utility ca-editor {
   @apply skin-base:overflow-hidden skin-base:rounded-lg skin-base:border skin-base:border-input skin-base:bg-background skin-base:text-foreground skin-base:focus-within:border-ring;
   @apply skin-calaca:overflow-hidden skin-calaca:rounded-lg skin-calaca:border skin-calaca:border-input skin-calaca:bg-background skin-calaca:text-foreground skin-calaca:focus-within:border-ring;
   @apply skin-calaca:rounded-xl skin-calaca:border-2 skin-calaca:focus-within:border-input;
-  @apply skin-bloque:overflow-hidden skin-bloque:rounded-lg skin-bloque:border skin-bloque:border-input skin-bloque:bg-background skin-bloque:text-foreground skin-bloque:focus-within:border-ring;
-  @apply skin-bloque:rounded-none skin-bloque:border-2 skin-bloque:border-foreground;
 }
 
 @utility ca-editor__toolbar {
   @apply skin-base:gap-1 skin-base:border-b skin-base:border-border skin-base:bg-muted skin-base:p-1;
   @apply skin-calaca:gap-1 skin-calaca:border-b skin-calaca:border-border skin-calaca:bg-muted skin-calaca:p-1;
   @apply skin-calaca:border-b-2 skin-calaca:border-input;
-  @apply skin-bloque:gap-1 skin-bloque:border-b skin-bloque:border-border skin-bloque:bg-muted skin-bloque:p-1;
-  @apply skin-bloque:border-b-2 skin-bloque:border-foreground;
 }
 
 @utility ca-editor__tool {
@@ -1785,9 +1493,6 @@
   @apply skin-calaca:size-8 skin-calaca:rounded-md skin-calaca:border-0 skin-calaca:bg-transparent skin-calaca:text-sm skin-calaca:font-semibold skin-calaca:text-muted-foreground;
   @apply skin-calaca:interact:bg-background skin-calaca:interact:text-foreground skin-calaca:aria-pressed:bg-background skin-calaca:aria-pressed:text-foreground skin-calaca:aria-pressed:shadow-xs;
   @apply skin-calaca:rounded-lg skin-calaca:aria-pressed:bg-primary skin-calaca:aria-pressed:text-primary-foreground;
-  @apply skin-bloque:size-8 skin-bloque:rounded-md skin-bloque:border-0 skin-bloque:bg-transparent skin-bloque:text-sm skin-bloque:font-semibold skin-bloque:text-muted-foreground;
-  @apply skin-bloque:interact:bg-background skin-bloque:interact:text-foreground skin-bloque:aria-pressed:bg-background skin-bloque:aria-pressed:text-foreground skin-bloque:aria-pressed:shadow-xs;
-  @apply skin-bloque:rounded-none skin-bloque:aria-pressed:bg-surface-inverse skin-bloque:aria-pressed:text-on-inverse;
 }
 
 @utility ca-editor__content {
@@ -1795,30 +1500,23 @@
   @apply skin-base:[:where(&)>*+*]:mt-2 skin-base:[:where(&)_h3]:text-lg skin-base:[:where(&)_h3]:font-semibold skin-base:[:where(&)_:is(ul,ol)]:ps-6 skin-base:[:where(&)_ul]:list-disc skin-base:[:where(&)_ol]:list-decimal skin-base:[:where(&)_a]:underline skin-base:[:where(&)_a]:underline-offset-4;
   @apply skin-calaca:px-3 skin-calaca:py-2 skin-calaca:text-base skin-calaca:leading-relaxed skin-calaca:sm:text-sm;
   @apply skin-calaca:[:where(&)>*+*]:mt-2 skin-calaca:[:where(&)_h3]:text-lg skin-calaca:[:where(&)_h3]:font-semibold skin-calaca:[:where(&)_:is(ul,ol)]:ps-6 skin-calaca:[:where(&)_ul]:list-disc skin-calaca:[:where(&)_ol]:list-decimal skin-calaca:[:where(&)_a]:underline skin-calaca:[:where(&)_a]:underline-offset-4;
-  @apply skin-bloque:px-3 skin-bloque:py-2 skin-bloque:text-base skin-bloque:leading-relaxed skin-bloque:sm:text-sm;
-  @apply skin-bloque:[:where(&)>*+*]:mt-2 skin-bloque:[:where(&)_h3]:text-lg skin-bloque:[:where(&)_h3]:font-semibold skin-bloque:[:where(&)_:is(ul,ol)]:ps-6 skin-bloque:[:where(&)_ul]:list-disc skin-bloque:[:where(&)_ol]:list-decimal skin-bloque:[:where(&)_a]:underline skin-bloque:[:where(&)_a]:underline-offset-4;
 }
 
 @utility ca-editor__link {
   @apply skin-base:w-72 skin-base:gap-3 skin-base:rounded-lg skin-base:border skin-base:border-border skin-base:bg-background skin-base:p-3 skin-base:text-sm skin-base:text-foreground skin-base:shadow-lg;
   @apply skin-calaca:w-72 skin-calaca:gap-3 skin-calaca:rounded-lg skin-calaca:border skin-calaca:border-border skin-calaca:bg-background skin-calaca:p-3 skin-calaca:text-sm skin-calaca:text-foreground skin-calaca:shadow-lg;
   @apply skin-calaca:rounded-xl skin-calaca:border-2 skin-calaca:border-input skin-calaca:shadow-[4px_4px_0_0_var(--color-foreground)];
-  @apply skin-bloque:w-72 skin-bloque:gap-3 skin-bloque:rounded-lg skin-bloque:border skin-bloque:border-border skin-bloque:bg-background skin-bloque:p-3 skin-bloque:text-sm skin-bloque:text-foreground skin-bloque:shadow-lg;
-  @apply skin-bloque:rounded-none skin-bloque:border-2 skin-bloque:border-foreground skin-bloque:shadow-[4px_4px_0_0_var(--color-foreground)];
 }
 
 @utility ca-kbd {
   @apply skin-base:min-w-6 skin-base:justify-center skin-base:rounded-md skin-base:border skin-base:border-b-2 skin-base:border-border skin-base:bg-muted skin-base:px-1.5 skin-base:font-mono skin-base:text-[0.8em] skin-base:leading-5 skin-base:text-foreground;
   @apply skin-calaca:min-w-6 skin-calaca:justify-center skin-calaca:rounded-md skin-calaca:border skin-calaca:border-b-2 skin-calaca:border-border skin-calaca:bg-muted skin-calaca:px-1.5 skin-calaca:font-mono skin-calaca:text-[0.8em] skin-calaca:leading-5 skin-calaca:text-foreground;
   @apply skin-calaca:rounded-lg skin-calaca:border-[1.5px] skin-calaca:border-b-[3px] skin-calaca:border-input skin-calaca:font-semibold;
-  @apply skin-bloque:min-w-6 skin-bloque:justify-center skin-bloque:rounded-md skin-bloque:border skin-bloque:border-b-2 skin-bloque:border-border skin-bloque:bg-muted skin-bloque:px-1.5 skin-bloque:font-mono skin-bloque:text-[0.8em] skin-bloque:leading-5 skin-bloque:text-foreground;
-  @apply skin-bloque:rounded-none skin-bloque:border-2 skin-bloque:border-b-4 skin-bloque:border-foreground skin-bloque:font-bold;
 }
 
 @utility ca-toast__region {
   @apply skin-base:gap-2 skin-base:p-4;
   @apply skin-calaca:gap-2 skin-calaca:p-4;
-  @apply skin-bloque:gap-2 skin-bloque:p-4;
 }
 
 @utility ca-toast {
@@ -1829,302 +1527,330 @@
   @apply skin-calaca:border-(--ca-pigment-edge) skin-calaca:bg-(--ca-pigment) skin-calaca:text-(--ca-pigment-ink);
   @apply skin-calaca:motion-safe:transition-[opacity,translate] skin-calaca:motion-safe:duration-200 skin-calaca:motion-safe:ease-out skin-calaca:starting:translate-y-2 skin-calaca:starting:opacity-0;
   @apply skin-calaca:rounded-xl skin-calaca:border-2 skin-calaca:shadow-[4px_4px_0_0_var(--color-foreground)];
-  @apply skin-bloque:gap-3 skin-bloque:rounded-lg skin-bloque:border skin-bloque:py-3 skin-bloque:ps-4 skin-bloque:pe-3 skin-bloque:text-sm skin-bloque:shadow-lg;
-  @apply skin-bloque:border-(--ca-pigment-edge) skin-bloque:bg-(--ca-pigment) skin-bloque:text-(--ca-pigment-ink);
-  @apply skin-bloque:motion-safe:transition-[opacity,translate] skin-bloque:motion-safe:duration-200 skin-bloque:motion-safe:ease-out skin-bloque:starting:translate-y-2 skin-bloque:starting:opacity-0;
-  @apply skin-bloque:gap-4 skin-bloque:rounded-none skin-bloque:border-2 skin-bloque:py-4 skin-bloque:ps-5 skin-bloque:shadow-[4px_4px_0_0_var(--color-foreground)] skin-bloque:motion-safe:duration-75 skin-bloque:motion-safe:ease-linear;
 }
 
 @utility ca-toast__message {
   @apply skin-base:py-0.5 skin-base:font-medium skin-base:text-pretty;
   @apply skin-calaca:py-0.5 skin-calaca:font-medium skin-calaca:text-pretty;
   @apply skin-calaca:font-bold;
-  @apply skin-bloque:py-0.5 skin-bloque:font-medium skin-bloque:text-pretty;
-  @apply skin-bloque:font-bold;
 }
 
 @utility ca-toast__close {
   @apply skin-base:size-7 skin-base:rounded-md skin-base:border-0 skin-base:bg-transparent skin-base:text-base skin-base:leading-none skin-base:text-muted-foreground skin-base:interact:bg-muted skin-base:interact:text-foreground;
   @apply skin-calaca:size-7 skin-calaca:rounded-md skin-calaca:border-0 skin-calaca:bg-transparent skin-calaca:text-base skin-calaca:leading-none skin-calaca:text-muted-foreground skin-calaca:interact:bg-muted skin-calaca:interact:text-foreground;
   @apply skin-calaca:rounded-lg skin-calaca:focus-visible:[--tw-outline-style:dashed];
-  @apply skin-bloque:size-7 skin-bloque:rounded-md skin-bloque:border-0 skin-bloque:bg-transparent skin-bloque:text-base skin-bloque:leading-none skin-bloque:text-muted-foreground skin-bloque:interact:bg-muted skin-bloque:interact:text-foreground;
-  @apply skin-bloque:rounded-none skin-bloque:border-2 skin-bloque:border-foreground;
 }
 
 @utility ca-toast__status {
   @apply skin-base:text-sm;
   @apply skin-calaca:text-sm;
-  @apply skin-bloque:text-sm;
 }
 
 @utility ca-toast--neutral {
   @apply skin-base:[--ca-pigment:var(--color-background)] skin-base:[--ca-pigment-edge:var(--color-border)] skin-base:[--ca-pigment-ink:var(--color-foreground)] skin-base:[--ca-pigment-title:var(--color-foreground)];
   @apply skin-calaca:[--ca-pigment:var(--color-background)] skin-calaca:[--ca-pigment-edge:var(--color-border)] skin-calaca:[--ca-pigment-ink:var(--color-foreground)] skin-calaca:[--ca-pigment-title:var(--color-foreground)];
-  @apply skin-bloque:[--ca-pigment:var(--color-background)] skin-bloque:[--ca-pigment-edge:var(--color-border)] skin-bloque:[--ca-pigment-ink:var(--color-foreground)] skin-bloque:[--ca-pigment-title:var(--color-foreground)];
 }
 
 @utility ca-toast--info {
   @apply skin-base:[--ca-pigment:color-mix(in_oklab,var(--color-info)_8%,var(--color-background))] skin-base:[--ca-pigment-edge:var(--color-info)] skin-base:[--ca-pigment-ink:var(--color-foreground)] skin-base:[--ca-pigment-title:var(--color-info)];
   @apply skin-calaca:[--ca-pigment:color-mix(in_oklab,var(--color-info)_8%,var(--color-background))] skin-calaca:[--ca-pigment-edge:var(--color-info)] skin-calaca:[--ca-pigment-ink:var(--color-foreground)] skin-calaca:[--ca-pigment-title:var(--color-info)];
-  @apply skin-bloque:[--ca-pigment:color-mix(in_oklab,var(--color-info)_8%,var(--color-background))] skin-bloque:[--ca-pigment-edge:var(--color-info)] skin-bloque:[--ca-pigment-ink:var(--color-foreground)] skin-bloque:[--ca-pigment-title:var(--color-info)];
 }
 
 @utility ca-toast--success {
   @apply skin-base:[--ca-pigment:color-mix(in_oklab,var(--color-success)_8%,var(--color-background))] skin-base:[--ca-pigment-edge:var(--color-success)] skin-base:[--ca-pigment-ink:var(--color-foreground)] skin-base:[--ca-pigment-title:var(--color-success)];
   @apply skin-calaca:[--ca-pigment:color-mix(in_oklab,var(--color-success)_8%,var(--color-background))] skin-calaca:[--ca-pigment-edge:var(--color-success)] skin-calaca:[--ca-pigment-ink:var(--color-foreground)] skin-calaca:[--ca-pigment-title:var(--color-success)];
-  @apply skin-bloque:[--ca-pigment:color-mix(in_oklab,var(--color-success)_8%,var(--color-background))] skin-bloque:[--ca-pigment-edge:var(--color-success)] skin-bloque:[--ca-pigment-ink:var(--color-foreground)] skin-bloque:[--ca-pigment-title:var(--color-success)];
 }
 
 @utility ca-toast--warning {
   @apply skin-base:[--ca-pigment:color-mix(in_oklab,var(--color-warning)_8%,var(--color-background))] skin-base:[--ca-pigment-edge:var(--color-warning)] skin-base:[--ca-pigment-ink:var(--color-foreground)] skin-base:[--ca-pigment-title:var(--color-warning)];
   @apply skin-calaca:[--ca-pigment:color-mix(in_oklab,var(--color-warning)_8%,var(--color-background))] skin-calaca:[--ca-pigment-edge:var(--color-warning)] skin-calaca:[--ca-pigment-ink:var(--color-foreground)] skin-calaca:[--ca-pigment-title:var(--color-warning)];
-  @apply skin-bloque:[--ca-pigment:color-mix(in_oklab,var(--color-warning)_8%,var(--color-background))] skin-bloque:[--ca-pigment-edge:var(--color-warning)] skin-bloque:[--ca-pigment-ink:var(--color-foreground)] skin-bloque:[--ca-pigment-title:var(--color-warning)];
 }
 
 @utility ca-toast--danger {
   @apply skin-base:[--ca-pigment:color-mix(in_oklab,var(--color-destructive)_8%,var(--color-background))] skin-base:[--ca-pigment-edge:var(--color-destructive)] skin-base:[--ca-pigment-ink:var(--color-foreground)] skin-base:[--ca-pigment-title:var(--color-destructive)];
   @apply skin-calaca:[--ca-pigment:color-mix(in_oklab,var(--color-destructive)_8%,var(--color-background))] skin-calaca:[--ca-pigment-edge:var(--color-destructive)] skin-calaca:[--ca-pigment-ink:var(--color-foreground)] skin-calaca:[--ca-pigment-title:var(--color-destructive)];
-  @apply skin-bloque:[--ca-pigment:color-mix(in_oklab,var(--color-destructive)_8%,var(--color-background))] skin-bloque:[--ca-pigment-edge:var(--color-destructive)] skin-bloque:[--ca-pigment-ink:var(--color-foreground)] skin-bloque:[--ca-pigment-title:var(--color-destructive)];
 }
 
 @utility ca-features {
   @apply skin-base:gap-10 skin-base:text-foreground;
   @apply skin-calaca:gap-10 skin-calaca:text-foreground;
-  @apply skin-bloque:gap-10 skin-bloque:text-foreground;
 }
 
 @utility ca-features__header {
   @apply skin-base:gap-3;
   @apply skin-calaca:gap-3;
-  @apply skin-bloque:gap-3;
 }
 
 @utility ca-features__title {
   @apply skin-base:font-display skin-base:text-3xl/tight skin-base:font-semibold skin-base:tracking-tight skin-base:text-balance;
   @apply skin-calaca:font-display skin-calaca:text-3xl/tight skin-calaca:font-semibold skin-calaca:tracking-tight skin-calaca:text-balance;
   @apply skin-calaca:font-black skin-calaca:tracking-[-0.03em];
-  @apply skin-bloque:font-display skin-bloque:text-3xl/tight skin-bloque:font-semibold skin-bloque:tracking-tight skin-bloque:text-balance;
-  @apply skin-bloque:font-bold skin-bloque:tracking-wide skin-bloque:uppercase;
 }
 
 @utility ca-features__lead {
   @apply skin-base:text-lg skin-base:text-muted-foreground skin-base:text-pretty;
   @apply skin-calaca:text-lg skin-calaca:text-muted-foreground skin-calaca:text-pretty;
-  @apply skin-bloque:text-lg skin-bloque:text-muted-foreground skin-bloque:text-pretty;
 }
 
 @utility ca-features__list {
   @apply skin-base:gap-x-8 skin-base:gap-y-10;
   @apply skin-calaca:gap-x-8 skin-calaca:gap-y-10;
-  @apply skin-bloque:gap-x-8 skin-bloque:gap-y-10;
 }
 
 @utility ca-features__item {
   @apply skin-base:gap-x-4 skin-base:gap-y-2;
   @apply skin-calaca:gap-x-4 skin-calaca:gap-y-2;
-  @apply skin-bloque:gap-x-4 skin-bloque:gap-y-2;
 }
 
 @utility ca-features__icon {
   @apply skin-base:mb-2 skin-base:size-10 skin-base:rounded-lg skin-base:bg-muted skin-base:text-foreground;
   @apply skin-calaca:mb-2 skin-calaca:size-10 skin-calaca:rounded-lg skin-calaca:bg-muted skin-calaca:text-foreground;
   @apply skin-calaca:border-2 skin-calaca:border-input skin-calaca:bg-primary skin-calaca:text-primary-foreground;
-  @apply skin-bloque:mb-2 skin-bloque:size-10 skin-bloque:rounded-lg skin-bloque:bg-muted skin-bloque:text-foreground;
-  @apply skin-bloque:rounded-none skin-bloque:border-2 skin-bloque:border-foreground;
 }
 
 @utility ca-features__item-title {
   @apply skin-base:text-base skin-base:font-semibold;
   @apply skin-calaca:text-base skin-calaca:font-semibold;
   @apply skin-calaca:font-extrabold;
-  @apply skin-bloque:text-base skin-bloque:font-semibold;
-  @apply skin-bloque:font-bold;
 }
 
 @utility ca-features__item-text {
   @apply skin-base:text-sm skin-base:text-muted-foreground skin-base:text-pretty;
   @apply skin-calaca:text-sm skin-calaca:text-muted-foreground skin-calaca:text-pretty;
-  @apply skin-bloque:text-sm skin-bloque:text-muted-foreground skin-bloque:text-pretty;
 }
 
 @utility ca-steps {
   @apply skin-base:gap-10 skin-base:text-foreground;
   @apply skin-calaca:gap-10 skin-calaca:text-foreground;
-  @apply skin-bloque:gap-10 skin-bloque:text-foreground;
 }
 
 @utility ca-steps__header {
   @apply skin-base:gap-3;
   @apply skin-calaca:gap-3;
-  @apply skin-bloque:gap-3;
 }
 
 @utility ca-steps__title {
   @apply skin-base:font-display skin-base:text-3xl/tight skin-base:font-semibold skin-base:tracking-tight skin-base:text-balance;
   @apply skin-calaca:font-display skin-calaca:text-3xl/tight skin-calaca:font-semibold skin-calaca:tracking-tight skin-calaca:text-balance;
   @apply skin-calaca:font-black skin-calaca:tracking-[-0.03em];
-  @apply skin-bloque:font-display skin-bloque:text-3xl/tight skin-bloque:font-semibold skin-bloque:tracking-tight skin-bloque:text-balance;
-  @apply skin-bloque:font-bold skin-bloque:tracking-wide skin-bloque:uppercase;
 }
 
 @utility ca-steps__lead {
   @apply skin-base:text-lg skin-base:text-muted-foreground skin-base:text-pretty;
   @apply skin-calaca:text-lg skin-calaca:text-muted-foreground skin-calaca:text-pretty;
-  @apply skin-bloque:text-lg skin-bloque:text-muted-foreground skin-bloque:text-pretty;
 }
 
 @utility ca-steps__list {
   @apply skin-base:gap-x-8 skin-base:gap-y-8;
   @apply skin-calaca:gap-x-8 skin-calaca:gap-y-8;
-  @apply skin-bloque:gap-x-8 skin-bloque:gap-y-8;
 }
 
 @utility ca-steps__item {
   @apply skin-base:gap-x-4 skin-base:gap-y-2;
   @apply skin-calaca:gap-x-4 skin-calaca:gap-y-2;
-  @apply skin-bloque:gap-x-4 skin-bloque:gap-y-2;
 }
 
 @utility ca-steps__number {
   @apply skin-base:mb-2 skin-base:size-9 skin-base:rounded-full skin-base:border skin-base:border-input skin-base:font-display skin-base:text-sm skin-base:font-semibold skin-base:tabular-nums;
   @apply skin-calaca:mb-2 skin-calaca:size-9 skin-calaca:rounded-full skin-calaca:border skin-calaca:border-input skin-calaca:font-display skin-calaca:text-sm skin-calaca:font-semibold skin-calaca:tabular-nums;
   @apply skin-calaca:border-2 skin-calaca:bg-primary skin-calaca:font-black skin-calaca:text-primary-foreground;
-  @apply skin-bloque:mb-2 skin-bloque:size-9 skin-bloque:rounded-full skin-bloque:border skin-bloque:border-input skin-bloque:font-display skin-bloque:text-sm skin-bloque:font-semibold skin-bloque:tabular-nums;
-  @apply skin-bloque:rounded-none skin-bloque:border-2 skin-bloque:border-foreground skin-bloque:bg-surface-inverse skin-bloque:text-on-inverse;
 }
 
 @utility ca-steps__item-title {
   @apply skin-base:text-base skin-base:font-semibold;
   @apply skin-calaca:text-base skin-calaca:font-semibold;
   @apply skin-calaca:font-extrabold;
-  @apply skin-bloque:text-base skin-bloque:font-semibold;
-  @apply skin-bloque:font-bold;
 }
 
 @utility ca-steps__item-text {
   @apply skin-base:text-sm skin-base:text-muted-foreground skin-base:text-pretty;
   @apply skin-calaca:text-sm skin-calaca:text-muted-foreground skin-calaca:text-pretty;
-  @apply skin-bloque:text-sm skin-bloque:text-muted-foreground skin-bloque:text-pretty;
+}
+
+@utility ca-steps__media {
+  @apply skin-base:border-t skin-base:border-border;
+  @apply skin-calaca:border-t skin-calaca:border-border;
 }
 
 @utility ca-cta {
   @apply skin-base:gap-8 skin-base:rounded-card skin-base:bg-muted skin-base:px-6 skin-base:py-12 skin-base:text-foreground skin-base:sm:px-10;
   @apply skin-calaca:gap-8 skin-calaca:rounded-card skin-calaca:bg-muted skin-calaca:px-6 skin-calaca:py-12 skin-calaca:text-foreground skin-calaca:sm:px-10;
   @apply skin-calaca:border-2 skin-calaca:border-input skin-calaca:shadow-[6px_6px_0_0_var(--color-foreground)];
-  @apply skin-bloque:gap-8 skin-bloque:rounded-card skin-bloque:bg-muted skin-bloque:px-6 skin-bloque:py-12 skin-bloque:text-foreground skin-bloque:sm:px-10;
-  @apply skin-bloque:rounded-none skin-bloque:border-2 skin-bloque:border-foreground skin-bloque:bg-transparent skin-bloque:shadow-[8px_8px_0_0_var(--color-foreground)];
 }
 
 @utility ca-cta__content {
   @apply skin-base:gap-3;
   @apply skin-calaca:gap-3;
-  @apply skin-bloque:gap-3;
 }
 
 @utility ca-cta__title {
   @apply skin-base:font-display skin-base:text-3xl/tight skin-base:font-semibold skin-base:tracking-tight skin-base:text-balance;
   @apply skin-calaca:font-display skin-calaca:text-3xl/tight skin-calaca:font-semibold skin-calaca:tracking-tight skin-calaca:text-balance;
   @apply skin-calaca:font-black skin-calaca:tracking-[-0.03em];
-  @apply skin-bloque:font-display skin-bloque:text-3xl/tight skin-bloque:font-semibold skin-bloque:tracking-tight skin-bloque:text-balance;
-  @apply skin-bloque:font-bold skin-bloque:tracking-wide skin-bloque:uppercase;
 }
 
 @utility ca-cta__lead {
   @apply skin-base:text-lg skin-base:text-muted-foreground skin-base:text-pretty;
   @apply skin-calaca:text-lg skin-calaca:text-muted-foreground skin-calaca:text-pretty;
-  @apply skin-bloque:text-lg skin-bloque:text-muted-foreground skin-bloque:text-pretty;
 }
 
 @utility ca-cta__actions {
   @apply skin-base:gap-3;
   @apply skin-calaca:gap-3;
-  @apply skin-bloque:gap-3;
 }
 
 @utility ca-faq {
   @apply skin-base:gap-x-12 skin-base:gap-y-8 skin-base:text-foreground;
   @apply skin-calaca:gap-x-12 skin-calaca:gap-y-8 skin-calaca:text-foreground;
-  @apply skin-bloque:gap-x-12 skin-bloque:gap-y-8 skin-bloque:text-foreground;
 }
 
 @utility ca-faq__header {
   @apply skin-base:gap-3;
   @apply skin-calaca:gap-3;
-  @apply skin-bloque:gap-3;
 }
 
 @utility ca-faq__title {
   @apply skin-base:font-display skin-base:text-3xl/tight skin-base:font-semibold skin-base:tracking-tight skin-base:text-balance;
   @apply skin-calaca:font-display skin-calaca:text-3xl/tight skin-calaca:font-semibold skin-calaca:tracking-tight skin-calaca:text-balance;
   @apply skin-calaca:font-black skin-calaca:tracking-[-0.03em];
-  @apply skin-bloque:font-display skin-bloque:text-3xl/tight skin-bloque:font-semibold skin-bloque:tracking-tight skin-bloque:text-balance;
-  @apply skin-bloque:font-bold skin-bloque:tracking-wide skin-bloque:uppercase;
 }
 
 @utility ca-faq__lead {
   @apply skin-base:text-lg skin-base:text-muted-foreground skin-base:text-pretty;
   @apply skin-calaca:text-lg skin-calaca:text-muted-foreground skin-calaca:text-pretty;
-  @apply skin-bloque:text-lg skin-bloque:text-muted-foreground skin-bloque:text-pretty;
 }
 
 @utility ca-faq__questions {
   @apply skin-base:text-base;
   @apply skin-calaca:text-base;
-  @apply skin-bloque:text-base;
 }
 
 @utility ca-footer {
   @apply skin-base:gap-x-8 skin-base:gap-y-10 skin-base:border-t skin-base:border-border skin-base:py-12 skin-base:text-sm skin-base:text-foreground;
   @apply skin-calaca:gap-x-8 skin-calaca:gap-y-10 skin-calaca:border-t skin-calaca:border-border skin-calaca:py-12 skin-calaca:text-sm skin-calaca:text-foreground;
   @apply skin-calaca:border-t-2 skin-calaca:border-input;
-  @apply skin-bloque:gap-x-8 skin-bloque:gap-y-10 skin-bloque:border-t skin-bloque:border-border skin-bloque:py-12 skin-bloque:text-sm skin-bloque:text-foreground;
-  @apply skin-bloque:border-t-2 skin-bloque:border-foreground;
 }
 
 @utility ca-footer__brand {
   @apply skin-base:gap-2;
   @apply skin-calaca:gap-2;
-  @apply skin-bloque:gap-2;
 }
 
 @utility ca-footer__nav {
   @apply skin-base:gap-x-6 skin-base:gap-y-2;
   @apply skin-calaca:gap-x-6 skin-calaca:gap-y-2;
-  @apply skin-bloque:gap-x-6 skin-bloque:gap-y-2;
 }
 
 @utility ca-footer__group {
   @apply skin-base:gap-3;
   @apply skin-calaca:gap-3;
-  @apply skin-bloque:gap-3;
 }
 
 @utility ca-footer__heading {
   @apply skin-base:font-medium skin-base:text-foreground;
   @apply skin-calaca:font-medium skin-calaca:text-foreground;
   @apply skin-calaca:font-mono skin-calaca:text-[0.7rem] skin-calaca:font-semibold skin-calaca:tracking-[0.12em] skin-calaca:uppercase;
-  @apply skin-bloque:font-medium skin-bloque:text-foreground;
-  @apply skin-bloque:text-xs skin-bloque:font-bold skin-bloque:tracking-wide skin-bloque:uppercase;
 }
 
 @utility ca-footer__links {
   @apply skin-base:gap-x-6 skin-base:gap-y-2;
   @apply skin-calaca:gap-x-6 skin-calaca:gap-y-2;
-  @apply skin-bloque:gap-x-6 skin-bloque:gap-y-2;
 }
 
 @utility ca-footer__link {
   @apply skin-base:rounded-sm skin-base:text-muted-foreground skin-base:no-underline skin-base:interact:text-foreground skin-base:interact:underline;
   @apply skin-calaca:rounded-sm skin-calaca:text-muted-foreground skin-calaca:no-underline skin-calaca:interact:text-foreground skin-calaca:interact:underline;
   @apply skin-calaca:font-semibold;
-  @apply skin-bloque:rounded-sm skin-bloque:text-muted-foreground skin-bloque:no-underline skin-bloque:interact:text-foreground skin-bloque:interact:underline;
 }
 
 @utility ca-footer__legal {
   @apply skin-base:border-t skin-base:border-border skin-base:pt-6 skin-base:text-xs skin-base:text-muted-foreground;
   @apply skin-calaca:border-t skin-calaca:border-border skin-calaca:pt-6 skin-calaca:text-xs skin-calaca:text-muted-foreground;
-  @apply skin-bloque:border-t skin-bloque:border-border skin-bloque:pt-6 skin-bloque:text-xs skin-bloque:text-muted-foreground;
-  @apply skin-bloque:border-t-2 skin-bloque:border-foreground;
+}
+
+@utility ca-split {
+  @apply skin-base:gap-x-12 skin-base:gap-y-8 skin-base:text-foreground;
+  @apply skin-calaca:gap-x-12 skin-calaca:gap-y-8 skin-calaca:text-foreground;
+}
+
+@utility ca-split__content {
+  @apply skin-base:gap-4;
+  @apply skin-calaca:gap-4;
+}
+
+@utility ca-split__eyebrow {
+  @apply skin-base:text-sm skin-base:font-medium skin-base:uppercase skin-base:tracking-wider skin-base:text-muted-foreground;
+  @apply skin-calaca:text-sm skin-calaca:font-medium skin-calaca:uppercase skin-calaca:tracking-wider skin-calaca:text-muted-foreground;
+}
+
+@utility ca-split__title {
+  @apply skin-base:font-display skin-base:text-3xl/tight skin-base:font-semibold skin-base:tracking-tight skin-base:text-balance;
+  @apply skin-calaca:font-display skin-calaca:text-3xl/tight skin-calaca:font-semibold skin-calaca:tracking-tight skin-calaca:text-balance;
+}
+
+@utility ca-split__lead {
+  @apply skin-base:text-lg skin-base:text-muted-foreground skin-base:text-pretty;
+  @apply skin-calaca:text-lg skin-calaca:text-muted-foreground skin-calaca:text-pretty;
+}
+
+@utility ca-split__media {
+  @apply skin-base:[&>img]:rounded-card skin-base:[&>video]:rounded-card;
+  @apply skin-calaca:[&>img]:rounded-card skin-calaca:[&>video]:rounded-card;
+}
+
+@utility ca-comparison {
+  @apply skin-base:gap-10 skin-base:text-foreground;
+  @apply skin-calaca:gap-10 skin-calaca:text-foreground;
+}
+
+@utility ca-comparison__header {
+  @apply skin-base:gap-3;
+  @apply skin-calaca:gap-3;
+}
+
+@utility ca-comparison__title {
+  @apply skin-base:font-display skin-base:text-3xl/tight skin-base:font-semibold skin-base:tracking-tight skin-base:text-balance;
+  @apply skin-calaca:font-display skin-calaca:text-3xl/tight skin-calaca:font-semibold skin-calaca:tracking-tight skin-calaca:text-balance;
+}
+
+@utility ca-comparison__lead {
+  @apply skin-base:text-lg skin-base:text-muted-foreground skin-base:text-pretty;
+  @apply skin-calaca:text-lg skin-calaca:text-muted-foreground skin-calaca:text-pretty;
+}
+
+@utility ca-comparison__panels {
+  @apply skin-base:gap-4;
+  @apply skin-calaca:gap-4;
+}
+
+@utility ca-comparison__panel {
+  @apply skin-base:rounded-card skin-base:border skin-base:border-border skin-base:bg-background skin-base:p-6;
+  @apply skin-calaca:rounded-card skin-calaca:border skin-calaca:border-border skin-calaca:bg-background skin-calaca:p-6;
+}
+
+@utility ca-comparison__panel-title {
+  @apply skin-base:font-display skin-base:text-lg skin-base:font-semibold;
+  @apply skin-calaca:font-display skin-calaca:text-lg skin-calaca:font-semibold;
+}
+
+@utility ca-check-list {
+  @apply skin-base:gap-3 skin-base:text-base;
+  @apply skin-calaca:gap-3 skin-calaca:text-base;
+}
+
+@utility ca-check-list__item {
+  @apply skin-base:gap-3;
+  @apply skin-calaca:gap-3;
+}
+
+@utility ca-check-list__icon {
+  @apply skin-base:mt-0.5 skin-base:size-5 skin-base:text-primary;
+  @apply skin-calaca:mt-0.5 skin-calaca:size-5 skin-calaca:text-primary;
+}
+
+@utility ca-check-list__text {
+  @apply skin-base:text-muted-foreground;
+  @apply skin-calaca:text-muted-foreground;
 }
 
 @utility ca-dialog {
@@ -2133,37 +1859,27 @@
   @apply skin-calaca:w-lg skin-calaca:gap-4 skin-calaca:rounded-xl skin-calaca:border skin-calaca:border-border skin-calaca:bg-background skin-calaca:p-6 skin-calaca:text-foreground skin-calaca:shadow-xl skin-calaca:backdrop:bg-overlay;
   @apply skin-calaca:motion-safe:transition-[opacity,scale] skin-calaca:motion-safe:duration-150 skin-calaca:motion-safe:ease-out skin-calaca:starting:open:scale-95 skin-calaca:starting:open:opacity-0;
   @apply skin-calaca:border-2 skin-calaca:border-input skin-calaca:shadow-[8px_8px_0_0_var(--color-foreground)];
-  @apply skin-bloque:w-lg skin-bloque:gap-4 skin-bloque:rounded-xl skin-bloque:border skin-bloque:border-border skin-bloque:bg-background skin-bloque:p-6 skin-bloque:text-foreground skin-bloque:shadow-xl skin-bloque:backdrop:bg-overlay;
-  @apply skin-bloque:motion-safe:transition-[opacity,scale] skin-bloque:motion-safe:duration-150 skin-bloque:motion-safe:ease-out skin-bloque:starting:open:scale-95 skin-bloque:starting:open:opacity-0;
-  @apply skin-bloque:gap-6 skin-bloque:rounded-none skin-bloque:border-2 skin-bloque:border-foreground skin-bloque:p-8 skin-bloque:shadow-[8px_8px_0_0_var(--color-foreground)];
-  @apply skin-bloque:motion-safe:duration-75 skin-bloque:motion-safe:ease-linear skin-bloque:starting:open:scale-100 skin-bloque:starting:open:translate-y-2;
 }
 
 @utility ca-dialog__title {
   @apply skin-base:font-display skin-base:text-lg skin-base:leading-tight skin-base:font-semibold skin-base:text-balance;
   @apply skin-calaca:font-display skin-calaca:text-lg skin-calaca:leading-tight skin-calaca:font-semibold skin-calaca:text-balance;
   @apply skin-calaca:text-xl skin-calaca:font-black skin-calaca:tracking-[-0.02em];
-  @apply skin-bloque:font-display skin-bloque:text-lg skin-bloque:leading-tight skin-bloque:font-semibold skin-bloque:text-balance;
-  @apply skin-bloque:text-xl skin-bloque:font-bold skin-bloque:tracking-wide skin-bloque:uppercase;
 }
 
 @utility ca-dialog__description {
   @apply skin-base:text-sm skin-base:text-muted-foreground skin-base:text-pretty;
   @apply skin-calaca:text-sm skin-calaca:text-muted-foreground skin-calaca:text-pretty;
-  @apply skin-bloque:text-sm skin-bloque:text-muted-foreground skin-bloque:text-pretty;
 }
 
 @utility ca-dialog__footer {
   @apply skin-base:gap-2 skin-base:pt-2;
   @apply skin-calaca:gap-2 skin-calaca:pt-2;
-  @apply skin-bloque:gap-2 skin-bloque:pt-2;
-  @apply skin-bloque:gap-4 skin-bloque:pt-4;
 }
 
 @utility ca-dropdown {
   @apply skin-base:align-middle skin-base:[&>[popovertarget]::before]:motion-safe:transition-[rotate] skin-base:[&>[popovertarget]::before]:motion-safe:duration-150;
   @apply skin-calaca:align-middle skin-calaca:[&>[popovertarget]::before]:motion-safe:transition-[rotate] skin-calaca:[&>[popovertarget]::before]:motion-safe:duration-150;
-  @apply skin-bloque:align-middle skin-bloque:[&>[popovertarget]::before]:motion-safe:transition-[rotate] skin-bloque:[&>[popovertarget]::before]:motion-safe:duration-150;
 }
 
 @utility ca-dropdown__menu {
@@ -2172,9 +1888,6 @@
   @apply skin-calaca:gap-0.5 skin-calaca:rounded-lg skin-calaca:border skin-calaca:border-border skin-calaca:bg-background skin-calaca:p-1 skin-calaca:text-foreground skin-calaca:shadow-lg;
   @apply skin-calaca:motion-safe:transition-[opacity,translate] skin-calaca:motion-safe:duration-100 skin-calaca:motion-safe:ease-out skin-calaca:starting:ca-open:-translate-y-1 skin-calaca:starting:ca-open:opacity-0;
   @apply skin-calaca:rounded-xl skin-calaca:border-2 skin-calaca:border-input skin-calaca:p-1.5 skin-calaca:shadow-[4px_4px_0_0_var(--color-foreground)];
-  @apply skin-bloque:gap-0.5 skin-bloque:rounded-lg skin-bloque:border skin-bloque:border-border skin-bloque:bg-background skin-bloque:p-1 skin-bloque:text-foreground skin-bloque:shadow-lg;
-  @apply skin-bloque:motion-safe:transition-[opacity,translate] skin-bloque:motion-safe:duration-100 skin-bloque:motion-safe:ease-out skin-bloque:starting:ca-open:-translate-y-1 skin-bloque:starting:ca-open:opacity-0;
-  @apply skin-bloque:gap-0 skin-bloque:rounded-none skin-bloque:border-2 skin-bloque:border-foreground skin-bloque:p-0 skin-bloque:shadow-[4px_4px_0_0_var(--color-foreground)] skin-bloque:motion-safe:duration-75 skin-bloque:motion-safe:ease-linear;
 }
 
 @utility ca-dropdown__item {
@@ -2183,72 +1896,52 @@
   @apply skin-calaca:gap-2 skin-calaca:rounded-md skin-calaca:border-0 skin-calaca:bg-transparent skin-calaca:px-2.5 skin-calaca:py-1.5 skin-calaca:text-sm skin-calaca:text-foreground skin-calaca:no-underline;
   @apply skin-calaca:interact:bg-muted skin-calaca:disabled:opacity-60 skin-calaca:aria-disabled:opacity-60;
   @apply skin-calaca:rounded-lg skin-calaca:font-bold;
-  @apply skin-bloque:gap-2 skin-bloque:rounded-md skin-bloque:border-0 skin-bloque:bg-transparent skin-bloque:px-2.5 skin-bloque:py-1.5 skin-bloque:text-sm skin-bloque:text-foreground skin-bloque:no-underline;
-  @apply skin-bloque:interact:bg-muted skin-bloque:disabled:opacity-60 skin-bloque:aria-disabled:opacity-60;
-  @apply skin-bloque:rounded-none skin-bloque:px-4 skin-bloque:py-2.5 skin-bloque:text-xs skin-bloque:font-bold skin-bloque:tracking-wide skin-bloque:uppercase;
 }
 
 @utility ca-dropdown__label {
   @apply skin-base:px-2.5 skin-base:pt-1.5 skin-base:pb-1 skin-base:text-xs skin-base:font-medium skin-base:text-muted-foreground;
   @apply skin-calaca:px-2.5 skin-calaca:pt-1.5 skin-calaca:pb-1 skin-calaca:text-xs skin-calaca:font-medium skin-calaca:text-muted-foreground;
   @apply skin-calaca:font-mono skin-calaca:text-[0.7rem] skin-calaca:font-semibold skin-calaca:tracking-[0.12em] skin-calaca:uppercase;
-  @apply skin-bloque:px-2.5 skin-bloque:pt-1.5 skin-bloque:pb-1 skin-bloque:text-xs skin-bloque:font-medium skin-bloque:text-muted-foreground;
-  @apply skin-bloque:px-4 skin-bloque:pt-3 skin-bloque:font-bold skin-bloque:tracking-wide skin-bloque:uppercase;
 }
 
 @utility ca-dropdown__separator {
   @apply skin-base:mx-0 skin-base:my-1 skin-base:h-px skin-base:bg-border;
   @apply skin-calaca:mx-0 skin-calaca:my-1 skin-calaca:h-px skin-calaca:bg-border;
-  @apply skin-bloque:mx-0 skin-bloque:my-1 skin-bloque:h-px skin-bloque:bg-border;
-  @apply skin-bloque:my-0 skin-bloque:h-0.5 skin-bloque:bg-foreground;
 }
 
 @utility ca-hero {
   @apply skin-base:gap-10 skin-base:px-6 skin-base:py-16 skin-base:text-foreground;
   @apply skin-calaca:gap-10 skin-calaca:px-6 skin-calaca:py-16 skin-calaca:text-foreground;
-  @apply skin-bloque:gap-10 skin-bloque:px-6 skin-bloque:py-16 skin-bloque:text-foreground;
-  @apply skin-bloque:gap-12 skin-bloque:py-20;
 }
 
 @utility ca-hero__content {
   @apply skin-base:gap-4;
   @apply skin-calaca:gap-4;
-  @apply skin-bloque:gap-4;
-  @apply skin-bloque:gap-6;
 }
 
 @utility ca-hero__eyebrow {
   @apply skin-base:text-sm skin-base:font-medium skin-base:text-muted-foreground;
   @apply skin-calaca:text-sm skin-calaca:font-medium skin-calaca:text-muted-foreground;
   @apply skin-calaca:font-mono skin-calaca:text-xs skin-calaca:font-semibold skin-calaca:tracking-[0.12em] skin-calaca:uppercase;
-  @apply skin-bloque:text-sm skin-bloque:font-medium skin-bloque:text-muted-foreground;
-  @apply skin-bloque:text-xs skin-bloque:font-bold skin-bloque:tracking-widest skin-bloque:uppercase;
 }
 
 @utility ca-hero__title {
   @apply skin-base:font-display skin-base:text-[clamp(2rem,9cqi,3.5rem)] skin-base:leading-[1.1] skin-base:font-semibold skin-base:tracking-tight skin-base:text-balance;
   @apply skin-calaca:font-display skin-calaca:text-[clamp(2rem,9cqi,3.5rem)] skin-calaca:leading-[1.1] skin-calaca:font-semibold skin-calaca:tracking-tight skin-calaca:text-balance;
   @apply skin-calaca:font-black skin-calaca:tracking-[-0.03em];
-  @apply skin-bloque:font-display skin-bloque:text-[clamp(2rem,9cqi,3.5rem)] skin-bloque:leading-[1.1] skin-bloque:font-semibold skin-bloque:tracking-tight skin-bloque:text-balance;
-  @apply skin-bloque:font-bold skin-bloque:tracking-wide skin-bloque:uppercase;
 }
 
 @utility ca-hero__lead {
   @apply skin-base:text-lg skin-base:text-muted-foreground skin-base:text-pretty;
   @apply skin-calaca:text-lg skin-calaca:text-muted-foreground skin-calaca:text-pretty;
-  @apply skin-bloque:text-lg skin-bloque:text-muted-foreground skin-bloque:text-pretty;
 }
 
 @utility ca-hero__actions {
   @apply skin-base:gap-3 skin-base:pt-2;
   @apply skin-calaca:gap-3 skin-calaca:pt-2;
-  @apply skin-bloque:gap-3 skin-bloque:pt-2;
-  @apply skin-bloque:gap-4 skin-bloque:pt-4;
 }
 
 @utility ca-hero__media {
   @apply skin-base:[&>img]:rounded-card skin-base:[&>video]:rounded-card;
   @apply skin-calaca:[&>img]:rounded-card skin-calaca:[&>video]:rounded-card;
-  @apply skin-bloque:[&>img]:rounded-card skin-bloque:[&>video]:rounded-card;
-  @apply skin-bloque:[&>img]:rounded-none skin-bloque:[&>video]:rounded-none;
 }

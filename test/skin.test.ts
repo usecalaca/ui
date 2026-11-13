@@ -3,12 +3,20 @@ import { join } from "node:path";
 
 import { allContractClasses } from "../src/prebuilt.ts";
 import { allContracts } from "../src/registry.ts";
-import { defineSkin, type Skin, skinCss, skinSetCss, withVariant } from "../src/skin.ts";
+import { bare, defineSkin, type Skin, skinCss, skinSetCss, withVariant } from "../src/skin.ts";
+import { base } from "../skins/base.ts";
 import { skinSets, skins } from "../src/skins.ts";
 import { CA_TOKEN_ALIASES } from "../src/tokens.ts";
-import { build, consumerCss, packageRoot, rules, utilitiesLayer } from "./css.ts";
+import { build, packageRoot, rules, utilitiesLayer } from "./css.ts";
 
-const bloque = consumerCss("bloque");
+/**
+ * A tiny extending skin for the ordering and scoping tests: square edges, a
+ * heavier border, a taller medium — just enough to see its rules land after
+ * the base rules they override. Deliberately not a shipped skin, so the
+ * tests do not depend on any example's design choices.
+ */
+const fixture = defineSkin("fixture", { "ca-button": "rounded-none border-2", "ca-button--md": "h-12" }, base);
+const fixtureCss = `@import "tailwindcss";\n@import "./core.css";\n${skinCss(fixture)}`;
 
 /** Block layouts are structure: core arranges them, so a skin may dress them but does not have to. */
 const layouts = new Set(allContracts.flatMap((contract) => Object.values(contract.layout ?? {})));
@@ -29,8 +37,8 @@ describe("skins", () => {
 });
 
 describe("an extending skin always wins over its base", () => {
-  test("bloque values come after base values in each rule", async () => {
-    const layer = utilitiesLayer(await build(bloque, ["ca-button", "ca-button--md"]));
+  test("extending values come after base values in each rule", async () => {
+    const layer = utilitiesLayer(await build(fixtureCss, ["ca-button", "ca-button--md"]));
     const root = rules(layer, "ca-button");
     expect(root.indexOf("border-radius: 0")).toBeGreaterThan(root.indexOf("border-radius: var(--ca-radius-control)"));
     expect(root.indexOf("border-width: 2px")).toBeGreaterThan(root.indexOf("border-width: 1px"));
@@ -40,10 +48,9 @@ describe("an extending skin always wins over its base", () => {
     );
   });
 
-  test("base declarations the bloque skin does not redefine remain", async () => {
-    const root = rules(utilitiesLayer(await build(bloque, ["ca-button"])), "ca-button");
+  test("base declarations the extending skin does not redefine remain", async () => {
+    const root = rules(utilitiesLayer(await build(fixtureCss, ["ca-button"])), "ca-button");
     expect(root).toContain("opacity: 60%");
-    expect(root).toContain("text-transform: uppercase");
     expect(root).toContain("outline-width: 2px");
   });
 });
@@ -68,7 +75,7 @@ describe("skin sets switch by name", () => {
   }
 
   test("scoped skin lines are prefixed with their variant", () => {
-    expect(withVariant("h-12 hover:bg-x [--a:b]", "skin-bloque")).toBe("skin-bloque:h-12 skin-bloque:hover:bg-x skin-bloque:[--a:b]");
+    expect(withVariant("h-12 hover:bg-x [--a:b]", "skin-custom")).toBe("skin-custom:h-12 skin-custom:hover:bg-x skin-custom:[--a:b]");
   });
 
   test("a scoped skin must extend the default skin", () => {
@@ -77,11 +84,11 @@ describe("skin sets switch by name", () => {
   });
 
   test("inside a data-skin scope, extension rules come after the inherited rules and win", async () => {
-    const css = `@import "tailwindcss";\n@import "./core.css";\n@import "./skins/all.css";\n`;
+    const css = `@import "tailwindcss";\n@import "./core.css";\n${skinSetCss({ name: "test", default: bare, scoped: [fixture] })}`;
     const layer = utilitiesLayer(await build(css, ["ca-button--md"]));
-    const scoped = layer.slice(layer.indexOf('.ca-button--md:where([data-skin="bloque"]'));
-    expect(scoped).toContain('[data-skin="bloque"]');
-    /* Proof extends base: its h-12 must override the inherited h-9. */
+    const scoped = layer.slice(layer.indexOf('.ca-button--md:where([data-skin="fixture"]'));
+    expect(scoped).toContain('[data-skin="fixture"]');
+    /* The fixture extends base: its h-12 must override the inherited h-9. */
     expect(scoped.indexOf("height: calc(calc(0.25rem * var(--ca-density, 1)) * 12)")).toBeGreaterThan(
       scoped.indexOf("height: calc(calc(0.25rem * var(--ca-density, 1)) * 9)"),
     );

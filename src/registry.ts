@@ -13,6 +13,7 @@ import { dateRange } from "./contracts/date-range.ts";
 import { editor } from "./contracts/editor.ts";
 import { emptyState } from "./contracts/empty-state.ts";
 import { eyebrow } from "./contracts/eyebrow.ts";
+import { checkList } from "./contracts/check-list.ts";
 import { fileUpload } from "./contracts/file-upload.ts";
 import { field, input } from "./contracts/field.ts";
 import { hero } from "./contracts/hero.ts";
@@ -21,6 +22,8 @@ import { steps } from "./contracts/steps.ts";
 import { cta } from "./contracts/cta.ts";
 import { faq } from "./contracts/faq.ts";
 import { footer } from "./contracts/footer.ts";
+import { split } from "./contracts/split.ts";
+import { comparison } from "./contracts/comparison.ts";
 import { container } from "./contracts/container.ts";
 import { stack } from "./contracts/stack.ts";
 import { cluster } from "./contracts/cluster.ts";
@@ -38,6 +41,9 @@ import { pagination } from "./contracts/pagination.ts";
 import { popover } from "./contracts/popover.ts";
 import { progress } from "./contracts/progress.ts";
 import { select } from "./contracts/select.ts";
+import { icon } from "./contracts/icon.ts";
+import { promptInput } from "./contracts/prompt-input.ts";
+import { scrollArea } from "./contracts/scroll-area.ts";
 import { separator } from "./contracts/separator.ts";
 import { sheet } from "./contracts/sheet.ts";
 import { sidebar } from "./contracts/sidebar.ts";
@@ -54,7 +60,8 @@ import { tooltip } from "./contracts/tooltip.ts";
 /**
  * One contract: a root class, optional parts (child elements) and optional
  * groups of mutually exclusive modifiers on the root. Elements use variant and
- * size; blocks use layout.
+ * size; blocks use layout — and so do element modifiers that only re-place or
+ * re-orient the component (sheet sides, stepper direction, navbar roomy).
  */
 export interface Contract {
   name: string;
@@ -66,10 +73,10 @@ export interface Contract {
 }
 
 /** Every element contract (components). */
-export const contracts: readonly Contract[] = [button, card, field, input, select, combobox, dateRange, checkbox, radio, toggle, fileUpload, editor, badge, alert, toast, progress, spinner, skeleton, emptyState, dialog, sheet, dropdown, popover, tooltip, accordion, tabs, navbar, sidebar, breadcrumb, pagination, stepper, avatar, table, stat, timeline, separator, container, stack, cluster, grid, section, heading, text, prose, link, code, codeBlock, kbd, eyebrow];
+export const contracts: readonly Contract[] = [button, card, field, input, select, combobox, dateRange, checkbox, radio, toggle, fileUpload, editor, badge, alert, toast, progress, spinner, skeleton, emptyState, dialog, sheet, dropdown, popover, tooltip, accordion, tabs, navbar, sidebar, breadcrumb, pagination, stepper, avatar, table, stat, timeline, icon, promptInput, scrollArea, separator, container, stack, cluster, grid, section, heading, text, prose, link, code, codeBlock, kbd, eyebrow, checkList];
 
 /** Every block contract: sections composed from elements, with layouts (spec 035 decision 18). */
-export const blocks: readonly Contract[] = [hero, features, steps, cta, faq, footer];
+export const blocks: readonly Contract[] = [hero, features, steps, cta, faq, footer, split, comparison];
 
 /** Elements and blocks together, for tests and the prebuilt CSS build. */
 export const allContracts: readonly Contract[] = [...contracts, ...blocks];

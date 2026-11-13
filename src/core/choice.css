@@ -35,3 +35,43 @@
   @apply m-0 shrink-0 cursor-[inherit];
   @apply focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring;
 }
+
+/*
+ * Custom-control DOMs (Base UI, shadcn): a button is the box or track, no
+ * native input is rendered. The control keeps keyboard focus, hit area and
+ * disabled behavior; skins draw the checked look from data-checked,
+ * data-unchecked and data-indeterminate.
+ */
+@utility ca-checkbox__control {
+  @apply relative inline-flex shrink-0 cursor-pointer items-center justify-center;
+  @apply focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring;
+  @apply data-disabled:pointer-events-none;
+  /* A small box stays tappable: the pseudo area around it reaches 44px. */
+  @apply pointer-coarse:after:absolute pointer-coarse:after:inset-[-0.625rem];
+}
+
+@utility ca-checkbox__indicator {
+  @apply pointer-events-none inline-flex items-center justify-center data-unchecked:hidden;
+}
+
+@utility ca-radio__control {
+  @apply relative inline-flex shrink-0 cursor-pointer items-center justify-center;
+  @apply focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring;
+  @apply data-disabled:pointer-events-none;
+  @apply pointer-coarse:after:absolute pointer-coarse:after:inset-[-0.625rem];
+}
+
+@utility ca-radio__indicator {
+  @apply pointer-events-none inline-flex items-center justify-center data-unchecked:hidden;
+}
+
+@utility ca-switch__control {
+  @apply relative inline-flex shrink-0 cursor-pointer items-center;
+  @apply focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring;
+  @apply data-disabled:pointer-events-none;
+  @apply pointer-coarse:after:absolute pointer-coarse:after:inset-[-0.625rem];
+}
+
+@utility ca-switch__thumb {
+  @apply pointer-events-none block;
+}

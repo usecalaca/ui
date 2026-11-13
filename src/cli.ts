@@ -78,22 +78,46 @@ export function parseArgs(argv: string[]): Options {
   };
   for (let index = 0; index < rest.length; index++) {
     const arg = rest[index]!;
-    const value = () => {
+    const nextValue = () => {
       const next = rest[++index];
       if (!next || next.startsWith("-")) throw new UsageError(`${arg} needs a value\n\n${USAGE}`);
       return next;
     };
-    if (arg === "-o" || arg === "--out") options.out = value();
-    else if (arg === "--export") options.exportName = value();
-    else if (arg === "--content") options.content!.push(value());
-    else if (arg === "--include") options.include!.push(value());
-    else if (arg === "--prebuilt") options.prebuilt = true;
-    else if (arg === "--minify") options.minify = true;
-    else if (arg === "--watch") options.watch = true;
-    else if (arg.startsWith("-")) throw new UsageError(`unknown option ${arg}\n\n${USAGE}`);
-    else if (options.source) throw new UsageError(`one input file at a time\n\n${USAGE}`);
-    else options.source = arg;
+    switch (arg) {
+      case "-o":
+      case "--out":
+        options.out = nextValue();
+        break;
+      case "--export":
+        options.exportName = nextValue();
+        break;
+      case "--content":
+        options.content!.push(nextValue());
+        break;
+      case "--include":
+        options.include!.push(nextValue());
+        break;
+      case "--prebuilt":
+        options.prebuilt = true;
+        break;
+      case "--minify":
+        options.minify = true;
+        break;
+      case "--watch":
+        options.watch = true;
+        break;
+      default:
+        if (arg.startsWith("-")) throw new UsageError(`unknown option ${arg}\n\n${USAGE}`);
+        if (options.source) throw new UsageError(`one input file at a time\n\n${USAGE}`);
+        options.source = arg;
+        break;
+    }
   }
+  validateOptions(options, group);
+  return options;
+}
+
+function validateOptions(options: Partial<Options>, group: "skin" | "css"): asserts options is Options {
   if (!options.source) throw new UsageError(USAGE);
   if (group === "css") {
     if (!options.out) throw new UsageError(`css build needs -o <file.css>\n\n${USAGE}`);
@@ -102,7 +126,6 @@ export function parseArgs(argv: string[]): Options {
   } else if (!options.prebuilt && (options.content!.length || options.include!.length || options.minify)) {
     throw new UsageError(`--content, --include and --minify apply to --prebuilt only\n\n${USAGE}`);
   }
-  return options as Options;
 }
 
 const isSkin = (value: unknown): value is Skin =>
@@ -142,6 +165,28 @@ function includeClasses(include: string[]): string[] {
   });
 }
 
+async function writePrebuiltSkin(
+  out: string,
+  css: string,
+  options: Options,
+  cwd: string,
+): Promise<void> {
+  let candidates: string[] | undefined;
+  if (options.content.length || options.include.length) {
+    candidates = [...(await contentCandidates(options.content, cwd)), ...includeClasses(options.include)];
+    if (!candidates.length) console.error("warning: --content found no Calaca classes; the stylesheet carries tokens only");
+  }
+  // The Tailwind source goes to a temporary file next to the output, so its imports compile, then is replaced.
+  const temporary = `${out}.source-${process.pid}.css`;
+  await Bun.write(temporary, css);
+  try {
+    const built = await buildPrebuiltFrom(temporary, { candidates, minify: options.minify });
+    await Bun.write(out, built);
+  } finally {
+    await rm(temporary, { force: true });
+  }
+}
+
 export async function buildSkin(options: Options, cwd = process.cwd()): Promise<string> {
   const source = resolve(cwd, options.source);
   if (!(await Bun.file(source).exists())) throw new UsageError(`skin file not found: ${options.source}`);
@@ -151,23 +196,24 @@ export async function buildSkin(options: Options, cwd = process.cwd()): Promise<
   const css = skinCss(skin, `${relative(dirname(out), source) || basename(source)} by \`calaca skin build\``);
   await mkdir(dirname(out), { recursive: true });
   if (options.prebuilt) {
-    let candidates: string[] | undefined;
-    if (options.content.length || options.include.length) {
-      candidates = [...(await contentCandidates(options.content, cwd)), ...includeClasses(options.include)];
-      if (!candidates.length) console.error("warning: --content found no Calaca classes; the stylesheet carries tokens only");
-    }
-    // The Tailwind source goes to a temporary file next to the output, so its imports compile, then is replaced.
-    const temporary = `${out}.source-${process.pid}.css`;
-    await Bun.write(temporary, css);
-    try {
-      await Bun.write(out, await buildPrebuiltFrom(temporary, { candidates, minify: options.minify }));
-    } finally {
-      await rm(temporary, { force: true });
-    }
+    await writePrebuiltSkin(out, css, options, cwd);
   } else {
     await Bun.write(out, css);
   }
   return out;
+}
+
+async function collectContentTokens(patterns: string[], cwd: string): Promise<Set<string>> {
+  const tokens = new Set<string>();
+  for (const pattern of patterns) {
+    for await (const path of new Bun.Glob(pattern).scan({ cwd })) {
+      const text = await Bun.file(join(cwd, path)).text();
+      for (const token of scanCandidates(text)) {
+        tokens.add(token);
+      }
+    }
+  }
+  return tokens;
 }
 
 /**
@@ -182,12 +228,7 @@ export async function buildCss(options: Options, cwd = process.cwd()): Promise<s
   const out = resolve(cwd, options.out!);
   let candidates = allContractClasses();
   if (options.content.length || options.include.length) {
-    const tokens = new Set<string>();
-    for (const pattern of options.content) {
-      for await (const path of new Bun.Glob(pattern).scan({ cwd })) {
-        for (const token of scanCandidates(await Bun.file(join(cwd, path)).text())) tokens.add(token);
-      }
-    }
+    const tokens = await collectContentTokens(options.content, cwd);
     candidates = [...tokens, ...usedContractClasses(tokens), ...includeClasses(options.include)];
     if (!candidates.length) console.error("warning: --content found no classes; the stylesheet carries tokens only");
   }
