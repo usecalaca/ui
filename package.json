@@ -1,6 +1,6 @@
 {
   "name": "@usecalaca/ui",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Framework-free component classes: one accessible ca-* skeleton, dressed in a skin per product. Plain CSS for HTML, Astro, Next.js and React.",
   "license": "MIT",
   "type": "module",

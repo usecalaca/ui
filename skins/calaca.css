@@ -562,6 +562,26 @@
   @apply rounded-xl border-2 border-input shadow-[4px_4px_0_0_var(--color-foreground)];
 }
 
+@utility ca-app-shell {
+  @apply bg-background text-foreground;
+}
+
+@utility ca-app-shell__header {
+  @apply gap-2 border-b border-border bg-background px-4 py-2;
+}
+
+@utility ca-app-shell__nav {
+  @apply bg-muted p-3 shadow-xl backdrop:bg-foreground/25 ca-app-shell-wide:shadow-none;
+}
+
+@utility ca-app-shell__main {
+  @apply bg-background;
+}
+
+@utility ca-app-shell__toggle {
+  @apply size-9 rounded-lg border-0 bg-transparent text-foreground interact:bg-muted;
+}
+
 @utility ca-navbar {
   @apply gap-4 border-b border-border bg-background px-4 py-2 text-sm text-foreground;
   @apply border-b-2 border-input;

@@ -31,6 +31,7 @@
 @import "./src/core/empty-state.css";
 @import "./src/core/tooltip.css";
 @import "./src/core/popover.css";
+@import "./src/core/app-shell.css";
 @import "./src/core/navbar.css";
 @import "./src/core/sidebar.css";
 @import "./src/core/stat.css";

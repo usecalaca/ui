@@ -1,5 +1,6 @@
 import { accordion } from "./contracts/accordion.ts";
 import { alert } from "./contracts/alert.ts";
+import { appShell } from "./contracts/app-shell.ts";
 import { avatar } from "./contracts/avatar.ts";
 import { badge } from "./contracts/badge.ts";
 import { breadcrumb } from "./contracts/breadcrumb.ts";
@@ -73,7 +74,7 @@ export interface Contract {
 }
 
 /** Every element contract (components). */
-export const contracts: readonly Contract[] = [button, card, field, input, select, combobox, dateRange, checkbox, radio, toggle, fileUpload, editor, badge, alert, toast, progress, spinner, skeleton, emptyState, dialog, sheet, dropdown, popover, tooltip, accordion, tabs, navbar, sidebar, breadcrumb, pagination, stepper, avatar, table, stat, timeline, icon, promptInput, scrollArea, separator, container, stack, cluster, grid, section, heading, text, prose, link, code, codeBlock, kbd, eyebrow, checkList];
+export const contracts: readonly Contract[] = [button, card, field, input, select, combobox, dateRange, checkbox, radio, toggle, fileUpload, editor, badge, alert, toast, progress, spinner, skeleton, emptyState, dialog, sheet, dropdown, popover, tooltip, accordion, tabs, appShell, navbar, sidebar, breadcrumb, pagination, stepper, avatar, table, stat, timeline, icon, promptInput, scrollArea, separator, container, stack, cluster, grid, section, heading, text, prose, link, code, codeBlock, kbd, eyebrow, checkList];
 
 /** Every block contract: sections composed from elements, with layouts (spec 035 decision 18). */
 export const blocks: readonly Contract[] = [hero, features, steps, cta, faq, footer, split, comparison];

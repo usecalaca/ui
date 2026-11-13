@@ -244,6 +244,12 @@ export const base = defineSkin(
     "motion-safe:transition-[opacity,translate] motion-safe:duration-100 motion-safe:ease-out starting:ca-open:-translate-y-1 starting:ca-open:opacity-0",
   ],
 
+  "ca-app-shell": "bg-background text-foreground",
+  "ca-app-shell__header": "gap-2 border-b border-border bg-background px-4 py-2",
+  "ca-app-shell__nav": "bg-muted p-3 shadow-xl backdrop:bg-foreground/25 ca-app-shell-wide:shadow-none",
+  "ca-app-shell__main": "bg-background",
+  "ca-app-shell__toggle": "size-9 rounded-lg border-0 bg-transparent text-foreground interact:bg-muted",
+
   "ca-navbar": "gap-4 border-b border-border bg-background px-4 py-2 text-sm text-foreground",
   "ca-navbar__brand": "gap-2 rounded-md font-display text-base font-semibold text-foreground",
   "ca-navbar__menu": [

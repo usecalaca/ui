@@ -922,6 +922,31 @@
   @apply skin-calaca:rounded-xl skin-calaca:border-2 skin-calaca:border-input skin-calaca:shadow-[4px_4px_0_0_var(--color-foreground)];
 }
 
+@utility ca-app-shell {
+  @apply skin-base:bg-background skin-base:text-foreground;
+  @apply skin-calaca:bg-background skin-calaca:text-foreground;
+}
+
+@utility ca-app-shell__header {
+  @apply skin-base:gap-2 skin-base:border-b skin-base:border-border skin-base:bg-background skin-base:px-4 skin-base:py-2;
+  @apply skin-calaca:gap-2 skin-calaca:border-b skin-calaca:border-border skin-calaca:bg-background skin-calaca:px-4 skin-calaca:py-2;
+}
+
+@utility ca-app-shell__nav {
+  @apply skin-base:bg-muted skin-base:p-3 skin-base:shadow-xl skin-base:backdrop:bg-foreground/25 skin-base:ca-app-shell-wide:shadow-none;
+  @apply skin-calaca:bg-muted skin-calaca:p-3 skin-calaca:shadow-xl skin-calaca:backdrop:bg-foreground/25 skin-calaca:ca-app-shell-wide:shadow-none;
+}
+
+@utility ca-app-shell__main {
+  @apply skin-base:bg-background;
+  @apply skin-calaca:bg-background;
+}
+
+@utility ca-app-shell__toggle {
+  @apply skin-base:size-9 skin-base:rounded-lg skin-base:border-0 skin-base:bg-transparent skin-base:text-foreground skin-base:interact:bg-muted;
+  @apply skin-calaca:size-9 skin-calaca:rounded-lg skin-calaca:border-0 skin-calaca:bg-transparent skin-calaca:text-foreground skin-calaca:interact:bg-muted;
+}
+
 @utility ca-navbar {
   @apply skin-base:gap-4 skin-base:border-b skin-base:border-border skin-base:bg-background skin-base:px-4 skin-base:py-2 skin-base:text-sm skin-base:text-foreground;
   @apply skin-calaca:gap-4 skin-calaca:border-b skin-calaca:border-border skin-calaca:bg-background skin-calaca:px-4 skin-calaca:py-2 skin-calaca:text-sm skin-calaca:text-foreground;

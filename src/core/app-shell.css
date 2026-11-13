@@ -1,0 +1,55 @@
+/*
+ * App shell structure: a viewport-height grid with a navigation column that
+ * spans the shell's full height, a header and a main region — the nav is the
+ * first child, so grid auto-flow fills the right column. The root is a size
+ * container: at 48rem and wider (the ca-app-shell-wide variant in
+ * tokens.css) the nav docks in the grid; narrower it is a [popover] drawer
+ * docked to the inline-start edge — the toggle opens it and the browser
+ * handles Escape, light dismiss and focus return, no script. Collapse is
+ * host state: data-collapsed on the root shrinks the nav column to zero, or
+ * to an icon rail when ca-app-shell--rail points --ca-shell-collapsed-w
+ * at --ca-shell-rail-w.
+ */
+@utility ca-app-shell {
+  @apply @container box-border grid h-dvh grid-cols-[auto_1fr] grid-rows-[auto_1fr] overflow-hidden;
+}
+
+/*
+ * The navigation column. As a popover it docks to the inline-start edge and
+ * fills the viewport height: the UA gives [popover] fixed + inset:0, so with a
+ * fixed inline-size and no margins the over-constrained inline axis resolves
+ * to the start edge in either direction. A non-open popover is display:none,
+ * so it only needs a display when docked (wide); opening is native. It
+ * scrolls itself and clips horizontally, so labels hide cleanly in the rail.
+ */
+@utility ca-app-shell__nav {
+  @apply m-0 box-border h-auto [inline-size:var(--ca-shell-nav-w,16rem)] max-w-dvw overflow-x-clip overflow-y-auto;
+  @apply ca-app-shell-wide:static ca-app-shell-wide:block ca-app-shell-wide:row-span-full;
+  @apply ca-app-shell-wide:ca-collapsed:[inline-size:var(--ca-shell-collapsed-w,0)];
+}
+
+/* Explicitly in the second column: narrow, the empty nav column collapses
+ * to zero and the header stretches across. */
+@utility ca-app-shell__header {
+  @apply col-start-2 box-border flex min-w-0 items-center;
+}
+
+/* The content scrolls inside the shell; the page itself never scrolls.
+ * col-start-2 keeps it out of the (possibly empty) nav column. */
+@utility ca-app-shell__main {
+  @apply col-start-2 min-h-0 min-w-0 overflow-y-auto;
+}
+
+/* The drawer button: at least 24x24px everywhere (WCAG 2.5.8) and 44x44px
+ * to touch. It only exists where the nav is a popover, so it hides at wide. */
+@utility ca-app-shell__toggle {
+  @apply relative m-0 box-border inline-flex [min-block-size:1.5rem] [min-inline-size:1.5rem] shrink-0 cursor-pointer items-center justify-center [font-family:inherit];
+  @apply focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring;
+  @apply pointer-coarse:after:absolute pointer-coarse:after:inset-[min(0px,calc((100%_-_2.75rem)/2))];
+  @apply ca-app-shell-wide:hidden;
+}
+
+/* Collapse target: shrink to an icon rail instead of zero width. */
+@utility ca-app-shell--rail {
+  @apply [--ca-shell-collapsed-w:var(--ca-shell-rail-w,3.5rem)];
+}

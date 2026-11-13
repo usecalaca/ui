@@ -51,6 +51,17 @@
   }
 }
 
+/*
+ * The app shell docks its navigation column in the grid at 48rem of the
+ * shell's own width and wider; narrower the nav stays a [popover] drawer.
+ * narrower the nav stays a [popover] drawer. Core and skins share this
+ * variant, so the breakpoint lives here only.
+ */
+@custom-variant ca-app-shell-wide (@container (min-width: 48rem));
+
+/* Host-set state: descendants of an app shell carrying data-collapsed. */
+@custom-variant ca-collapsed (&:where(.ca-app-shell[data-collapsed] *));
+
 /* Open state for native elements ([open]), popovers (:popover-open) and Base UI ([data-open]). */
 @custom-variant ca-open (&[open], &:popover-open, &[data-open]);
 

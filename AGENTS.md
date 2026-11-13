@@ -110,7 +110,12 @@ rules, usable in plain HTML, Astro, Next.js and React.
   the readable box, the look and the open transitions `ca-popover` shares the dropdown's popover
   placement. `ca-navbar` is a size container; its menu is a `[popover]` that
   shows in the bar at 40rem and wider, or 64rem with `ca-navbar--roomy`
-  (both in the `ca-navbar-wide` variant) and opens from the menu button below
+  (both in the `ca-navbar-wide` variant) and opens from the menu button below.
+  `ca-app-shell` frames an app: the nav column is a `[popover]` drawer below
+  48rem of the shell's own width and docks in a viewport-height grid above
+  it (the `ca-app-shell-wide` variant). Collapse is host state — the
+  contract styles `data-collapsed` on the root (zero width, or an icon rail
+  with `ca-app-shell--rail`) but owns no state machine
 - **Combobox**: `dist/ca-combobox.js` (budget 1.5 KB gzipped). A listbox with
   `popover="manual"` floats, anchored to the input through one anchor name;
   without `popover` it is inline and leaves Escape to its container.
